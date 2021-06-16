@@ -1,23 +1,16 @@
 import "./App.css";
 
-// import { Button, MineComponent, Typography } from "./App.style";
+import { MineComponent } from "./Global.style";
 import Nav from "./components/nav/nav";
-import Profile from "./components/profile/profile";
+import Home from "./screens/Gust/home/home";
 
 function App() {
   return (
-    <div className="container" >
+    <MineComponent>
       <Nav></Nav>
-      <Profile></Profile>
-    </div>
+      <Home></Home>
+    </MineComponent>
   );
-
-  // <MineComponent>
-  //   <Typography color={"red"} fontSize={40}>
-  //     Hello World
-  //   </Typography>
-  //   <Button background={"blue"}>Add</Button>
-  // </MineComponent>
-}
+}   
 
 export default App;

@@ -1,6 +1,6 @@
 
 
-import {Button, Typography} from '../../App.style'
+import {Button, Typography} from '../../Global.style'
 import './style.css'
 function Profile(){
     return <div className="profile">
@@ -20,20 +20,16 @@ function Profile(){
         <div className="right-side">
            <div className="first-side flex-col">
               <Typography fontSize={32} color="#242424">My Profile </Typography>
-              <div className="flex-row">
+              
               <div className="data flex-col">  
-            <Typography fontSize={24} color="#242424">First Name</Typography>
-            <Typography fontSize={24} color="#242424">Last Name</Typography>
-            <Typography fontSize={24} color="#242424">Email</Typography>
-            <Typography fontSize={24} color="#242424">Birthday</Typography>
+              <div className="flex-row"><Typography fontSize={24} color="#707070">First Name</Typography> <Typography className="user-data" fontSize={24} color="#000">Amy</Typography></div>
+              <div className="flex-row"><Typography fontSize={24} color="#707070">Last Name</Typography> <Typography fontSize={24} color="#000">Mayer</Typography></div>
+              <div className="flex-row"><Typography fontSize={24} color="#707070">Email </Typography> <Typography fontSize={24} color="#000">amymay@gmail.com</Typography></div>
+              <div className="flex-row"><Typography fontSize={24} color="#707070">Birthday </Typography> <Typography fontSize={24} color="#000">12/04/1991</Typography></div>
+            
             <Button> Chaneg Password</Button>
-           </div>
-            <div className="data  flex-col">
-            <Typography fontSize={24} color="#000">Amy</Typography>
-            <Typography fontSize={24} color="#000">Mayer</Typography>
-            <Typography fontSize={24} color="#000">amymay@gmail.com</Typography>
-            <Typography fontSize={24} color="#000">12/04/1991</Typography>
-            </div>
+           
+            
               </div>
             
             </div>   

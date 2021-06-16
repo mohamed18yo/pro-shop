@@ -37,7 +37,9 @@
     height: 528px;
     border-radius: 5px;
 }
-
+.first-side{
+    width: 60%;
+}
 .flex-col{
     display: flex;
     flex-direction: column;
@@ -48,14 +50,19 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    justify-content: space-between;
 }
 .data{
     height: 300px;
 
 }
+/* .user-data{
+    margin-left: 5rem;
+} */
 .img-profile img{
     height: 143px;
     width: 143px;
     border: solid 1px #FCDD06;
     border-radius: 50%;
+    
 }
