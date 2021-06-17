@@ -84,6 +84,6 @@ export const TopSubBox = styled(FlexRow)`
   width: 1640px;
   height: 588px;
   border: 1px solid #fcdd06;
-  border-radius: 16px;
+  border-radius: 16px; 
   
 `;
