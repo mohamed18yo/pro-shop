@@ -1,25 +1,23 @@
-import "./style.css";
 
 import {
   SectionRole,
   IneerSection,
   NavBar,
-  FlexRow,
-  
-  FlexBox,
   Button,
   InputSearch,
   List,
   IconList,
 } from "./Nav.Style";
 import { Typography } from "../../Global.style";
+import { FlexBox } from "../../Global.style";
+import { FlexRow } from "../../Global.style";
+import PersonSharpIcon from '@material-ui/icons/PersonSharp';
 function Nav() {
   return (
     <SectionRole color={"#000"}>
       <IneerSection>
         <NavBar>
-          <FlexRow>
-            <FlexBox  >
+            <FlexBox>
             <Typography fontSize={40} color={"#FCDD06"} >Pro</Typography>  <Typography fontSize={40} color={"#fff"} >Shop</Typography> 
             </FlexBox>
             <FlexBox >
@@ -32,7 +30,7 @@ function Nav() {
                 <IconList>Cart</IconList>
               </List>
             </FlexBox>
-          </FlexRow>
+          
         </NavBar>
       </IneerSection>
     </SectionRole>

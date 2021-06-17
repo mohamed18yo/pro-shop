@@ -1,34 +1,29 @@
+
+
+
+
 import styled from "styled-components";
-
-export const FlexBox = styled("div")`
-  display: flex;
-  align-items: center;
+export const SectionRole = styled('div')`
+  display:flex;
   justify-content: center;
-  /* width:${(props) => props.width} */
-`;
-export const FlexCol = styled(FlexBox)`
-  flex-direction: column;
-`;
-export const FlexRow = styled(FlexBox)`
-  flex-direction: row;
-  width: 100%;
-  justify-content: space-between;
-`;
-
-export const SectionRole = styled(FlexBox)`
+  align-items:center;
   max-width: 1920px;
   width: 100%;
   background: ${(props) => props.color};
 `;
-export const IneerSection = styled(FlexRow)`
+export const IneerSection = styled('div')`
+  display:flex;
   width: 90%;
-  justify-content: space-between;
+  align-items:center;
+  justify-content:center;
 `;
 
-export const NavBar = styled(IneerSection)`
-  height: 85px;
-  justify-content: space-around;
+export const NavBar = styled('div')`
   width: 100%;
+  display:flex;
+  flex-direction:row;
+  height: 85px;
+  justify-content: space-between;
 `;
 
 export const Logo = styled("img")`
@@ -55,10 +50,12 @@ export const Button = styled("Button")`
   margin-left: -10px;
 `;
 export const List = styled("ul")`
+  
   list-style: none;
 `;
 export const IconList = styled("li")`
   display: inline;
+  
   margin-left: 2rem;
   color: #fff;
 `;

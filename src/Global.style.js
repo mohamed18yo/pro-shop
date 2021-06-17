@@ -1,12 +1,31 @@
 import styled from "styled-components";
 
+
+export const FlexBox = styled("div")`
+  display: flex;
+  justify-content:center;
+  align-items: center;
+`;
+export const FlexCol = styled(FlexBox)`
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around
+`;
+export const FlexRow = styled(FlexBox)`
+  flex-direction: row; 
+  justify-content:space-between;
+  align-items: center;
+  width:100%
+`;
+
+
 export const MineComponent = styled("main")`
   max-width: 1920px;
   display: flex;
   justify-content: start;
   align-items: center;
   flex-direction:column;
-  width: 100%;
+  width:${(props) => (props.width ? props.width : "100%")};
 `;
 export const Box = styled('div')`
   display: flex; 

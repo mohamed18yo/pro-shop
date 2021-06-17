@@ -1,6 +1,6 @@
 
 
-import {Button, Typography} from '../../Global.style'
+import {Button, Typography} from '../../../Global.style'
 import './style.css'
 function Profile(){
     return <div className="profile">
