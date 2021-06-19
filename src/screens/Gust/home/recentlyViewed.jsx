@@ -4,12 +4,12 @@ import { TopRateBox, Line, TopSubBox } from "./home.style";
 import { Typography} from "../../../Global.style";
 import ProductBox from "../../../components/productBox/productBox";
 
-function TopRatSection() {
+function RecentlyViewed() {
   return (
     <SectionRole>
       <IneerSection>
         <TopRateBox>
-          <Typography fontSize={32}>TOP RATE PRODUCTS</Typography>
+          <Typography fontSize={32}>Recently Viewed</Typography>
           <Line color={"#FCDD06"} height={"7px"}></Line>
           <Line color={"#707070"} height={"1px"} width={"1640px"}></Line>
 
@@ -42,4 +42,4 @@ function TopRatSection() {
   );
 }
 
-export default TopRatSection;
+export default RecentlyViewed;

@@ -1,21 +1,23 @@
 import styled from "styled-components";
 
-import { FlexCol, FlexBox } from "../../Global.style";
+import { FlexCol,FlexBox } from "../../Global.style";
+
 
 // eslint-disable-next-line no-unused-vars
 // import { FlexBox, FlexCol } from "../nav/Nav.Style";
 
+
 export const Card = styled(FlexCol)`
   justify-content: flex-start;
   align-items: center;
-  width: 520px;
-  height:${(props)=>props.height?props.height:"655px"};   
-  border-radius: 16px;
-  background: #ffffff 0% 0% no-repeat padding-box;   
+  width: 380px;
+  height: 392px;
+
+  
 `;
-export const Box = styled(FlexBox)`
+export const Box = styled(FlexBox)`    
   width: 380px;
   height: 346px;
-
-  background: #f7f8fc;
+  border-radius: 16px;
+  background: #F7F8FC;
 `;

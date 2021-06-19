@@ -10,8 +10,6 @@ import {
 } from "./Nav.Style";
 import { Typography } from "../../Global.style";
 import { FlexBox } from "../../Global.style";
-import { FlexRow } from "../../Global.style";
-import PersonSharpIcon from '@material-ui/icons/PersonSharp';
 function Nav() {
   return (
     <SectionRole color={"#000"}>

@@ -1,19 +1,19 @@
 import { Card } from "./productBox.style";
 import { ProductImg, FixedRow } from "../../screens/Gust/home/home.style";
-import { Typography, FlexRow } from "../../Global.style";
+import { Typography} from "../../Global.style";
 import Button from "../button/button";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import Rating from '@material-ui/lab/Rating';  
 
 function ProductBox(props) {
   return (
-    <Card>
-      <ProductImg src={props.src} width={"513px"}></ProductImg>
+    <Card height={props.height}>
+      <ProductImg src={props.src} width={"420px"}></ProductImg>
       <Typography color={"#242424"} fontSize={24}>
         {props.title}
       </Typography>
       <Rating name="read-only" style={{ marginTop: 20}} value={props.rate} readOnly />
-      <Typography style={{ marginTop: 20}} color={"#242424"} fontSize={30}>
+      <Typography style={{ marginTop: 20}} color={"#242424"} fontSize={30}>    
         $ {props.price}
       </Typography>
       <FixedRow style={{ marginTop: 20}}>
