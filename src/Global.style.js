@@ -15,17 +15,23 @@ export const FlexRow = styled(FlexBox)`
   flex-direction: row; 
   justify-content:space-between;
   align-items: center;
-  width:100%
+  width:100%;
+`;
+export const Container = styled("div")`
+  max-width: 1920px;
+  width: 100%;
 `;
 
 
 export const MineComponent = styled("main")`
   max-width: 1920px;
+  
   display: flex;
   justify-content: start;
   align-items: center;
   flex-direction:column;
   width:${(props) => (props.width ? props.width : "100%")};
+
 `;
 export const Box = styled('div')`
   display: flex; 
@@ -33,6 +39,7 @@ export const Box = styled('div')`
 export const Typography = styled("p")`
   font-size: ${(props) => props.fontSize}px;
   color: ${(props) => props.color};
+  text-decoration:${(props)=> props.isThrough?"line-through":"none" } ;
 `;
 export const Button = styled("Button")`
   min-width: 25%;
@@ -49,4 +56,10 @@ export const Button = styled("Button")`
   &:hover {
     background: green;
   }
+`;
+export const Line = styled("hr")`
+  width: ${(props) => (props.width ? props.width : "200px")};
+  height: ${(props) => (props.height ? props.height : "1px")};
+  color: ${(props) => (props.color ? props.color : "#000")};
+
 `;

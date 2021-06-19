@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { FlexCol, FlexRow, FlexBox } from "../../../Global.style";
 
+
 export const Container = styled("div")`
   max-width: 1920px;
   width: 100%;
@@ -62,6 +63,7 @@ export const Line = styled("hr")`
   width: ${(props) => (props.width ? props.width : "200px")};
   height: ${(props) => (props.height ? props.height : "1px")};
   color: ${(props) => (props.color ? props.color : "#000")};
+
 `;
 export const Cards = styled(FlexRow)`
   margin-top: 2rem;
@@ -87,3 +89,4 @@ export const TopSubBox = styled(FlexRow)`
   border-radius: 16px; 
   
 `;
+

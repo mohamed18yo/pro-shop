@@ -14,9 +14,7 @@ import Button from "../../../components/button/button";
 import { useState } from "react";
 function HeroSection() {
   const [index, setIndex] = useState(0);
-  const handleChangeIndex = () => {
-    setIndex(index);
-  };
+  
   return (
     <SectionRole color={"#F2F2F2"}>
       <IneerSection>

@@ -10,8 +10,7 @@ import {
 } from "./Nav.Style";
 import { Typography } from "../../Global.style";
 import { FlexBox } from "../../Global.style";
-import { FlexRow } from "../../Global.style";
-import PersonSharpIcon from '@material-ui/icons/PersonSharp';
+import SearchIcon from '@material-ui/icons/Search';
 function Nav() {
   return (
     <SectionRole color={"#000"}>
@@ -21,7 +20,7 @@ function Nav() {
             <Typography fontSize={40} color={"#FCDD06"} >Pro</Typography>  <Typography fontSize={40} color={"#fff"} >Shop</Typography> 
             </FlexBox>
             <FlexBox >
-              <InputSearch></InputSearch> <Button>Search</Button>
+              <InputSearch></InputSearch> <Button> <SearchIcon></SearchIcon> Search</Button>
             </FlexBox>
             <FlexBox >
               <List >
