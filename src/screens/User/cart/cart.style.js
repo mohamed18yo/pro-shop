@@ -8,7 +8,6 @@ export const CartBox = styled(FlexRow)`
   align-items: start;
 `;
 export const RightBox = styled(FlexCol)`
-  
   align-items: center;
   width: 384px;
   height: 351px;

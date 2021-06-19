@@ -19,6 +19,7 @@ export const Cancel = styled("span")`
   right: 27px;
 `;
 export const Counter = styled(FlexRow)`
+  padding:1rem;
   background: #fff;
   width: 204px;
   height: 40px;

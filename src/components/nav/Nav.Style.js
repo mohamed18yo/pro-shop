@@ -41,9 +41,13 @@ export const InputSearch = styled("input")`
   }
 `;
 export const Button = styled("Button")`
+  display:flex;
+  align-items: center;
+  justify-content:center;
   width: 152px;
   height: 40px;
   background-color: #fcdd06;
+  font-size:20px;
   color: black;
   border: none;
   border-radius: 5px;

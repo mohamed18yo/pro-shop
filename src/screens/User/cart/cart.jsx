@@ -21,6 +21,7 @@ function Cart (){
       <CartCard src={"/iphone.png"} price={499.2} title={"Apple iPhone 11 Pro 256GB Memory"} count={2}></CartCard>
       <CartCard src={"/iphone.png"} price={499.2} title={"Apple iPhone 11 Pro 256GB Memory"} count={2}></CartCard>
       <CartCard src={"/iphone.png"} price={499.2} title={"Apple iPhone 11 Pro 256GB Memory"} count={2}></CartCard>
+      <CartCard src={"/iphone.png"} price={499.2} title={"Apple iPhone 11 Pro 256GB Memory"} count={2}></CartCard>
       </FlexCol>
       <RightBox>
         <Typography color={"#242424"} fontSize={32}>Subtotal (3) items</Typography>
