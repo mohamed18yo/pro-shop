@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-import { FlexCol,FlexRow } from '../../../Global.style';
+import { FlexCol } from '../../../Global.style';
 
 
 
