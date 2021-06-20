@@ -12,6 +12,7 @@ import {
 import { Typography } from "../../Global.style";
 import { FlexBox } from "../../Global.style";
 import SearchIcon from '@material-ui/icons/Search';
+import { Link } from "react-router-dom";
 function Nav() {
   return (
     <SectionRole color={"#000"}>
@@ -25,9 +26,9 @@ function Nav() {
             </FlexBox>
             <FlexBox >
               <List >
-                <IconList>User</IconList>
-                <IconList>Wishlist</IconList>
-                <IconList>Cart</IconList>
+                <Link to={"/login"}><IconList>User</IconList></Link>
+                <Link to={"/profile"}><IconList>Wishlist</IconList></Link>
+                <Link to={"/cart"}><IconList>Cart</IconList></Link>
               </List>
             </FlexBox>
           

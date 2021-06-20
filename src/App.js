@@ -11,6 +11,7 @@ import Signup from "./screens/Gust/auth/signup/signup";
 import EmptyCart from "./screens/User/cart/emptyCart";
 import Payment from "./screens/User/order/payment";
 import ReviewOrder from "./screens/User/order/reviewOrder";
+import Profile from "./screens/User/profile/profile";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route  path={"/emptycart"} component={EmptyCart} />
           <Route  path={"/checkout"} component={Checkout} />
           <Route  path={"/payment"} component={Payment} />
+          <Route  path={"/profile"} component={Profile} />
           <Route  path={"/revieworder"} component={ReviewOrder} />
           <Route  path={"/login"} component={Login} />
           <Route  path={"/signup"} component={Signup} />

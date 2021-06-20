@@ -1,6 +1,6 @@
 
 
-import {Button, Typography} from '../../../Global.style'
+import {PrivetButton, Typography} from '../../../Global.style'
 import './style.css'
 function Profile(){
     return <div className="profile">
@@ -27,7 +27,7 @@ function Profile(){
               <div className="flex-row"><Typography fontSize={24} color="#707070">Email </Typography> <Typography fontSize={24} color="#000">amymay@gmail.com</Typography></div>
               <div className="flex-row"><Typography fontSize={24} color="#707070">Birthday </Typography> <Typography fontSize={24} color="#000">12/04/1991</Typography></div>
             
-            <Button> Chaneg Password</Button>
+            <PrivetButton> Chaneg Password</PrivetButton>
            
             
               </div>
@@ -36,7 +36,7 @@ function Profile(){
             
             <div className="thered-side">
                 <img src="/logo192.png" alt="img profile" />
-                <Button>Upload new photo</Button>
+                <PrivetButton>Upload new photo</PrivetButton>
             </div>
         </div>
     </div>
