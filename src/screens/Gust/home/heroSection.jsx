@@ -9,6 +9,7 @@ import {
   FixedRow,
   Arrow,
   Dot,
+  
 } from "./home.style";
 import { Typography, FlexRow } from "../../../Global.style";
 import Button from "../../../components/button/button";
@@ -43,7 +44,7 @@ const styles = {
   },
 };
 
-function HeroSection() {
+function HeroSection({products}) {
   const [index, setIndex] = useState(0);
   const handleChangeIndex = () => {};
   return (
@@ -53,70 +54,28 @@ function HeroSection() {
           style={Object.assign({}, styles.root, styles.root)}
           index={index}
           onChangeIndex={handleChangeIndex}
-        >
-          <HeroBox>
-            <FlexRow>
-              <SideBox>
-                <Typography fontSize={32} color={"#242424"}>
-                  Save up to $19.99
-                </Typography>
-                <HeroTitle>PlayStation 5</HeroTitle>
-                <Typography fontSize={32} color={"#242424"}>
-                  Lightning-fast download speed with super-fast SSD storage
-                </Typography>
-                <Button
-                  radius={"20px"}
-                  style={{ marginTop: 42, height: 52 }}
-                  text={"SHOP NOW"}
-                />
-              </SideBox>
-              <SideBox width={"30%"}>
-                <ProductImg src={"/playstation.png"} width={"507px"} />
-              </SideBox>
-            </FlexRow>
-          </HeroBox>
-          <HeroBox>
-            <FlexRow>
-              <SideBox>
-                <Typography fontSize={32} color={"#242424"}>
-                  Save up to $29.99
-                </Typography>
-                <HeroTitle>PlayStation 5</HeroTitle>
-                <Typography fontSize={32} color={"#242424"}>
-                  Lightning-fast download speed with super-fast SSD storage
-                </Typography>
-                <Button
-                  radius={"20px"}
-                  style={{ marginTop: 42, height: 52 }}
-                  text={"SHOP NOW"}
-                />
-              </SideBox>
-              <SideBox width={"30%"}>
-                <ProductImg src={"/playstation.png"} width={"507px"} />
-              </SideBox>
-            </FlexRow>
-          </HeroBox>
-          <HeroBox>
-            <FlexRow>
-              <SideBox>
-                <Typography fontSize={32} color={"#242424"}>
-                  Save up to $39.99
-                </Typography>
-                <HeroTitle>PlayStation 5</HeroTitle>
-                <Typography fontSize={32} color={"#242424"}>
-                  Lightning-fast download speed with super-fast SSD storage
-                </Typography>
-                <Button
-                  radius={"20px"}
-                  style={{ marginTop: 42, height: 52 }}
-                  text={"SHOP NOW"}
-                />
-              </SideBox>
-              <SideBox width={"30%"}>
-                <ProductImg src={"/playstation.png"} width={"507px"} />
-              </SideBox>
-            </FlexRow>
-          </HeroBox>
+        > {products.map((items)=> <HeroBox>
+          <FlexRow>
+            <SideBox>
+              <Typography fontSize={32} color={"#242424"}>
+                Save up to $ {items.price}
+              </Typography>
+              <HeroTitle>{items.name}</HeroTitle>
+              <Typography fontSize={32} color={"#242424"}>
+                {items.description}
+              </Typography>
+              <Button
+                radius={"20px"}
+                style={{ marginTop: 42, height: 52 }}
+                text={"SHOP NOW"}
+              />
+            </SideBox>
+            <SideBox width={"30%"}>
+              <ProductImg src={"https://proshop-ms.herokuapp.com/"+ items.image} width={"507px"} />
+            </SideBox>
+          </FlexRow>
+        </HeroBox>
+         )} 
         </SwipeableViews>
         <FixedRow>
           <Arrow
