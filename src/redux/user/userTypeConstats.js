@@ -1,0 +1,1 @@
+export const LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";

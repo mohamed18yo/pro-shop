@@ -16,7 +16,7 @@ function Home() {
   const fetchDta= async function(){
     try{
       const res= await axios.get('products/top')
-    setProducts(res.data)
+    setProducts(res.data)  
     }catch(e){
       console.log(e);
     }
