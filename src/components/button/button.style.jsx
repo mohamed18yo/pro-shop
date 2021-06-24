@@ -10,7 +10,7 @@ export const CustomeButton = styled("button")`
   background-color: ${(props) => (props.isGray ? "#f2f2f2" : "#FCDD06")};
   border: none;
   border-radius: ${(props) => (props.radius ? props.radius : "10px")};
-  font-size: 24px;
+  font-size: 15px;
   cursor: pointer;
   style: ${(props) => props.style};
   ${(props) =>props.disabled? `background:gray;

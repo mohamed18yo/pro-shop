@@ -5,6 +5,8 @@
 .profile{
     display: flex;
     flex-direction: row;
+    margin-top: 3rem;
+    width: 90%;
 }
 .left-side{
     display: flex;
@@ -65,4 +67,15 @@
     border: solid 1px #FCDD06;
     border-radius: 50%;
     
+}
+.thered-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.thered-side img{
+    width: 198px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
