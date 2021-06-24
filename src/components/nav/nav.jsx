@@ -21,7 +21,7 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux";
 import { logoutAction } from "../../redux/user/userAction";
-import { useHistory } from "react-router";
+
 
 const Style = {
   fontSize: 25,
@@ -31,7 +31,7 @@ const Style = {
 };
 
 function Nav() {
-  const history = useHistory();
+ 
   const dispatch= useDispatch()
   const User= useSelector((state)=>state)
   const Logout=()=>{
