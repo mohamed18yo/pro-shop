@@ -12,8 +12,11 @@ import EmptyCart from "./screens/User/cart/emptyCart";
 import Payment from "./screens/User/order/payment";
 import ReviewOrder from "./screens/User/order/reviewOrder";
 import Profile from "./screens/User/profile/profile";
-
+import { useSelector } from "react-redux";
 function App() {
+  const state = useSelector((state) => state);
+
+  console.log("store state", state);
   return (
     <MainComponent>
       <Nav></Nav>

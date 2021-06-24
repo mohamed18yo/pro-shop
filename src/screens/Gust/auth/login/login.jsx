@@ -26,12 +26,15 @@ import {LoginAction} from "../../../../redux/user/userAction";
 function Login() {
   // const [err, setErr]= useState('')
   // const [isLoading, setisLoading]= useState(false)
+  const state = useSelector((state) => state);
+  const isLoading= state.userDetailes.isLoading;
+  const error= state.userDetailes.error;
 
-  const state = useSelector((store) => store);
+  console.log("error state", error);
+ 
   const history = useHistory();
   const dispatch = useDispatch();
-
-  const isLoading = state.userDetails.isLoading
+  // const isLoading = state.userDetails.isLoading;
   // const isLoading= state.userDetails.isLoading
   // const LoginPost = async (values) => {
   //   setErr("");
@@ -53,6 +56,7 @@ function Login() {
 
   const SubmitForm= async (values)=>{
     dispatch(LoginAction(values,history));
+    
   }
   return (
     <SectionRole>   
@@ -106,7 +110,7 @@ function Login() {
                      {errors.password && touched.password ? (
                   <ErrorMsg>{errors.password}</ErrorMsg>
                 ) : null}
-                {/* {err?( <ErrorMsg>{err}</ErrorMsg>):null} */}
+                {error?( <ErrorMsg>{error}</ErrorMsg>):null}
                     <Button
                       isLoading={isLoading}
                       type={"button"}
@@ -143,7 +147,7 @@ function Login() {
             <Line width={398} color={"#707070"} />
             <CBox>
               <Link to={"/signup"}>
-                <PrivetButton>Singup Now</PrivetButton>{" "}
+                <PrivetButton style={{marginTop:'1rem'}}>Singup Now</PrivetButton>{" "}
               </Link>
             </CBox>
           </FormBox>
