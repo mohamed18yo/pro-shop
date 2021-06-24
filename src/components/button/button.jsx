@@ -3,6 +3,7 @@ import { CustomeButton } from "./button.style";
 function Button(props) {
   return (
     <CustomeButton
+    disabled={props.isLoading}
       isGray={props.isGray}
       radius={props.radius}
       width={props.width}

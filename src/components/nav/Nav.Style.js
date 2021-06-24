@@ -52,12 +52,37 @@ export const Button = styled("Button")`
 `;
 export const List = styled("ul")`
   list-style: none;
+  display: inherit;
 `;
 export const IconList = styled("li")`
+   cursor: pointer;
   display: inline;
-
   margin-left: 2rem;
   color: #fff;
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 40px;
+  width: auto;
+  margin: auto 0 auto 32px;
+  span {
+    color: #000;
+    background: #fcdd06;
+    font-size: 8px;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 8px;
+    top: 10px;
+    z-index: 1;
+  }
 `;
 export const LogoText = styled(Link)`
   display: flex;
@@ -65,4 +90,32 @@ export const LogoText = styled(Link)`
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-`;    
+`;   
+
+export const Icon= styled(Link)`
+  display: flex;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 40px;
+  width: auto;
+  margin: auto 0 auto 32px;
+  span {
+    color: #000;
+    background: #fcdd06;
+    font-size: 8px;
+    font-weight: 700;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 8px;
+    top: 10px;
+    z-index: 1;
+  }
+
+`;

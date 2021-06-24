@@ -18,30 +18,44 @@ import Button from "../../../../components/button/button";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { LoginSchema } from "../../../../validationSchema";
-import axios from "axios";
-import { useDispatch } from "react-redux";
+// import axios from "axios";
+import { useDispatch,useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import loginAction from "../../../../redux/user/userAction";
-
+import {LoginAction} from "../../../../redux/user/userAction";
+// import {useState} from 'react'
 function Login() {
+  // const [err, setErr]= useState('')
+  // const [isLoading, setisLoading]= useState(false)
+
+  const state = useSelector((store) => store);
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const LoginPost = async (values) => {
-    try {
-      const res = await axios.post("/user/login", values);
-      dispatch(loginAction(res.data));
-        // Set user to localStorage
-        localStorage.setItem("user", JSON.stringify(res.data));
+  const isLoading = state.userDetails.isLoading
+  // const isLoading= state.userDetails.isLoading
+  // const LoginPost = async (values) => {
+  //   setErr("");
+  //   setisLoading(true)
+  //   try {
+  //     const res = await axios.post("/users/login", values);
+  //     console.log(res);
 
-        history.push("/");
-      console.log(res);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  //     dispatch(loginAction(res.data));
+  //       // Set user to localStorage
+  //       localStorage.setItem("user", JSON.stringify(res.data));
+        
+  //       history.push("/");
+  //   } catch (e) {
+  //     dispatch(loginAction());
+  //     setErr(e.response.data.message)
+  //   }
+  // };
+
+  const SubmitForm= async (values)=>{
+    dispatch(LoginAction(values,history));
+  }
   return (
-    <SectionRole>
+    <SectionRole>   
       <IneerSection>
         <LoginSection>
           <FormBox>
@@ -57,22 +71,30 @@ function Login() {
                 password: "",
               }}
               validationSchema={LoginSchema}
-              onSubmit={LoginPost}
+              onSubmit={SubmitForm}
             >
-              {({ errors, toutched }) => {
+              {({ errors, touched }) => {
                 return (
-                  <Form>
-                    <Typography fontSize={22} color={"#242424"}>
+                  <Form style={{
+                    width: "100%",
+                    height: "100%",
+                    display: "flex",
+                    justifyContent: "start",
+                    alignItems: "start",
+                    flexDirection: "column",
+                  }}>
+                    <Typography fontSiemailze={22} color={"#242424"}>
                       Enter your email address
                     </Typography>
                     <Input
                       name={"email"}
                       type={"email"}
-                      placeholder={"Email"}
+                      placeholder={"email"}
                     />
-                    {/* {errors.email && toutched.email ? (
-                      <p>{errors.email}</p>
-                    ) : null} */}
+                    {errors.email && touched.email ? (
+                  <ErrorMsg>{errors.email}</ErrorMsg>
+                ) : null}
+
                     <Typography fontSize={22} color={"#242424"}>
                       Enter your password
                     </Typography>
@@ -81,9 +103,13 @@ function Login() {
                       type={"password"}
                       placeholder={"password"}
                     />
-
+                     {errors.password && touched.password ? (
+                  <ErrorMsg>{errors.password}</ErrorMsg>
+                ) : null}
+                {/* {err?( <ErrorMsg>{err}</ErrorMsg>):null} */}
                     <Button
-                      type={"submit"}
+                      isLoading={isLoading}
+                      type={"button"}
                       style={{ marginTop: "2rem" }}
                       width={"398px"}
                       text={"Login"}

@@ -1,1 +1,7 @@
 export const LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
+
+
+
+export const LOGOUT_SUCCESS = "USER_LOGOUT_SUCCESS";
+export const LOGIN_START = "USER_LOGIN_START";
+export const LOGIN_FIALD = "USER_LOGIN_FIALD";

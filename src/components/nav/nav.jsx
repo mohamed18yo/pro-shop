@@ -7,13 +7,37 @@ import {
   InputSearch,
   List,
   IconList,
-  LogoText
+  LogoText,
+  
+  
 } from "./Nav.Style";
 import { Typography } from "../../Global.style";
 import { FlexBox } from "../../Global.style";
 import SearchIcon from '@material-ui/icons/Search';
+import PersonIcon from "@material-ui/icons/Person";
+import BookmarkIcon from "@material-ui/icons/Bookmark";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { Link } from "react-router-dom";
+import { useSelector,useDispatch } from "react-redux";
+import { logoutAction } from "../../redux/user/userAction";
+import { useHistory } from "react-router";
+
+const Style = {
+  fontSize: 25,
+  color: "#FFF",
+  fill: "#FFF",
+  margin: "auto 0 10px 0",
+};
+
 function Nav() {
+  const history = useHistory();
+  const dispatch= useDispatch()
+  const User= useSelector((state)=>state)
+  const Logout=()=>{
+      dispatch(logoutAction())
+     
+  }
   return (
     <SectionRole color={"#000"}>
       <IneerSection>
@@ -26,9 +50,13 @@ function Nav() {
             </FlexBox>
             <FlexBox >
               <List >
-                <Link to={"/login"}><IconList>User</IconList></Link>
-                <Link to={"/profile"}><IconList>Wishlist</IconList></Link>
-                <Link to={"/cart"}><IconList>Cart</IconList></Link>
+             
+               {User.userDetailes.user._id ? (<Link to={'/profile'}><IconList ><PersonIcon style={Style} />Profile</IconList></Link>)
+               :(<Link to={'/login'}><IconList ><PersonIcon style={Style} />Login/Signup</IconList></Link>)}   
+             <Link to={'/login'}><IconList><span>0</span> <BookmarkIcon style={Style} />Wishlist</IconList></Link>
+             <Link to={'/cart'}><IconList><span>0</span> <ShoppingCartIcon style={Style} />Cart</IconList></Link>
+              {User.userDetailes.user._id && (<IconList onClick={Logout}><ExitToAppIcon style={Style} />Logout</IconList>) }  
+             
               </List>
             </FlexBox>
           

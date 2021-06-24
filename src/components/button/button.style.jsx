@@ -9,8 +9,11 @@ export const CustomeButton = styled("button")`
   color: #242424;
   background-color: ${(props) => (props.isGray ? "#f2f2f2" : "#FCDD06")};
   border: none;
-  border-radius: ${(props) => (props.radius ? props.radius : '10px')};
+  border-radius: ${(props) => (props.radius ? props.radius : "10px")};
   font-size: 24px;
   cursor: pointer;
-  style:${(props)=> props.style};
+  style: ${(props) => props.style};
+  ${(props) =>props.disabled? `background:gray;
+                               color:white;
+                               cursor: none;`: ""}        
 `;
