@@ -148,7 +148,7 @@ function Login() {
             <CBox>
               <Link to={"/signup"}>
                 <PrivetButton style={{marginTop:'1rem'}}>Singup Now</PrivetButton>{" "}
-              </Link>
+              </Link>   
             </CBox>
           </FormBox>
           <ImgBox>
