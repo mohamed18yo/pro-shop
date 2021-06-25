@@ -1,4 +1,4 @@
-import { IneerSection, SectionRole } from "../../../components/nav/Nav.Style";
+// import { IneerSection, SectionRole } from "../../../components/nav/Nav.Style";
 
 import { ProductsBox, Line,Dot,FixedRow } from "./home.style";
 import { Typography,FlexRow } from "../../../Global.style";
@@ -42,7 +42,7 @@ function FeaturedProductsSection() {
     
   return (
    
-        
+
         <ProductsBox>
           <Typography fontSize={32}>Featured Categories</Typography>
           <Line style={{ marginTop: 25}} color={"#FCDD06"} height={"7px"}></Line>

@@ -8,9 +8,7 @@ import {
 } from "./products.style";
 import {
   Typography,
-  Line,
   FlexRow,
-  FlexCol,
   ProductImg,
   Counter,
 } from "../../../Global.style";

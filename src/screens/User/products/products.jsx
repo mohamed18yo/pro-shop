@@ -1,6 +1,6 @@
 
 
-import { SectionRole,IneerSection,FlexBox } from '../../../Global.style';
+import { SectionRole,IneerSection, } from '../../../Global.style';
 import ProductSection from './productSection';
 import ReviewsSection from './reviewsSection';
 import FeaturedProductsSection from '../../Gust/home/featuredProductsSection'

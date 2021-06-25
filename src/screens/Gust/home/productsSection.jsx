@@ -5,6 +5,7 @@ import { Typography,FlexRow } from "../../../Global.style";
 import ProductBox from "../../../components/productBox/productBox";
 import {useState} from 'react';
 import SwipeableViews from "react-swipeable-views";
+import { Link } from "react-router-dom";
 
 
 const styles = {
@@ -55,11 +56,11 @@ function ProductSection() {
           onChangeIndex={handleChangeIndex}
         >
           <FlexRow  style={{ marginTop: 50}}>
-            <ProductBox
+            <ProductBox as={Link} to={"/prouct"}
               src={"/iphone.png"}
               rate={5}
               price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
+              title={"test iPhone 11 Pro 256GB Memory"}
             ></ProductBox>
             <ProductBox
               src={"/iphone.png"}

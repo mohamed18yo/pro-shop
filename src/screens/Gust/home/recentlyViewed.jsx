@@ -1,4 +1,4 @@
-import { IneerSection, SectionRole } from "../../../components/nav/Nav.Style";
+import {  SectionRole } from "../../../components/nav/Nav.Style";
 
 import { TopRateBox, Line, TopSubBox } from "./home.style";
 import { Typography} from "../../../Global.style";
