@@ -23,10 +23,22 @@ function Profile(){
               <Typography fontSize={32} color="#242424">My Profile </Typography>
               
               <div className="data flex-col">  
-              <div className="flex-row"><Typography fontSize={24} color="#707070">First Name</Typography> <Typography className="user-data" fontSize={24} color="#000">Amy</Typography></div>
-              <div className="flex-row"><Typography fontSize={24} color="#707070">Last Name</Typography> <Typography fontSize={24} color="#000">Mayer</Typography></div>
-              <div className="flex-row"><Typography fontSize={24} color="#707070">Email </Typography> <Typography fontSize={24} color="#000">amymay@gmail.com</Typography></div>
-              <div className="flex-row"><Typography fontSize={24} color="#707070">Birthday </Typography> <Typography fontSize={24} color="#000">12/04/1991</Typography></div>
+              <div className="flex-row">
+                  <Typography fontSize={24} color="#707070">First Name</Typography> 
+                  <Typography className="user-data" fontSize={24} color="#000">Amy</Typography>
+                </div>
+              <div className="flex-row">
+                  <Typography fontSize={24} color="#707070">Last Name</Typography> 
+                  <Typography fontSize={24} color="#000">Mayer</Typography>
+                </div>
+              <div className="flex-row">
+                  <Typography fontSize={24} color="#707070">Email </Typography> 
+                  <Typography fontSize={24} color="#000">amymay@gmail.com</Typography>
+                </div>
+              <div className="flex-row">
+                  <Typography fontSize={24} color="#707070">Birthday </Typography> 
+                  <Typography fontSize={24} color="#000">12/04/1991</Typography>
+                </div>
             
             <Button width={"153px"} text={'Chaneg Password'} /> 
            

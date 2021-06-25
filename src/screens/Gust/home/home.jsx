@@ -29,7 +29,6 @@ function Home() {
   },[])
   return (
     <Container>
-      
       <HeroSection products={products}></HeroSection>
       <CategoriesSection></CategoriesSection>
       <ProductSection></ProductSection>   

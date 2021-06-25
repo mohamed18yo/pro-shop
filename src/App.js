@@ -13,6 +13,7 @@ import Payment from "./screens/User/order/payment";
 import ReviewOrder from "./screens/User/order/reviewOrder";
 import Profile from "./screens/User/profile/profile";
 import { useSelector } from "react-redux";
+import ProductPage from "./screens/User/products/products";
 function App() {
   const state = useSelector((state) => state);
 
@@ -27,6 +28,7 @@ function App() {
           <Route  path={"/emptycart"} component={EmptyCart} />
           <Route  path={"/checkout"} component={Checkout} />
           <Route  path={"/payment"} component={Payment} />
+          <Route  path={"/product"} component={ProductPage} />
           <Route  path={"/profile"} component={Profile} />
           <Route  path={"/revieworder"} component={ReviewOrder} />
           <Route  path={"/login"} component={Login} />

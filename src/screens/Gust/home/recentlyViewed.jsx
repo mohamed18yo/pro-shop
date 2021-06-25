@@ -7,7 +7,7 @@ import ProductBox from "../../../components/productBox/productBox";
 function RecentlyViewed() {
   return (
     <SectionRole>
-      <IneerSection>
+      
         <TopRateBox>
           <Typography fontSize={32}>Recently Viewed</Typography>
           <Line color={"#FCDD06"} height={"7px"}></Line>
@@ -37,7 +37,7 @@ function RecentlyViewed() {
             ></ProductBox>
           </TopSubBox>
         </TopRateBox>
-      </IneerSection>
+      
     </SectionRole>
   );
 }

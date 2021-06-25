@@ -43,6 +43,7 @@ export const IneerSection = styled("div")`
   width: 90%;
   align-items: center;
   justify-content: center;
+  flex-direction:column;
 `;
 export const Box = styled("div")`
   display: flex;
@@ -88,3 +89,11 @@ export const Input=styled('input')`
     border-radius: 6px;
     opacity: 1;
 `
+export const Counter = styled(FlexRow)`
+  padding:1rem;
+  background: #fff;
+  width: 204px;
+  height: 40px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+`;
