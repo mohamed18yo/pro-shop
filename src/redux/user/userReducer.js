@@ -2,6 +2,10 @@ import { LOGIN_FIALD, LOGIN_START, LOGIN_SUCCESS } from "./userTypeConstats";
 
 import { LOGOUT_SUCCESS } from "./userTypeConstats";
 
+import { REGISTER_START } from "./userTypeConstats";
+import { REGISTER_FIALD } from "./userTypeConstats";
+import { REGISTER_SUCCESS } from "./userTypeConstats";
+
 export const userReducer = (
     initialState = {
         user: {
@@ -42,6 +46,24 @@ export const userReducer = (
         user: action.payload,
         isLoading: false,
         success: true,
+    };
+/** REGISTER cases */
+    case REGISTER_START:
+      return {
+          ...initialState,
+          isLoading: true,
+        };
+    case REGISTER_FIALD:
+      return {
+          ...initialState,
+          error: action.payload,
+          isLoading: false,
+        };
+    case REGISTER_SUCCESS:
+    return {
+      user: action.payload,
+      isLoading: false,
+      success: true,
     };
 
 /** LOGOUT cases */

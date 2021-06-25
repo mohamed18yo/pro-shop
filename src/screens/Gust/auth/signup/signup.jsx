@@ -1,4 +1,4 @@
-import {  CBox, Input, ImgBox, FormBox } from "../login/login.style";
+import {  CBox, Input, ImgBox, FormBox,ErrorMsg } from "../login/login.style";
 
 import{SignupSection} from './signup.style';
 import {
@@ -10,8 +10,20 @@ import {
 } from "../../../../Global.style";
 import Button from "../../../../components/button/button";
 import { Link } from "react-router-dom";
+import { Formik, Form } from "formik";
+import { SignupSchema } from "../../../../validationSchema";
+import {RegisterAction} from "../../../../redux/user/userAction";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 
+    
 function Signup() {
+  const dispatch= useDispatch()
+    const history = useHistory();
+    const onSubmitForm= async(values)=>{
+      dispatch(RegisterAction(values, history))
+    }
+      
   return (
     <SectionRole>
       <IneerSection>
@@ -23,25 +35,65 @@ function Signup() {
             <Typography fontSize={32} color={"#707070"}>
             Sign up and get exclusive offers from us
             </Typography>
-            <Typography fontSize={22} color={"#242424"}>
-              Name
-            </Typography>
-            <Input></Input>
-            <Typography fontSize={22} color={"#242424"}>
-              Enter your email address
-            </Typography>
-            <Input></Input>
-            <Typography fontSize={22} color={"#242424"}>
-              Enter your password
-            </Typography>
-            <Input></Input>
-            <Typography fontSize={22} color={"#242424"}>
-              Confirm your password
-            </Typography>
-            <Input></Input>
-            <Button width={"398px"} text={"Login"}></Button>
-            
-            
+            <Formik
+              initialValues={{
+                name:"",
+                email: "",
+                password: "",
+                confirmPassword: "",
+              }}
+              validationSchema={SignupSchema}
+              onSubmit={onSubmitForm}
+            >
+              {({errors, touched})=>{
+                return (
+                  <Form>
+                      <Typography fontSize={22} color={"#242424"}>
+                        Name
+                      </Typography>
+                      <Input  name={"name"}
+                              type={"name"}
+                              placeholder={"name"}>
+                          </Input>
+                      <Typography fontSize={22} color={"#242424"}>
+                        Enter your email address
+                      </Typography>
+                      <Input  name={"email"}
+                              type={"email"}
+                              placeholder={"email"}>
+                          </Input>
+                    {errors.email && touched.email ? (
+                      <ErrorMsg>{errors.email}</ErrorMsg>
+                        ) : null}
+
+                      <Typography fontSize={22} color={"#242424"}>
+                        Enter your password
+                      </Typography>
+                      <Input  name={"password"}
+                              type={"password"}
+                              placeholder={"password"}>
+                          </Input>
+                      {errors.password && touched.password ? (
+                        <ErrorMsg>{errors.password}</ErrorMsg>
+                           ) : null}
+
+                      <Typography fontSize={22} color={"#242424"}>
+                        Confirm your password
+                      </Typography>
+                      <Input  name={"confirmPassword"}
+                              type={"password"}
+                              placeholder={"confirm password"}>
+                          </Input>
+                      {errors.password && touched.password ? (
+                          <ErrorMsg>{errors.password}</ErrorMsg>
+                        ) : null}
+
+                      <Button width={"398px"} text={"Login"}></Button>
+                  </Form> 
+                )
+              }}
+            </Formik>
+
             <Line width={398} color={"#707070"} />
             <CBox>
             <Typography fontSize={22} color={"#242424"}>

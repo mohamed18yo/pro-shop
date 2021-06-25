@@ -2,6 +2,9 @@ import { LOGIN_SUCCESS } from "./userTypeConstats";
 import { LOGOUT_SUCCESS } from "./userTypeConstats";
 import { LOGIN_START } from "./userTypeConstats";
 import { LOGIN_FIALD } from "./userTypeConstats";
+import { REGISTER_START } from "./userTypeConstats";
+import { REGISTER_FIALD } from "./userTypeConstats";
+import { REGISTER_SUCCESS } from "./userTypeConstats";
 import axios from "axios";
 
 
@@ -41,6 +44,29 @@ export const LoginAction = (value, history) => {
   };
 };
 
-// export const RegisterAction = (values, history) => {};
+export const RegisterAction = (values, history) => {
+  return async (dispatch)=>{
+    dispatch({
+          type:REGISTER_START
+    })
+    try{
+      const res = await axios.post('/users', values)
+      console.log(res)
+      // Set user to localStorage
+      localStorage.setItem("user", JSON.stringify(res.data));
+      dispatch({
+        type:REGISTER_SUCCESS,
+        payload: res.data
+      })
+      history.push("/");
+    }catch(e){
+      dispatch({
+        type:REGISTER_FIALD,
+        payload: e.res.data.message
+      })
+    }
+  }
+
+};
 
 // export default loginAction;

@@ -24,12 +24,12 @@ function App() {
 
       <Switch>
           <Route exact={true} path={"/"} component={Home} />
+          <Route  path={"/profile"} component={Profile} />
           <Route  path={"/cart"} component={Cart} />
           <Route  path={"/emptycart"} component={EmptyCart} />
           <Route  path={"/checkout"} component={Checkout} />
           <Route  path={"/payment"} component={Payment} />
           <Route  path={"/product"} component={ProductPage} />
-          <Route  path={"/profile"} component={Profile} />
           <Route  path={"/revieworder"} component={ReviewOrder} />
           <Route  path={"/login"} component={Login} />
           <Route  path={"/signup"} component={Signup} />
