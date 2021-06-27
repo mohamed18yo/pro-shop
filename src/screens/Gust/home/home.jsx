@@ -1,39 +1,51 @@
 
 
 import CategoriesSection from "./categoriesSection";
-import {Container} from './home.style';
 import HeroSection from './heroSection';
 import ProductSection from './productsSection';
 import TopRateSection from './topRateSection';
-import axios from 'axios';
-import { useEffect } from "react";
-import { useState } from "react";
-
+import { useEffect, } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getFeaturedProducts, GetSliderProducts } from "../../../redux/Gust/gustAction";
+import {SpinnerContainer} from '../../../Global.style';
     
 function Home() {
-  
-  const [products, setProducts]= useState([])
-  const fetchDta= async function(){
-    try{
-      const res= await axios.get('products/top')
-    setProducts(res.data)  
-    }catch(e){
-      console.log(e);
-    }
-    
-  }
+  const dispatch= useDispatch()
+  const state = useSelector((state) => state);
+  const isLoading= state.gustState.isLoading;
+const product= state.gustState.products
 
-  useEffect(()=>{  
-    fetchDta()
+  // const [products, setProducts]= useState([])
+  // const fetchDta= async function(){
+  //   try{
+  //     const res= await axios.get('products/top')
+  //   setProducts(res.data)  
+  //   }catch(e){
+  //     console.log(e);
+  //   }
     
-  },[])
-  return (
-    <Container>
-      <HeroSection products={products}></HeroSection>
+  // }
+  // const logPro=()=>{
+  //   console.log(product)
+  // }
+  useEffect(()=>{  
+    // fetchDta()
+    dispatch(GetSliderProducts())
+    dispatch(getFeaturedProducts())
+    console.log(state.gustState.products)
+    
+  },[dispatch])
+  return (isLoading?(<SpinnerContainer/>):(
+      <>
+      <HeroSection products={state?.gustState?.sliderImages} ></HeroSection>
       <CategoriesSection></CategoriesSection>
-      <ProductSection></ProductSection>   
-      <TopRateSection></TopRateSection>
-    </Container>
+      <ProductSection products={state.gustState.products}></ProductSection>   
+      <TopRateSection ></TopRateSection>
+      </>
+    )
+    
+      
+    
   );
 }
 

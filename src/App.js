@@ -14,6 +14,7 @@ import ReviewOrder from "./screens/User/order/reviewOrder";
 import Profile from "./screens/User/profile/profile";
 import { useSelector } from "react-redux";
 import ProductPage from "./screens/User/products/products";
+// import {Fregment}from 'react'
 function App() {
   const state = useSelector((state) => state);
 
@@ -23,16 +24,23 @@ function App() {
       <Nav></Nav>
 
       <Switch>
-          <Route exact={true} path={"/"} component={Home} />
-          <Route  path={"/profile"} component={Profile} />
-          <Route  path={"/cart"} component={Cart} />
-          <Route  path={"/emptycart"} component={EmptyCart} />
-          <Route  path={"/checkout"} component={Checkout} />
-          <Route  path={"/payment"} component={Payment} />
-          <Route  path={"/product"} component={ProductPage} />
-          <Route  path={"/revieworder"} component={ReviewOrder} />
+        <Route exact={true} path={"/"} component={Home} />
+        <Route  path={"/product"} component={ProductPage} />
+
+        {state.userDetailes.user?._id?(
+          <>
+            <Route  path={"/profile"} component={Profile} />
+            <Route  path={"/cart"} component={Cart} />
+            <Route  path={"/emptycart"} component={EmptyCart} />
+            <Route  path={"/checkout"} component={Checkout} />
+            <Route  path={"/payment"} component={Payment} />
+            <Route  path={"/revieworder"} component={ReviewOrder} />
+        </>
+        ):<>
           <Route  path={"/login"} component={Login} />
           <Route  path={"/signup"} component={Signup} />
+        </>}
+  
       </Switch>
       
     </MainComponent>

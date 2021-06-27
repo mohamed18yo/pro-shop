@@ -36,88 +36,38 @@ const styles = {
   },
 };
 
-function ProductSection() {
+function ProductSection({products}) {
   const [index, setIndex] = useState(0);
   const handleChangeIndex = () => {};
-    
+
+
+      const chunkSize = window.innerWidth > 1100 ? 3 : window.innerWidth > 800 ? 2 : 1;
+
   return (
-   
     <SectionRole color={"#F7F8FC"}>
       <IneerSection>
         <ProductsBox>
           <Typography fontSize={32}>Featured Categories</Typography>
           <Line style={{ marginTop: 25}} color={"#FCDD06"} height={"7px"}></Line>
           <Line color={"#a0a0a0"} height={"1px"} width={"1640px"}></Line>
-
-          
           <SwipeableViews
-          style={Object.assign({}, styles.root, styles.root)}
-          index={index}
-          onChangeIndex={handleChangeIndex}
-        >
-          <FlexRow  style={{ marginTop: 50}}>
-            <ProductBox as={Link} to={"/prouct"}
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"test iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-           </FlexRow>
-          <FlexRow  style={{ marginTop: 50}}>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-           </FlexRow>
-          <FlexRow  style={{ marginTop: 50}}>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-           </FlexRow>
-           </SwipeableViews>
-         
+              style={Object.assign({}, styles.root, styles.root)}
+              index={index}
+              onChangeIndex={handleChangeIndex}   
+          >
+         <FlexRow  style={{ marginTop: 50}}>
+            {products.slice(index,chunkSize).map((item)=>
+                    <ProductBox 
+                      src={"/iphone.png"}
+                      rate={5}
+                      price={item.price}
+                      title={item.name}
+                    ></ProductBox>       
+            )}
+                </FlexRow>
+          
 
+           </SwipeableViews>
           <FixedRow  style={{marginTop:"2rem"}}>
             <Dot
               onClick={() => {

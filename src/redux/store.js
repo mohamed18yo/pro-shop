@@ -11,6 +11,7 @@ const reducers = combineReducers({
 });
 
 const userFromLocalStorage = JSON.parse(localStorage.getItem("user")) || {};
+
 const initialState = {
   userDetails: {
     user: userFromLocalStorage,

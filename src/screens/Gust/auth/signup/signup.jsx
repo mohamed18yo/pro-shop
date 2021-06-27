@@ -13,11 +13,14 @@ import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { SignupSchema } from "../../../../validationSchema";
 import {RegisterAction} from "../../../../redux/user/userAction";
-import { useDispatch } from "react-redux";
+import { useDispatch ,useSelector} from "react-redux";
 import { useHistory } from "react-router";
 
-    
+
 function Signup() {
+  const state = useSelector((state) => state);
+const isLoading= state.userDetailes.isLoading;
+const error= state.userDetailes.error;
   const dispatch= useDispatch()
     const history = useHistory();
     const onSubmitForm= async(values)=>{
@@ -88,7 +91,9 @@ function Signup() {
                           <ErrorMsg>{errors.password}</ErrorMsg>
                         ) : null}
 
-                      <Button width={"398px"} text={"Login"}></Button>
+                      <Button isLoading={isLoading} width={"398px"} text={"SignUp"}></Button>
+                      {error?<ErrorMsg>{error}</ErrorMsg>:null
+                      }
                   </Form> 
                 )
               }}

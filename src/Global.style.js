@@ -97,3 +97,25 @@ export const Counter = styled(FlexRow)`
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
 `;
+export const SpinnerContainer = styled.div`
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  border: 6px solid #fcdd06;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-top-color: #ddd;
+  margin-top: 20%;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+  @keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    to {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+`;

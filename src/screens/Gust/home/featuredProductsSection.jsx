@@ -38,8 +38,18 @@ const styles = {
 function FeaturedProductsSection() {
   
   const [index, setIndex] = useState(0);
+  // const chunlSize= window.innerWidth>1100?3:window.innerWidth>800?2:1;
   const handleChangeIndex = () => {};
-    
+  
+  // const getSlides=()=>{
+  //   const chunks=[];
+  //   products.map((i,index)=>{
+        // if(index% chunkSize===0){
+        //   chunks.push([])
+        // }
+        // chunks[]
+  //   })
+  // }  
   return (
    
 

@@ -15,6 +15,7 @@ import {
     },
     action
   ) => {
+    
     switch (action.type) {
       /** Slider Cases*/
       case GET_SLIDER_IMAGES_START:
@@ -35,7 +36,7 @@ import {
           error: action.payload,
         };
   
-      /** Products Cases*/
+/** Products Cases*/
       case GET_FEATURED_PRODUCTS_START:
         return {
           ...initialState,
@@ -53,6 +54,7 @@ import {
           isLoading: false,
           error: action.payload,
         };
+
       default:
         return initialState;
     }

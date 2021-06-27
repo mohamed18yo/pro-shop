@@ -34,6 +34,9 @@ export const LoginAction = (value, history) => {
         payload: res.data,
         type: LOGIN_SUCCESS,
       });
+      // Set user to localStorage
+      localStorage.setItem("user", JSON.stringify(res.data));
+      
       history.push("/");
     } catch (e) {
       dispatch({
