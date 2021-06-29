@@ -12,6 +12,7 @@ import EmptyCart from "./screens/User/cart/emptyCart";
 import Payment from "./screens/User/order/payment";
 import ReviewOrder from "./screens/User/order/reviewOrder";
 import Profile from "./screens/User/profile/profile";
+import UpdateProfile from "./screens/User/profile/updateProfile";
 import { useSelector } from "react-redux";
 import ProductPage from "./screens/User/products/products";
 // import {Fregment}from 'react'
@@ -25,11 +26,12 @@ function App() {
 
       <Switch>
         <Route exact={true} path={"/"} component={Home} />
-        <Route  path={"/product"} component={ProductPage} />
+        <Route  path={"/product/:id/:name"} component={ProductPage} />
 
         {state.userDetailes.user?._id?(
           <>
             <Route  path={"/profile"} component={Profile} />
+            <Route  path={"/updateprofile"} component={UpdateProfile} />
             <Route  path={"/cart"} component={Cart} />
             <Route  path={"/emptycart"} component={EmptyCart} />
             <Route  path={"/checkout"} component={Checkout} />

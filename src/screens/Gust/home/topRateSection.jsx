@@ -4,7 +4,7 @@ import { TopRateBox, Line, TopSubBox } from "./home.style";
 import { Typography} from "../../../Global.style";
 import ProductBox from "../../../components/productBox/productBox";
 
-function TopRatSection() {
+function TopRatSection({products}) {
   return (
     <SectionRole>
       <IneerSection>
@@ -14,27 +14,19 @@ function TopRatSection() {
           <Line color={"#707070"} height={"1px"} width={"1640px"}></Line>
 
           <TopSubBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
+            {products.map((item)=><ProductBox
+              key={item._id}
+              id={item._id}
+              src={"https://proshop-ms.herokuapp.com/" +item.image}
+              rate={item.rating}
+              price={item.price}
+              title={item.name}
+              name={item.name}
               height={"540px"}
             ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-              height={"540px"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-              height={"540px"}
-            ></ProductBox>
+)}
+            
+
           </TopSubBox>
         </TopRateBox>
       </IneerSection>

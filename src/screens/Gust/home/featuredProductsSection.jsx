@@ -1,10 +1,11 @@
-// import { IneerSection, SectionRole } from "../../../components/nav/Nav.Style";
+import { IneerSection, SectionRole } from "../../../components/nav/Nav.Style";
 
 import { ProductsBox, Line,Dot,FixedRow } from "./home.style";
 import { Typography,FlexRow } from "../../../Global.style";
 import ProductBox from "../../../components/productBox/productBox";
 import {useState} from 'react';
 import SwipeableViews from "react-swipeable-views";
+import { Link } from "react-router-dom";
 
 
 const styles = {
@@ -35,98 +36,41 @@ const styles = {
   },
 };
 
-function FeaturedProductsSection() {
-  
+function FeaturedProductsSection({products}) {
   const [index, setIndex] = useState(0);
-  // const chunlSize= window.innerWidth>1100?3:window.innerWidth>800?2:1;
   const handleChangeIndex = () => {};
-  
-  // const getSlides=()=>{
-  //   const chunks=[];
-  //   products.map((i,index)=>{
-        // if(index% chunkSize===0){
-        //   chunks.push([])
-        // }
-        // chunks[]
-  //   })
-  // }  
-  return (
-   
 
+
+      const chunkSize = window.innerWidth > 1100 ? 3 : window.innerWidth > 800 ? 2 : 1;
+
+  return (
+    <SectionRole color={"#F7F8FC"}>
+      <IneerSection>
         <ProductsBox>
           <Typography fontSize={32}>Featured Categories</Typography>
           <Line style={{ marginTop: 25}} color={"#FCDD06"} height={"7px"}></Line>
           <Line color={"#a0a0a0"} height={"1px"} width={"1640px"}></Line>
-
-          
-        <SwipeableViews
-          style={Object.assign({}, styles.root, styles.root)}
-          index={index}
-          onChangeIndex={handleChangeIndex}
+          <SwipeableViews
+              style={Object.assign({}, styles.root, styles.root)}
+              index={index}
+              onChangeIndex={handleChangeIndex}   
           >
-          <FlexRow  style={{ marginTop: 50}}>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-           </FlexRow>
-          <FlexRow  style={{ marginTop: 50}}>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-           </FlexRow>
-          <FlexRow  style={{ marginTop: 50}}>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-            <ProductBox
-              src={"/iphone.png"}
-              rate={5}
-              price={499.99}
-              title={"Apple iPhone 11 Pro 256GB Memory"}
-            ></ProductBox>
-           </FlexRow>
-           </SwipeableViews>
-         
+         <FlexRow  style={{ marginTop: 50}}>
+            {products.slice(index,chunkSize).map((item)=>
+                    <ProductBox 
+                      key={item._id}
+                      id={item._id}
+                      name={item.name}
+                      src={"https://proshop-ms.herokuapp.com/" +item.image}
+                      rate={item.rating}
+                      price={item.price}
+                      title={item.name}
+                    ></ProductBox>       
+            )}
+                </FlexRow>
+          
 
+           </SwipeableViews>
           <FixedRow  style={{marginTop:"2rem"}}>
             <Dot
               onClick={() => {
@@ -149,7 +93,8 @@ function FeaturedProductsSection() {
             
           </FixedRow>
         </ProductsBox>
-    
+      </IneerSection>
+    </SectionRole>
   );
 }
 

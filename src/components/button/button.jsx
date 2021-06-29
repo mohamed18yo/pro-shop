@@ -9,9 +9,11 @@ function Button(props) {
       width={props.width}
       onClick={props.handleClick}
       style={props.style}
+      to={props.link}
+      as={props.link?"":"button"}
     >
       {props.text}
-    </CustomeButton>
+    </CustomeButton >
   );
 }
 export default Button;

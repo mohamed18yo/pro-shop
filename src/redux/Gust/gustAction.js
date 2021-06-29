@@ -4,6 +4,9 @@ import {
     GET_FEATURED_PRODUCTS_FAILED,
     GET_FEATURED_PRODUCTS_START,
     GET_FEATURED_PRODUCTS_SUCCESS,
+    GET_PRODUCT_FAILED,
+    GET_PRODUCT_START,
+    GET_PRODUCT_SUCCESS,
     GET_SLIDER_IMAGES_FAILED,
     GET_SLIDER_IMAGES_START,
     GET_SLIDER_IMAGES_SUCCESS,
@@ -32,7 +35,8 @@ export const GetSliderProducts=()=>{
     }
 }
 
-export const getFeaturedProducts = () => async (dispatch) => {
+export const getFeaturedProducts = () => {
+  return async (dispatch) => {
     dispatch({
       type: GET_FEATURED_PRODUCTS_START,
     });
@@ -51,4 +55,28 @@ export const getFeaturedProducts = () => async (dispatch) => {
       });
     }
   };
+}
+
+
+export const GetProductById= (id)=>{
+  return async(dispatch)=>{
+    dispatch({
+      type:GET_PRODUCT_START,
+      isLoading: true
+    });
+    try{
+      const res= await axios("/products/" + id)
+      dispatch({
+        type:GET_PRODUCT_SUCCESS,
+        payload:res.data
+      })
+    }catch(e){
+      dispatch({
+        type:GET_PRODUCT_FAILED,
+        payload: e?.response?.message,
+      })
+    }
+  }
+}
+ 
   

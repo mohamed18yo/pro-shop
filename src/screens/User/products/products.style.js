@@ -51,12 +51,14 @@ export const SizeField= styled(FlexBox)`
 `;
 
 export const ReviewsBox= styled(FlexCol)`
+    justify-content: flex-start;
     width: 1586px;
-    height: 887px;  
+    height: auto;  
+    margin-bottom:2rem;
 `
 export const SubReviewsBox= styled(FlexCol)`
     width: 1586px;
-    height: 817px;
+    height: auto;
     border: 1px solid #BCBCBC;
     align-items: center
 `

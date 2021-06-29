@@ -2,7 +2,7 @@
 
 import CategoriesSection from "./categoriesSection";
 import HeroSection from './heroSection';
-import ProductSection from './productsSection';
+import FeaturedProductsSection from './featuredProductsSection';
 import TopRateSection from './topRateSection';
 import { useEffect, } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,8 +39,8 @@ const product= state.gustState.products
       <>
       <HeroSection products={state?.gustState?.sliderImages} ></HeroSection>
       <CategoriesSection></CategoriesSection>
-      <ProductSection products={state.gustState.products}></ProductSection>   
-      <TopRateSection ></TopRateSection>
+      <FeaturedProductsSection products={state.gustState.products}></FeaturedProductsSection>   
+      <TopRateSection products={state?.gustState?.sliderImages} ></TopRateSection>
       </>
     )
     

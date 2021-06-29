@@ -4,6 +4,7 @@ import {Typography} from '../../../Global.style'
 import Button from '../../../components/button/button'
 import './style.css'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 function Profile(){
   const state= useSelector((state)=>state)
   const fullName= state.userDetailes.user.name.split(" ");
@@ -46,7 +47,7 @@ function Profile(){
                   <Typography fontSize={24} color="#000">12/04/1991</Typography>
                 </div>
             
-            <Button width={"153px"} text={'Chaneg Password'} /> 
+            <Button link={"/updateprofile"} width={"153px"} text={'Chaneg Password'} /> 
            
             
               </div>

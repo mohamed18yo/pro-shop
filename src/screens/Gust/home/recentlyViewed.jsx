@@ -15,6 +15,7 @@ function RecentlyViewed() {
 
           <TopSubBox>
             <ProductBox
+            
               src={"/iphone.png"}
               rate={5}
               price={499.99}
