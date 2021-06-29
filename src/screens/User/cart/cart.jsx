@@ -10,23 +10,30 @@ import { FlexCol } from "../../../Global.style";
 import { CartBox,RightBox } from "./cart.style";
 
 import { Typography,Line } from "../../../Global.style";
+import { useSelector } from "react-redux";
 
 
 
 function Cart (){
+  const state= useSelector(state=>state)
+
   return <SectionRole>
   <IneerSection>
     <CartBox>    
       <FlexCol>
-      <CartCard src={"/iphone.png"} price={499.2} title={"Apple iPhone 11 Pro 256GB Memory"} count={2}></CartCard>
-      <CartCard src={"/iphone.png"} price={499.2} title={"Apple iPhone 11 Pro 256GB Memory"} count={2}></CartCard>
-      <CartCard src={"/iphone.png"} price={499.2} title={"Apple iPhone 11 Pro 256GB Memory"} count={2}></CartCard>
-      <CartCard src={"/iphone.png"} price={499.2} title={"Apple iPhone 11 Pro 256GB Memory"} count={2}></CartCard>
+        {state.cart.cart.map((item)=>(
+          <CartCard src={"https://proshop-ms.herokuapp.com/"+item.image} price={item.price} title={item.name} count={item.quantity}></CartCard>
+          ))}
       </FlexCol>
       <RightBox>
-        <Typography color={"#242424"} fontSize={32}>Subtotal (3) items</Typography>
-        <Typography isThrough={true} color={"#242424"} fontSize={24}>$999.97</Typography>
-        <Typography color={"#242424"} fontSize={38}>$989.97</Typography>
+        <Typography color={"#242424"} fontSize={32}>Subtotal ({state.cart.cart.length}) items</Typography>
+        {/* <Typography isThrough={true} color={"#242424"} fontSize={24}>$999.97</Typography> */}
+        <Typography color={"#242424"} fontSize={38}>total price $
+                                                                    {state.cart.cart
+                                                                        .reduce((acc, item) => {
+                                                                          return acc + item.price * item.quantity;
+                                                                        }, 0)
+              .toFixed(2)}</Typography>
         <Line width={384} color={"#cbcbcb"} /> 
         <Button width={"324px"} text={"Proceed to checkout"} />
       </RightBox>

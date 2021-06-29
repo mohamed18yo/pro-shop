@@ -4,8 +4,8 @@ import { SectionRole,IneerSection, } from '../../../Global.style';
 import ProductSection from './productSection';
 import ReviewsSection from './reviewsSection';
 import FeaturedProductsSection from '../../Gust/home/featuredProductsSection';
-import { useHistory, useParams } from "react-router";
-import { useEffect, useState } from "react";
+import {  useParams } from "react-router";
+import { useEffect,  } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getFeaturedProducts, GetProductById } from '../../../redux/Gust/gustAction';
 

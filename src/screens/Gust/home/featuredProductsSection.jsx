@@ -58,6 +58,7 @@ function FeaturedProductsSection({products}) {
          <FlexRow  style={{ marginTop: 50}}>
             {products.slice(index,chunkSize).map((item)=>
                     <ProductBox 
+                      product={item}
                       key={item._id}
                       id={item._id}
                       name={item.name}

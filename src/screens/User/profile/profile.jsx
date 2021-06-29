@@ -4,7 +4,7 @@ import {Typography} from '../../../Global.style'
 import Button from '../../../components/button/button'
 import './style.css'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 function Profile(){
   const state= useSelector((state)=>state)
   const fullName= state.userDetailes.user.name.split(" ");

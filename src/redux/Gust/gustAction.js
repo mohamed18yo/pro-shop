@@ -26,7 +26,7 @@ export const GetSliderProducts=()=>{
         })  
         }catch(e){
             dispatch({
-                payload: e.response.data.message,
+                payload: e?.res?.data?.message,
                 type: GET_SLIDER_IMAGES_FAILED
             })
         }

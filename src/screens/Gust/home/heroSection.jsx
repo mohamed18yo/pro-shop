@@ -55,7 +55,7 @@ function HeroSection({products}) {
           index={index}
           onChangeIndex={handleChangeIndex}
         > 
-        {products.map((items)=> <HeroBox>
+        {products.map((items)=> <HeroBox key={items._id}> 
           <FlexRow>
             <SideBox>
               <Typography fontSize={32} color={"#242424"}>
