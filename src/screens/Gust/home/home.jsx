@@ -13,7 +13,6 @@ function Home() {
   const dispatch= useDispatch()
   const state = useSelector((state) => state);
   const isLoading= state.gustState.isLoading;
-const product= state.gustState.products
 
   // const [products, setProducts]= useState([])
   // const fetchDta= async function(){
@@ -32,7 +31,6 @@ const product= state.gustState.products
     // fetchDta()
     dispatch(GetSliderProducts())
     dispatch(getFeaturedProducts())
-    console.log(state.gustState.products)
     
   },[dispatch])
   return (isLoading?(<SpinnerContainer/>):(

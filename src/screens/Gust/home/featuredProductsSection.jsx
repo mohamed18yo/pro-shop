@@ -5,7 +5,6 @@ import { Typography,FlexRow } from "../../../Global.style";
 import ProductBox from "../../../components/productBox/productBox";
 import {useState} from 'react';
 import SwipeableViews from "react-swipeable-views";
-import { Link } from "react-router-dom";
 
 
 const styles = {
