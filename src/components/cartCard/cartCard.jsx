@@ -14,7 +14,7 @@ function CartCard(props) {
       <Typography style={{cursor:'pointer'}} fontSize={30}> +</Typography>
       </Counter>
       <Typography fontSize={30}>$ {props.price}</Typography>
-      <Cancel>×</Cancel>
+      <Cancel onClick={props.deleteFunction}>×</Cancel>
       
     </SecCard>
   );

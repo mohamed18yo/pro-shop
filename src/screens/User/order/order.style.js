@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { FlexCol } from '../../../Global.style';
 
+import { Field } from "formik";
 
 
 export const OrderSection= styled(FlexCol)`
@@ -25,7 +26,7 @@ border-radius: 16px;
 opacity: 1;
 padding: 1rem;
 `
-export const Input = styled('input')`
+export const Input = styled(Field)`
     width: 360px;
 height: 40px;
 border: 1px solid #707070;
@@ -47,7 +48,7 @@ export const ReviewOrderSection= styled(FlexCol)`
 `
 export const ShippingBox= styled(FlexCol)`
     width: 950px;
-    height: 652px;
+    min-height: 652px;
     background: #F2F2F2 0% 0% no-repeat padding-box;
     border-radius: 16px;
     opacity: 1;
@@ -65,11 +66,11 @@ export const OrderDetailsBox= styled(FlexCol)`
 `
 export const CenterBox=styled(FlexCol)`
     width: 813px;
-    height: 277px;
+    height: auto;
 `
 export const OrdersBox=styled(FlexCol)`
     width: 461px;
-    height: 229px;
+    min-height: 229px;
 `
 export const PaymetnBox= styled(FlexCol)`
     width: 813px;

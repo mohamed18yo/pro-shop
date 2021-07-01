@@ -84,17 +84,14 @@ function ProductSection({product}) {
                 width={"54px"}
                 text={<BookmarkIcon></BookmarkIcon>}
                 isGray={true}
-                link={'/cart'}
-                handleClick={()=>{
-                  if(product.product.countInStock){
-                    dispatch(AddCartItem(product.product, 1))
-                  }
-                }
-                }
-              
+                
                 />
           
-               <Button text={"Add to cart"} />
+               <Button link={'/cart'}  text={"Add to cart"} handleClick={()=>{
+            if(product.product.countInStock){
+              dispatch(AddCartItem(product.product,count))
+            }
+          }}/>
           </FlexRow>
           
         </FlexRow>

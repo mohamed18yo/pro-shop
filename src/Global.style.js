@@ -119,3 +119,13 @@ export const SpinnerContainer = styled.div`
     }
   }
 `;
+
+export const ErrorMsg = styled("span")`
+  color: red;
+  margin: 14px 0 14px;
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  font-size: 17px;
+`;

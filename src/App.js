@@ -35,7 +35,8 @@ function App() {
             <Route  path={"/cart"} component={Cart} />
             <Route  path={"/emptycart"} component={EmptyCart} />
             <Route  path={"/checkout"} component={Checkout} />
-            <Route  path={"/payment"} component={Payment} />
+            <Route  path={"/proceed-checkout/shipping-address"} component={Payment} />
+            <Route  path={"/proceed-checkout/place-order"} component={Payment} />
             <Route  path={"/revieworder"} component={ReviewOrder} />
         </>
         ):<>

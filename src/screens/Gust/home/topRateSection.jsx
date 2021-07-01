@@ -15,8 +15,7 @@ function TopRatSection({products}) {
 
           <TopSubBox>
             {products.map((item)=><ProductBox
-              countInStock={item}
-                
+              product={item}
               id={item._id}
               src={"https://proshop-ms.herokuapp.com/" +item.image}
               rate={item.rating}

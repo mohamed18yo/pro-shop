@@ -36,3 +36,12 @@ export const UpdateProfileSchema=()=>{
           .oneOf([yup.ref("password"), null], "Passwords must match"),
       });
 }
+
+export const ShippingSchema = () => {
+  return yup.object({
+    country: yup.string().required("Please enter country name"),
+    city: yup.string().required("Please enter city name"),
+    address: yup.string().required("Please enter your address"),
+    zipCode: yup.number().required("Please enter your zip code"),
+  });
+};
