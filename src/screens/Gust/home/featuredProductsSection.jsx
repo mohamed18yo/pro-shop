@@ -39,8 +39,20 @@ function FeaturedProductsSection({products}) {
   const [index, setIndex] = useState(0);
   const handleChangeIndex = () => {};
 
+    const chunkSize = window.innerWidth > 1100 ? 3 : window.innerWidth > 800 ? 2 : 1;
 
-      const chunkSize = window.innerWidth > 1100 ? 3 : window.innerWidth > 800 ? 2 : 1;
+  //  const configArr=   async (products)=>{
+  //       const productArray=[] 
+
+  //           for (let index = 0; index < products.length; index+=index+chunkSize) {
+  //           await  productArray.push(products.slice(index, chunkSize))
+              
+  //           }
+  //           console.log(productArray)
+  //           return productArray
+  //     }
+  //     const arr= configArr(products)  
+  //     console.log(products)
 
   return (
     <SectionRole color={"#F7F8FC"}>

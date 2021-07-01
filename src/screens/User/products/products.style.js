@@ -3,7 +3,7 @@
 
 
 import styled from 'styled-components';
-import { FlexRow,FlexCol,FlexBox } from '../../../Global.style';
+import { FlexRow,FlexCol,FlexBox,Typography } from '../../../Global.style';
 
 export const ProductBox = styled(FlexRow)`
     margin-top:3rem;
@@ -60,5 +60,15 @@ export const SubReviewsBox= styled(FlexCol)`
     width: 1586px;
     height: auto;
     border: 1px solid #BCBCBC;
-    align-items: center
+    align-items: center;
+`
+export const CountBtn= styled(Typography)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: "pointer";
+  width:2rem;
+    &:hover{
+        border: 1px solid #FCDD06;
+    }
 `

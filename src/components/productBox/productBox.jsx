@@ -43,6 +43,7 @@ function ProductBox(props) {
           isGray={true}
           width={"324px"}
           text={"Add to Cart"}
+          link={"/cart"}
           handleClick={()=>{
             if(props.product.countInStock){
               dispatch(AddCartItem(props.product,1))

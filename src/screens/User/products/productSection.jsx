@@ -5,6 +5,7 @@ import {
   ProductDisecriptionBox,
   CircleColor,
   SizeField,
+  CountBtn
 } from "./products.style";
 import {
   Typography,
@@ -15,8 +16,12 @@ import {
 } from "../../../Global.style";
 import Button from "../../../components/button/button";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
-
+import { useDispatch } from "react-redux";
+import { AddCartItem } from "../../../redux/Cart/cartAction";
+import {useState} from 'react'
 function ProductSection({product}) {
+  const[count, setCount]= useState(1)
+  const dispatch= useDispatch()
   return ( product?.isLoading? <SpinnerContainer/>:(
    
       <ProductBox>
@@ -38,13 +43,13 @@ function ProductSection({product}) {
           </Typography>
         </FlexRow>
         <Counter>
-          <Typography style={{ cursor: "pointer" }} fontSize={30}>
+          <CountBtn onClick={()=>{if(count>1){setCount(count-1)}}} style={{ cursor: "pointer" }}  fontSize={30}>
             ــ
-          </Typography>
-          <Typography fontSize={30}> 1</Typography>
-          <Typography style={{ cursor: "pointer" }} fontSize={30}>
+          </CountBtn>
+          <Typography fontSize={30}> {count}</Typography>
+          <CountBtn onClick={()=>{if(count<product.product.countInStock){setCount(count+1)}}}  style={{ cursor: "pointer" }} fontSize={30}>
             +
-          </Typography>
+          </CountBtn>
         </Counter>
         <FlexRow style={{ justifyContent: "flex-start" }}>
           <Typography color={"#707070"} fontSize={24}>
@@ -78,7 +83,16 @@ function ProductSection({product}) {
                 style={{border: "1px solid #FCDD06", marginRight:"1rem"}}
                 width={"54px"}
                 text={<BookmarkIcon></BookmarkIcon>}
-                isGray={true}/>
+                isGray={true}
+                link={'/cart'}
+                handleClick={()=>{
+                  if(product.product.countInStock){
+                    dispatch(AddCartItem(product.product, 1))
+                  }
+                }
+                }
+              
+                />
           
                <Button text={"Add to cart"} />
           </FlexRow>
