@@ -1,18 +1,13 @@
 import {
-  SectionRole,
   Typography,
-  IneerSection,
-  Line,
   FlexRow,
   FlexCol,
   ProductImg,
 } from "../../../Global.style";
 import Button from "../../../components/button/button";
 import {
-  ReviewOrderSection,
   ShippingBox,
   OrderDetailsBox,
-  Num,
   CenterBox,
   OrdersBox,
   PaymetnBox,

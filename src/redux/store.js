@@ -3,9 +3,7 @@ import { createStore, combineReducers,applyMiddleware  } from "redux";
 import { userReducer } from "./user/userReducer";
 import { gustReducer } from "./Gust/gustReducer";
 import thunk from "redux-thunk";
-
 import { cartReducer } from "./Cart/cartReducer";
-import { orderReducer } from "./order/orderReducer";
 
 
 const reducers = combineReducers({

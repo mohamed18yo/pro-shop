@@ -42,13 +42,17 @@ function FeaturedProductsSection({products}) {
     const chunkSize = window.innerWidth > 1100 ? 3 : window.innerWidth > 800 ? 2 : 1;
 
   //  const configArr=   async (products)=>{
-  //       const productArray=[] 
+   
+     const arr=[...products]
+      const productArray=[] 
 
-  //           for (let index = 0; index < products.length; index+=index+chunkSize) {
-  //           await  productArray.push(products.slice(index, chunkSize))
+            for (let index = 0; index < arr.length; index++) {
+              productArray.push(arr.splice(0, chunkSize))
               
-  //           }
-  //           console.log(productArray)
+            }
+            console.log(productArray)
+    
+        
   //           return productArray
   //     }
   //     const arr= configArr(products)  
@@ -66,42 +70,33 @@ function FeaturedProductsSection({products}) {
               index={index}
               onChangeIndex={handleChangeIndex}   
           >
-         <FlexRow  style={{ marginTop: 50}}>
-            {products.slice(index,chunkSize).map((item)=>
-                    <ProductBox 
-                      product={item}
-                      key={item._id}
-                      id={item._id}
-                      name={item.name}
-                      src={"https://proshop-ms.herokuapp.com/" +item.image}
-                      rate={item.rating}
-                      price={item.price}
-                      title={item.name}
-                    ></ProductBox>       
-            )}
+         
+            {productArray.map((item)=>
+            <FlexRow key={item._id} style={{ marginTop: 50}}>
+                      {item.map((pro)=><ProductBox 
+                      product={pro}
+                      key={pro._id}
+                      id={pro._id}
+                      name={pro.name}
+                      src={"https://proshop-ms.herokuapp.com/" +pro.image}
+                      rate={pro.rating}
+                      price={pro.price}
+                      title={pro.name}
+                    ></ProductBox>  )}
                 </FlexRow>
-          
+            )}
 
            </SwipeableViews>
           <FixedRow  style={{marginTop:"2rem"}}>
-            <Dot
-              onClick={() => {
-                setIndex(0);
-              }}
-              isGray={index !== 0}
-            />
-            <Dot
-              onClick={() => {
-                setIndex(1);
-              }}
-              isGray={index !== 1}
-            />
-            <Dot
-              onClick={() => {
-                setIndex(2);
-              }}
-              isGray={index !== 2}
-            />
+                    {productArray.map((dot,i)=>
+                        <Dot
+                        onClick={() => {
+                          setIndex(i);
+                        }}
+                        isGray={index !== i}
+                      />
+                    )}
+            
             
           </FixedRow>
         </ProductsBox>

@@ -5,7 +5,6 @@ import {
   Line,
   FlexRow,
 } from "../../../Global.style";
-import Button from '../../../components/button/button'
 import { OrderSection,Num } from "./order.style";
 import PaymentComponent from './paymentComponent';
 import ReviewOrder from './reviewOrder'

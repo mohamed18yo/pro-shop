@@ -130,11 +130,11 @@ export function PaymentComponent() {
           <FlexRow style={{ width: "493px", height: "106px" }}>
                         <ProductImg src={"https://proshop-ms.herokuapp.com"+item.image} width={135} />
                         <FlexCol style={{ height: "99px" }}>
-                          <Typography fontSize={22} color={"#707070"}>
+                          <Typography style={{marginLeft:'1rem'}} fontSize={22} color={"#707070"}>
                           {item.name}
                           </Typography>
                           <FlexRow>
-                            <Typography fontSize={22} color={"#707070"}>
+                            <Typography style={{marginLeft:'1rem'}} fontSize={22} color={"#707070"}>
                             ${item.price} ×{item.quantity}
                             </Typography>
                             <Typography fontSize={22} color={"#707070"}>
