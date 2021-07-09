@@ -12,10 +12,13 @@ import {
   OrdersBox,
   PaymetnBox,
 } from "./order.style";
-import {  useSelector } from "react-redux";
-
-function ReviewOrder() {
+import {useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { PlaceOrder } from "../../../redux/order/orderAction";
+function PlaceOreder() {
   const state= useSelector((state)=>state)
+  const dispatch = useDispatch();
+  const history = useHistory();
   return (
           <FlexRow style={{alignItems: 'flex-start'}}>
             <ShippingBox style={{justifyCcontent: 'space-around'}}>
@@ -40,7 +43,7 @@ function ReviewOrder() {
                 </FlexRow>
 
                 <OrdersBox>
-                  {state.cart.cart.map((item)=><FlexRow style={{ width: "461px", height: "106px" }}>
+                  {state.cart.cart.map((item)=><FlexRow key={item._id} style={{ width: "461px", height: "106px" }}>
                     <ProductImg src={"https://proshop-ms.herokuapp.com"+item.image} width={135} />
                     <FlexCol style={{ height: "99px" }}>
                       <Typography fontSize={16} color={"#707070"}>
@@ -48,7 +51,7 @@ function ReviewOrder() {
                       </Typography>
                       <FlexRow>
                         <Typography fontSize={16} color={"#707070"}>
-                          ${item.price} ×{item.quantity}
+                          ${item.price} ×{item.qty}
                         </Typography>
                         <Typography fontSize={16} color={"#707070"}>
                           ${item.price}
@@ -84,7 +87,9 @@ function ReviewOrder() {
                     Subtotal
                   </Typography>
                   <Typography fontSize={16} color={"#707070"}>
-                    $589.98
+                    $ {state.cart.cart.reduce((acc, item)=>{
+                      return acc+item.price*item.qty
+                    },0).toFixed(2)}
                   </Typography>
                 </FlexRow>
                 <FlexRow >
@@ -92,7 +97,7 @@ function ReviewOrder() {
                     Tax
                   </Typography>
                   <Typography fontSize={16} color={"#707070"}>
-                    $2.53
+                    $0.00
                   </Typography>
                 </FlexRow>
                 <FlexRow >
@@ -108,15 +113,23 @@ function ReviewOrder() {
                     Total
                   </Typography>
                   <Typography fontSize={16} color={"#242424"}>
-                    $592.51
+                    ${state.cart.cart.reduce((acc, item)=>{
+                      return acc+item.price*item.qty
+                    },0).toFixed(2)}
                   </Typography>
                 </FlexRow>
               </OrderDetailsBox>
-              <Button text={"Place Order"} />
+              <Button 
+              handleClick={()=>{
+                dispatch(PlaceOrder(history))
+                console.log(state?.order?.initialState?.placeOrder?.isLoading)
+              }}
+              disabled={state?.order?.initialState?.placeOrder?.isLoading} 
+              text={"Place Order"} />
             </FlexCol>
           </FlexRow>
        
      
   );
 }
-export default ReviewOrder;
+export default PlaceOreder;

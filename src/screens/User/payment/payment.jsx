@@ -7,7 +7,7 @@ import {
 } from "../../../Global.style";
 import { OrderSection,Num } from "./order.style";
 import PaymentComponent from './paymentComponent';
-import ReviewOrder from './reviewOrder'
+import PlaceOreder from './placeOrderComponent'
 import { useLocation } from "react-router";
 function Payment() {
   const location = useLocation();
@@ -29,7 +29,7 @@ function Payment() {
             <Num isGray={isShippingPage}>&nbsp; 2 &nbsp;</Num>  Place an Order
             </Typography>
           </FlexRow>
-          {isShippingPage ? <PaymentComponent /> : <ReviewOrder />}
+          {isShippingPage ? <PaymentComponent /> : <PlaceOreder />}
         </OrderSection>
       </IneerSection>
     </SectionRole>

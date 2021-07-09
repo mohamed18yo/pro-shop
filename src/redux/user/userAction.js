@@ -24,8 +24,9 @@ import axios from "axios";
 export const logoutAction = () => {
   return {
     payload: null,
-    type: LOGOUT_SUCCESS,
+    type: LOGOUT_SUCCESS,  
   };
+  
 };
 
 //use redux-thunk

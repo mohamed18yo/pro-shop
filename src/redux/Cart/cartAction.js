@@ -8,18 +8,21 @@ export const AddCartItem=(product,quantity)=>{
         const state= getState();
         console.log(product)
         const isProductExist= state.cart.cart.find((item)=>item._id === product._id)
+        
         if(isProductExist){
-            isProductExist.quantity+=quantity;
+            isProductExist.qty+=quantity;
             const index= state.cart.cart.findIndex((item)=> item._id=== isProductExist._id)
             state.cart.cart[index]= isProductExist;
 
             dispatch({
                 type:INCREASE_COUNT,
                 payload:state.cart.cart
-            })
+            })  
 
         }else{
-            product.quantity= quantity;
+            product.quantity = quantity;
+            product.qty = quantity;
+            product.product = product._id    
             dispatch({
                 type:ADD_ITEM,
                 payload:product
@@ -41,6 +44,8 @@ export const DeleteCartItem=(id)=>{
         localStorage.setItem("cart", JSON.stringify(getState().cart.cart)); 
     }
 }
+
+
 export const addShippingAddress = (values) => {
     localStorage.setItem("shipping", JSON.stringify(values));
   

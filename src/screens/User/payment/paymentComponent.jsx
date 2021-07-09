@@ -32,7 +32,7 @@ export function PaymentComponent() {
             country: state.cart.shippingAddress.country || "",
             city: state.cart.shippingAddress.city || "",
             address: state.cart.shippingAddress.address || "",
-            zipCode: state.cart.shippingAddress.zipCode || "",
+            postalCode: state.cart.shippingAddress.postalCode || "",
             }}
             validationSchema={ShippingSchema()}
             onSubmit={handleSaveShipping}
@@ -49,6 +49,7 @@ export function PaymentComponent() {
                 flexDirection: "row",
               }}
             >
+  {/* Left Box Shipping deatils */}
                 <Lbox>
                     <Typography fontSize={32} color={"#242424"}>
                         Shipping Address
@@ -65,9 +66,9 @@ export function PaymentComponent() {
                         <Typography fontSize={22} color={"#707070"}>
                             Zip Code
                         </Typography>
-                        <Input name={"zipCode"}></Input>
-                        {errors.zipCode && touched.zipCode ? (
-                        <ErrorMsg>{errors.zipCode}</ErrorMsg>
+                        <Input name={"postalCode"}></Input>
+                        {errors.postalCode && touched.postalCode ? (
+                        <ErrorMsg>{errors.postalCode}</ErrorMsg>
                       ) : null}
                         </FlexCol>
                         <FlexCol style={{ height: "197px" }}>
@@ -92,14 +93,14 @@ export function PaymentComponent() {
                     </Typography>
                     <FlexRow style={{ width: "774px", justifyContent: "space-between" }}>
                             <FlexCol style={{ height: "197px" }}>
-                                <Typography fontSize={22} color={"#707070"}>
+                                {/* <Typography fontSize={22} color={"#707070"}>
                                     visa
                                 </Typography>
                                 <Input></Input>
                                 <Typography fontSize={22} color={"#707070"}>
                                     Code
                                 </Typography>
-                                <Input></Input>
+                                <Input></Input> */}
                             </FlexCol>
                                 {/* <FlexCol style={{height: "197px"}}>
                                         <Typography fontSize={22} color={"#707070"}>
@@ -116,7 +117,7 @@ export function PaymentComponent() {
             
          <FlexCol>
 
-        
+{/* Right Side Box "order Details" */}
         <Rbox>
           <FlexRow>
             <Typography fontSize={32} color={"#242424"}>
@@ -127,7 +128,7 @@ export function PaymentComponent() {
             </Typography>
           </FlexRow>
           {state.cart.cart.map((item)=><>
-          <FlexRow style={{ width: "493px", height: "106px" }}>
+          <FlexRow kee={item._id} style={{ width: "493px", height: "106px" }}>
                         <ProductImg src={"https://proshop-ms.herokuapp.com"+item.image} width={135} />
                         <FlexCol style={{ height: "99px" }}>
                           <Typography style={{marginLeft:'1rem'}} fontSize={22} color={"#707070"}>
@@ -135,7 +136,7 @@ export function PaymentComponent() {
                           </Typography>
                           <FlexRow>
                             <Typography style={{marginLeft:'1rem'}} fontSize={22} color={"#707070"}>
-                            ${item.price} ×{item.quantity}
+                            ${item.price} ×{item.qty}
                             </Typography>
                             <Typography fontSize={22} color={"#707070"}>
                             ${item.price}
@@ -155,7 +156,9 @@ export function PaymentComponent() {
               Subtotal
             </Typography>
             <Typography fontSize={16} color={"#707070"}>
-              $589.98
+              ${state.cart.cart.reduce((acc, item)=>{
+                      return acc+item.price*item.qty
+                    },0).toFixed(2)}
             </Typography>
           </FlexRow>
           <FlexRow style={{ width: "477px" }}>
@@ -163,7 +166,7 @@ export function PaymentComponent() {
               Tax
             </Typography>
             <Typography fontSize={16} color={"#707070"}>
-              $2.53
+              $0.00
             </Typography>
           </FlexRow>
           <FlexRow style={{ width: "477px" }}>
@@ -179,7 +182,9 @@ export function PaymentComponent() {
               Total
             </Typography>
             <Typography fontSize={16} color={"#242424"}>
-              $592.51
+              ${state.cart.cart.reduce((acc, item)=>{
+                      return acc+item.price*item.qty
+                    },0).toFixed(2)}
             </Typography>
           </FlexRow>
           

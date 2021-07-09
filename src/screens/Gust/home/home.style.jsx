@@ -11,7 +11,7 @@ export const Container = styled("div")`
   width: 100%;
 `;
 export const SideBox = styled(FlexCol)`
-  width: ${(props) => (props.width ? props.wdith : "40%")};
+  max-width:510px;
   height: 100%;
 `;
 export const FixedRow = styled(FlexRow)`
@@ -20,13 +20,18 @@ export const FixedRow = styled(FlexRow)`
 `;
 export const HeroBox = styled("div")`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-
   width: 100%;
-  height: 678px;
+  min-height: 678px;
+
+  @media screen and (max-width: 1100px) {
+    height: auto;
+    min-height: 590px;
+    flex-direction: column-reverse;
+  }
 `;
 export const HeroTitle = styled("h1")`
   color: #242424;
@@ -56,11 +61,17 @@ export const Arrow = styled(FlexBox)`
   ${(props) => (props.isLeft ? "transform: rotate(-180deg)" : "")}
 `;
 export const FeaturedBox = styled(FlexCol)`
-  height: 483px;
+  min-height: 483px;
   align-items: flex-start;
   justify-content: flex-start;
   margin-top: 2rem;
   width: 100%;
+  /* @media screen and (max-width: 1100px) {
+    height: auto;
+    min-height: 590px;
+    flex-direction: column;
+  } */
+
 `;
 export const Line = styled("hr")`
   width: ${(props) => (props.width ? props.width : "200px")};
@@ -69,28 +80,30 @@ export const Line = styled("hr")`
   
 `;
 export const Cards = styled(FlexRow)`
+  width:100%;
+  justify-content: space-between;
   margin-top: 2rem;
+  flex-wrap: wrap;
 `;
 
 export const ProductsBox = styled(FlexCol)`
-  height: 948px;
   width: 100%;
   align-items: center;
   justify-content: flex-start;
   margin-top: 2rem;
 `;
 export const TopRateBox = styled(ProductsBox)`
-  height: 897px;
+  height: auto;
   align-items: flex-start;
 `;
 
 export const TopSubBox = styled(FlexRow)`
   margin-top:2rem;
-  width: 1640px;
+  max-width: 1640px;
   /* height: 588px; orginal height */
-  height: 640px;
+  height: auto;
   border: 1px solid #fcdd06;
   border-radius: 16px; 
-  
+  flex-wrap: wrap;
 `;
 

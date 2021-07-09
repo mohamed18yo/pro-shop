@@ -11,7 +11,8 @@ export const Card = styled(FlexCol)`
   width: 520px;
   height:${(props)=>props.height?props.height:"655px"};   
   border-radius: 16px;
-  background: #ffffff 0% 0% no-repeat padding-box;   
+  background: #ffffff 0% 0% no-repeat padding-box;  
+  margin:10px 0 50px 0; 
 `;
 export const Box = styled(FlexBox)`
   width: 380px;

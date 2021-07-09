@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { FlexBox, FlexCol} from "../../Global.style";
 export const SectionRole = styled("div")`
   display: flex;
   justify-content: center;
@@ -26,6 +27,20 @@ export const NavBar = styled("div")`
 export const Logo = styled("img")`
   width: 10%;
 `;
+
+export const SearchBox = styled(FlexBox)`
+  width: 40%;
+  min-width: 300px;
+`;
+
+export const IconeBox = styled(FlexBox)`
+  justify-content: flex-end;
+  width:20%;
+  @media screen and (max-width: 1100px) {
+    display: none;
+  }
+`;
+
 export const InputSearch = styled("input")`
   width: 553px;
   height: 40px;
@@ -37,6 +52,15 @@ export const InputSearch = styled("input")`
     outline: none;
   }
 `;
+
+export const ListIcon= styled(FlexBox)`
+  align-items: flex-start;
+  display: none;
+  @media screen and (max-width:1100px){
+    display: flex;
+  }
+`;
+
 export const Button = styled("Button")`
   display: flex;
   align-items: center;
@@ -55,7 +79,7 @@ export const List = styled("ul")`
   display: inherit;
 `;
 export const IconList = styled("li")`
-   cursor: pointer;
+  cursor: pointer;
   display: inline;
   margin-left: 2rem;
   color: #fff;
@@ -84,15 +108,28 @@ export const IconList = styled("li")`
     z-index: 1;
   }
 `;
+export const MinuIcon= styled(IconList)`
+  flex-direction: row;
+  margin: 0;
+  span{
+    left: 33px;
+    top: -16px;
+    margin:0;
+  }
+`
 export const LogoText = styled(Link)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-`;   
+  font-size: 40px;
+  @media screen and (max-width:700px){
+    font-size:25px;
+  }
+`;
 
-export const Icon= styled(Link)`
+export const Icon = styled(Link)`
   display: flex;
   text-decoration: none;
   justify-content: center;
@@ -117,5 +154,23 @@ export const Icon= styled(Link)`
     top: 10px;
     z-index: 1;
   }
-
 `;
+export const Minu= styled(FlexCol)`
+    width:100vw;
+    height:100vh;
+    background: #FCDD06;
+    position: fixed;
+    z-index: 1;
+    justify-content: flex-start;
+    align-items: center;
+    color: #000;
+    animation: ease-in-out menu 500ms;
+  @keyframes menu {
+    0% {
+      top: 100vh;
+    }
+    100% {
+      top: 0px;
+    }
+  }
+`

@@ -11,7 +11,7 @@ import {
   Dot,
   
 } from "./home.style";
-import { Typography, FlexRow } from "../../../Global.style";
+import { Typography } from "../../../Global.style";
 import Button from "../../../components/button/button";
 import { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
@@ -55,26 +55,25 @@ function HeroSection({products}) {
           index={index}
           onChangeIndex={handleChangeIndex}
         > 
-        {products.map((items)=> <HeroBox key={items._id}> 
-          <FlexRow>
-            <SideBox>
+        {products.map((items)=> <HeroBox  key={items._id}> 
+            <SideBox style={{minWidth:'500px'}} >
               <Typography fontSize={32} color={"#242424"}>
                 Save up to $ {items.price}
               </Typography>
               <HeroTitle>{items.name}</HeroTitle>
-              <Typography fontSize={32} color={"#242424"}>
+              {/* <Typography fontSize={32} color={"#242424"}>
                 {items.description}
-              </Typography>
+              </Typography> */}
               <Button
                 radius={"20px"}
                 style={{ marginTop: 42, height: 52 }}
                 text={"SHOP NOW"}
+                link={`/product/${items._id}/${items.name}`}
               />
             </SideBox>
-            <SideBox width={"30%"}>
+            <SideBox style={{minWidth:'507px'}}>
               <ProductImg src={"https://proshop-ms.herokuapp.com/"+ items.image} width={"507px"} />
             </SideBox>
-          </FlexRow>
         </HeroBox>
          )} 
         </SwipeableViews>

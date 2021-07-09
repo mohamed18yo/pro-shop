@@ -3,14 +3,13 @@ import {
   ProductImg,
   IneerSection,
   SectionRole,
-  Container
 } from "../../../Global.style";
 import { EmptyBox } from "./cart.style";
 import RecentlyViewed from "../../Gust/home/recentlyViewed";
 
 function EmptyCart() {
   return (
-    <Container>
+    <>
       <SectionRole>
         <IneerSection>
           <EmptyBox>
@@ -22,7 +21,7 @@ function EmptyCart() {
         </IneerSection>
       </SectionRole>
       <RecentlyViewed />
-    </Container>
+    </>
   );
 }
 export default EmptyCart;

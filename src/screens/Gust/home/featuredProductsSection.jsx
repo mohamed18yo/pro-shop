@@ -38,11 +38,9 @@ const styles = {
 function FeaturedProductsSection({products}) {
   const [index, setIndex] = useState(0);
   const handleChangeIndex = () => {};
-
+// get screen width 
     const chunkSize = window.innerWidth > 1100 ? 3 : window.innerWidth > 800 ? 2 : 1;
-
-  //  const configArr=   async (products)=>{
-   
+// constract array slider
      const arr=[...products]
       const productArray=[] 
 
@@ -50,14 +48,6 @@ function FeaturedProductsSection({products}) {
               productArray.push(arr.splice(0, chunkSize))
               
             }
-            console.log(productArray)
-    
-        
-  //           return productArray
-  //     }
-  //     const arr= configArr(products)  
-  //     console.log(products)
-
   return (
     <SectionRole color={"#F7F8FC"}>
       <IneerSection>
