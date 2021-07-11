@@ -8,6 +8,9 @@ import {
     GET_PRODUCT_FAILED,
     GET_PRODUCT_START,
     GET_PRODUCT_SUCCESS,
+    SEARCH_START,
+    SEARCH_SUCCESS,
+    SEARCH_FAILED,
   } from "./gustTypeConstent";
   
   export const gustReducer = (
@@ -18,7 +21,8 @@ import {
       product: {
         product: {},
         isLoading: false,
-      }
+      },
+      searchResult:[]
     },
     action
   ) => {
@@ -85,6 +89,24 @@ import {
           },
           error: action.payload,
         };
+/** Search Cases*/
+case SEARCH_START:
+  return {
+    ...initialState,
+    isLoading: true,
+  };
+case SEARCH_SUCCESS:
+  return {
+    ...initialState,
+    isLoading: false,
+    searchResult: action.payload,
+  };
+case SEARCH_FAILED:
+  return {
+    ...initialState,
+    isLoading: false,
+    error: action.payload,
+  };
 
       default:
         return initialState;

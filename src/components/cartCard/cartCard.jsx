@@ -11,8 +11,9 @@ function CartCard(props) {
 
   return (
     <SecCard>
-      <ProductImg width={250} src={props.src} />
+      <ProductImg width={'26%'} src={props.src} />
       <Typography
+        style={{width:"25%"}}
         color={"#242424"}
         as={Link}
         to={`/product/${props.product._id}/${props.product.name}` }

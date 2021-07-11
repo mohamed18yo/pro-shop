@@ -11,7 +11,7 @@ function CategoriesSection() {
         <FeaturedBox>
           <Typography fontSize={32}>Featured Categories</Typography>
           <Line color={"#FCDD06"} height={"7px"}></Line>
-          <Line color={"#707070"} height={"1px"} width={"1440px"}></Line>
+          <Line color={"#707070"} height={"1px"} width={"90%"}></Line>
           <Cards>
             <CategoriesCard src={"/labtop.png"} title={"Labtop"} />
             <CategoriesCard src={"/labtop.png"} title={"Labtop"} />

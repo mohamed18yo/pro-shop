@@ -14,6 +14,7 @@ import { UPDATE_FIALD } from "./userTypeConstats";
 import { UPDATE_SUCCESS } from "./userTypeConstats";
 
 import axios from "axios";
+import { URL_API } from "../../api";
 
 // export const loginAction = (userData) => {
 //   return {
@@ -37,7 +38,7 @@ export const LoginAction = (value, history) => {
     });
 
     try {
-      const res = await axios.post("/users/login", value);
+      const res = await axios.post(`${URL_API}/users/login`, value);
       dispatch({
         payload: res.data,
         type: LOGIN_SUCCESS,
@@ -61,8 +62,7 @@ export const RegisterAction = (values, history) => {
       type: REGISTER_START,
     });
     try {
-      const res = await axios.post("/users", values);
-      console.log(res);
+      const res = await axios.post(`${URL_API}/users`, values);
       // Set user to localStorage
       localStorage.setItem("user", JSON.stringify(res.data));
       dispatch({
@@ -94,13 +94,12 @@ export const GetUserDataForUpdateProfile = () => {
       },
     } = state;
     try {
-      const res = await axios.get("/users/profile", {
+      const res = await axios.get(`${URL_API}/users/profile`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log("response:", res);
       dispatch({
         type: GET_USER_SUCCESS,
         payload: res.data,
@@ -127,14 +126,13 @@ export const UpdateProfileAction = (values,history) => {
       },
     } = state;
     try {
-      const res =await axios.put("/users/profile", values,{
+      const res =await axios.put(`${URL_API}/users/profile`, values,{
       headers:{
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       }});
        // Set user to localStorage
        
-       console.log(JSON.stringify(res.data))
       localStorage.setItem("user", JSON.stringify(res.data));
 
       dispatch({
@@ -143,7 +141,6 @@ export const UpdateProfileAction = (values,history) => {
       });
       history.push("/profile");
       
-      console.log(res.data)
 
       
     } catch (e) {

@@ -12,6 +12,7 @@ export const Container = styled("div")`
 `;
 export const SideBox = styled(FlexCol)`
   max-width:510px;
+  min-width:507px;
   height: 100%;
 `;
 export const FixedRow = styled(FlexRow)`
@@ -50,7 +51,11 @@ export const Dot = styled("div")`
   cursor: pointer;
   background: ${(props) => (props.isGray ? "#70707030" : "#FCDD06")};
 `;
-
+export const SliderImage= styled(ProductImg)`
+border-radius: 10px;
+ margin-top:2rem; 
+ margin-bottom:1rem;
+`
 export const Arrow = styled(FlexBox)`
   font-size: 35px;
   margin: 0 23px;
@@ -82,8 +87,13 @@ export const Line = styled("hr")`
 export const Cards = styled(FlexRow)`
   width:100%;
   justify-content: space-between;
+  align-items: center;
   margin-top: 2rem;
   flex-wrap: wrap;
+
+  @media screen and (min-width: 650px) {
+    justify-content: center;
+  }
 `;
 
 export const ProductsBox = styled(FlexCol)`
@@ -106,4 +116,9 @@ export const TopSubBox = styled(FlexRow)`
   border-radius: 16px; 
   flex-wrap: wrap;
 `;
+export const BoxResult= styled(FlexRow)`
+  width:100%;
+  flex-wrap: wrap;
+  margin-top:4rem;
 
+`

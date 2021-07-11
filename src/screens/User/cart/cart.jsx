@@ -1,21 +1,26 @@
+import { useSelector, useDispatch } from "react-redux";
 import { IneerSection, SectionRole } from "../../../components/nav/Nav.Style";
 
 import CartCard from "../../../components/cartCard/cartCard";
 import Button from "../../../components/button/button";
-import { FlexCol } from "../../../Global.style";
-import { CartBox, RightBox,EmptyBox } from "./cart.style";
+import { CartBox,ItemBox, RightBox,EmptyBox } from "./cart.style";
 
 import { Typography, Line,ProductImg } from "../../../Global.style";
-import { useSelector, useDispatch } from "react-redux";
 import { DeleteCartItem } from "../../../redux/Cart/cartAction";
+import Meta from "../../../components/meta/meta";
 function Cart() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const isEmpty= state.cart.cart.length > 0
-  return isEmpty? (<SectionRole>
+  return<>
+  <Meta
+        title={'ProShop-Cart'}
+        description={"ProShop-Cart"}
+      />
+   {isEmpty? (<SectionRole>
         <IneerSection>
           <CartBox>
-            <FlexCol>
+            <ItemBox>
               {state.cart.cart.map((item) => (
                 <CartCard
                   src={"https://proshop-ms.herokuapp.com/" + item.image}
@@ -25,11 +30,10 @@ function Cart() {
                   count={item.qty}
                   deleteFunction={() => {
                     dispatch(DeleteCartItem(item._id));
-                    console.log("item deleted");
                   }}
                 ></CartCard>
               ))}
-            </FlexCol>
+            </ItemBox>
             <RightBox>
               <Typography color={"#242424"} fontSize={32}>
                 Subtotal ({state.cart.cart.length}) items
@@ -43,10 +47,10 @@ function Cart() {
                   }, 0)
                   .toFixed(2)}
               </Typography>
-              <Line width={384} color={"#cbcbcb"} />
+              <Line width={'100%'} color={"#cbcbcb"} />
               <Button
                 link={"/proceed-checkout/shipping-address"}
-                width={"324px"}
+                width={"100%"}
                 text={"Proceed to checkout"}
               />
             </RightBox>
@@ -65,7 +69,7 @@ function Cart() {
                         </SectionRole>
                         
                       </>
-      );
-    
+      )};
+    </>
 }
 export default Cart;

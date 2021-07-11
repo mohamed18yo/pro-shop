@@ -5,55 +5,29 @@ import {
   ImgBox,
   ErrorMsg,
   FormBox,
-} from "./login.style";
+} from "../auth.style";
 import {
   SectionRole,
   Typography,
   ProductImg,
   PrivetButton,
-  IneerSection,
+  IneerSection,   
   Line,
 } from "../../../../Global.style";
 import Button from "../../../../components/button/button";
 import { Link } from "react-router-dom";
 import { Formik, Form } from "formik";
 import { LoginSchema } from "../../../../validationSchema";
-// import axios from "axios";
 import { useDispatch,useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import {LoginAction} from "../../../../redux/user/userAction";
-// import {useState} from 'react'
 function Login() {
-  // const [err, setErr]= useState('')
-  // const [isLoading, setisLoading]= useState(false)
+
   const state = useSelector((state) => state);
   const isLoading= state.userDetailes.isLoading;
-  const error= state.userDetailes.error;
-
-  console.log("error state", error);
- 
+  const error= state.userDetailes.error; 
   const history = useHistory();
   const dispatch = useDispatch();
-  // const isLoading = state.userDetails.isLoading;
-  // const isLoading= state.userDetails.isLoading
-  // const LoginPost = async (values) => {
-  //   setErr("");
-  //   setisLoading(true)
-  //   try {
-  //     const res = await axios.post("/users/login", values);
-  //     console.log(res);
-
-  //     dispatch(loginAction(res.data));
-  //       // Set user to localStorage
-  //       localStorage.setItem("user", JSON.stringify(res.data));
-        
-  //       history.push("/");
-  //   } catch (e) {
-  //     dispatch(loginAction());
-  //     setErr(e.response.data.message)
-  //   }
-  // };
-
   const SubmitForm= async (values)=>{
     dispatch(LoginAction(values,history));
     
@@ -152,7 +126,7 @@ function Login() {
             </CBox>
           </FormBox>
           <ImgBox>
-            <ProductImg width={757} src={"/loginImg.png"} />
+            <ProductImg width={"75%"} src={"/loginImg.png"} />
           </ImgBox>
         </LoginSection>
       </IneerSection>

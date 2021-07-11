@@ -19,12 +19,12 @@ import PersonIcon from "@material-ui/icons/Person";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutAction } from "../../redux/user/userAction";
 import { MenuOutlined } from "@material-ui/icons";
 import { useState } from "react";
-// import { useHistory } from "react-router";
+import { SearchAction } from "../../redux/Gust/gustAction";
 
 const Style = {
   fontSize: 25,
@@ -43,7 +43,7 @@ function Nav() {
   const dispatch = useDispatch();
   // const history= useHistory()
   const User = useSelector((state) => state);
-  console.log("profile state", User.userDetailes.user._id);
+  const history= useHistory()
   const Logout = () => {
     dispatch(logoutAction());
   };
@@ -106,7 +106,7 @@ function Nav() {
                 <Typography color={"#fff"}>Shop</Typography>
               </LogoText>
               <SearchBox>
-                <InputSearch></InputSearch>
+                <InputSearch onChange={(event)=>{ dispatch(SearchAction(event.target.value,history))}}></InputSearch>
                 <Button>
                   <SearchIcon></SearchIcon> Search
                 </Button>

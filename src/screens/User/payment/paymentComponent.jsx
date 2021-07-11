@@ -18,7 +18,7 @@ export function PaymentComponent() {
     const dispatch = useDispatch();
     const history = useHistory();
     const state = useSelector((state) => state);
-  
+    const shippingAddress=state.cart.shippingAddress; 
     const handleSaveShipping = (value) => {
        
         dispatch(addShippingAddress(value));
@@ -29,10 +29,10 @@ export function PaymentComponent() {
       <FlexRow style={{alignItems: "flex-start"}}>
       <Formik
             initialValues={{
-            country: state.cart.shippingAddress.country || "",
-            city: state.cart.shippingAddress.city || "",
-            address: state.cart.shippingAddress.address || "",
-            postalCode: state.cart.shippingAddress.postalCode || "",
+            country: shippingAddress.country || "",
+            city: shippingAddress.city || "",
+            address: shippingAddress.address || "",
+            postalCode: shippingAddress.postalCode || "",
             }}
             validationSchema={ShippingSchema()}
             onSubmit={handleSaveShipping}

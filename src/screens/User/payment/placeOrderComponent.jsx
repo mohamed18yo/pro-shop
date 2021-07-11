@@ -122,7 +122,6 @@ function PlaceOreder() {
               <Button 
               handleClick={()=>{
                 dispatch(PlaceOrder(history))
-                console.log(state?.order?.initialState?.placeOrder?.isLoading)
               }}
               disabled={state?.order?.initialState?.placeOrder?.isLoading} 
               text={"Place Order"} />

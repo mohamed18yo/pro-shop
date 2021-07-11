@@ -44,17 +44,18 @@ function FeaturedProductsSection({products}) {
      const arr=[...products]
       const productArray=[] 
 
-            for (let index = 0; index < arr.length; index++) {
-              productArray.push(arr.splice(0, chunkSize))
-              
-            }
+      for (let index = 0; index < arr.length; index++) {
+        productArray.push(arr.splice(0, chunkSize))
+        
+      }
+        
   return (
     <SectionRole color={"#F7F8FC"}>
       <IneerSection>
         <ProductsBox>
           <Typography fontSize={32}>Featured Categories</Typography>
           <Line style={{ marginTop: 25}} color={"#FCDD06"} height={"7px"}></Line>
-          <Line color={"#a0a0a0"} height={"1px"} width={"1640px"}></Line>
+          <Line color={"#a0a0a0"} height={"1px"} width={"100%"}></Line>
           <SwipeableViews
               style={Object.assign({}, styles.root, styles.root)}
               index={index}

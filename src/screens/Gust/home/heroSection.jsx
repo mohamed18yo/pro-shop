@@ -4,7 +4,7 @@ import {
   HeroBox,
   FixedIneerSection,
   HeroTitle,
-  ProductImg,
+  SliderImage,
   SideBox,
   FixedRow,
   Arrow,
@@ -71,8 +71,8 @@ function HeroSection({products}) {
                 link={`/product/${items._id}/${items.name}`}
               />
             </SideBox>
-            <SideBox style={{minWidth:'507px'}}>
-              <ProductImg src={"https://proshop-ms.herokuapp.com/"+ items.image} width={"507px"} />
+            <SideBox>
+              <SliderImage src={"https://proshop-ms.herokuapp.com/"+ items.image} width={"507px"} />
             </SideBox>
         </HeroBox>
          )} 
@@ -91,24 +91,17 @@ function HeroSection({products}) {
           >
             &#10095;
           </Arrow>
-          <Dot
-            onClick={() => {
-              setIndex(0);
-            }}
-            isGray={index !== 0}
-          />
-          <Dot
-            onClick={() => {
-              setIndex(1);
-            }}
-            isGray={index !== 1}
-          />
-          <Dot
-            onClick={() => {
-              setIndex(2);
-            }}
-            isGray={index !== 2}
-          />
+          {products.map((el, i) => 
+              <Dot
+              onClick={() => {
+                setIndex(i);
+              }}
+              isGray={index !== i}
+            />
+            
+          )}
+          
+          
           <Arrow
             onClick={() => {
               if(index===2){

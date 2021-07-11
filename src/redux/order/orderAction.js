@@ -8,6 +8,7 @@ import {
   GET_ORDERS_SUCCESS,
   GET_ORDERS_FAILED,
 } from "./orderTypeConstent";
+import { URL_API } from "../../api";
 
 export const PlaceOrder = (history) => {
   return async (dispatch, getState) => {
@@ -16,7 +17,6 @@ export const PlaceOrder = (history) => {
         type: PLACE_ORDER_START,
       });
       const state = getState();
-      console.log("state product", state.cart.cart);
       const requestDate = {
         orderItems: state.cart.cart,
         shippingAddress: state.cart.shippingAddress,
@@ -33,8 +33,7 @@ export const PlaceOrder = (history) => {
         },
       };
 
-      const res = await axios.post("/orders", requestDate, config);
-      console.log("response: ", res);
+      const res = await axios.post(`${URL_API}/orders`, requestDate, config);
 
       dispatch({
         type: PLACE_ORDER_SUCCESS,
@@ -66,8 +65,7 @@ export const GetOrders = () => {
           Authorization: `Bearer ${state.userDetailes.user.token}`,
         },
       };
-      const res = await axios.get("/orders/myorders", config);
-      console.log(res);
+      const res = await axios.get(`${URL_API}/orders/myorders`, config);
       dispatch({
         type: GET_ORDERS_SUCCESS,
         payload: res.data,

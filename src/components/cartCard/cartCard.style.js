@@ -4,11 +4,15 @@ import { FlexRow } from "../../Global.style";
 export const SecCard = styled(FlexRow)`
   position: relative;
   justify-content: space-around;
-  width: 1226px;
+  width: 100%;
   height: 242px;
   background: #f2f2f2 0% 0% no-repeat padding-box;
   border-radius: 16px;
   margin-bottom: 2rem;
+
+  @media screen and (max-width:700px){
+    font-size:22px;
+  }
 `;
 
 export const Cancel = styled("span")`
@@ -21,7 +25,7 @@ export const Cancel = styled("span")`
 export const Counter = styled(FlexRow)`
   padding:1rem;
   background: #fff;
-  width: 204px;
+  width: 20%;
   height: 40px;
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;

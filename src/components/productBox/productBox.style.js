@@ -13,6 +13,7 @@ export const Card = styled(FlexCol)`
   border-radius: 16px;
   background: #ffffff 0% 0% no-repeat padding-box;  
   margin:10px 0 50px 0; 
+  box-shadow: 0px 2px 20px #08091e1a;
 `;
 export const Box = styled(FlexBox)`
   width: 380px;

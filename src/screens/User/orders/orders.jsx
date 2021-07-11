@@ -11,7 +11,6 @@ import {RowCell} from './orders.style'
      useEffect(()=>{
         dispatch(GetOrders())
      },[dispatch])
-     console.log(state.order.userOrders)
 
     return  state.order?.userOrders?.isLoading?(<SpinnerContainer />): state.order?.userOrders?.error?
        ( <ErrorMsg>error</ErrorMsg>) :(

@@ -27,6 +27,7 @@ function Home() {
   // const logPro=()=>{
   //   console.log(product)
   // }
+  
   useEffect(()=>{  
     // fetchDta()
     dispatch(GetSliderProducts())

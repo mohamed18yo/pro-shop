@@ -1,7 +1,6 @@
-import { IneerSection, SectionRole } from "../../../components/nav/Nav.Style";
 
 import { TopRateBox, Line, TopSubBox } from "./home.style";
-import { Typography} from "../../../Global.style";
+import { Typography,IneerSection, SectionRole} from "../../../Global.style";
 import ProductBox from "../../../components/productBox/productBox";
 
 function TopRatSection({products}) {
@@ -11,7 +10,7 @@ function TopRatSection({products}) {
         <TopRateBox>
           <Typography fontSize={32}>TOP RATE PRODUCTS</Typography>
           <Line color={"#FCDD06"} height={"7px"}></Line>
-          <Line color={"#707070"} height={"1px"} width={"1640px"}></Line>
+          <Line color={"#707070"} height={"1px"} width={"100%"}></Line>
 
           <TopSubBox>
             {products.map((item)=><ProductBox

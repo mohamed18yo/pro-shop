@@ -6,7 +6,6 @@ import {INCREASE_COUNT,ADD_ITEM,ADD_SHIPPING_ADDRESS,DELETE_CART_ITEM}from './ca
 export const AddCartItem=(product,quantity)=>{
     return (dispatch, getState)=>{
         const state= getState();
-        console.log(product)
         const isProductExist= state.cart.cart.find((item)=>item._id === product._id)
         
         if(isProductExist){

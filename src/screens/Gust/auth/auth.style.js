@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-import { FlexRow, FlexCol } from "../../../../Global.style";
+
+import { FlexRow, FlexCol } from "../../../Global.style";
 
 import { Field } from "formik";
 
 export const LoginSection = styled(FlexRow)`
   height: 709px;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin-top: 2rem;
 `;
 export const FormBox = styled(FlexCol)`
@@ -15,7 +16,11 @@ export const FormBox = styled(FlexCol)`
 `;
 
 export const ImgBox = styled(FlexCol)`
-  margin-left: 147px;
+     width: 60%;
+
+     @media screen and (max-width:1000px){
+       display: none;
+     }
 `;
 export const Input = styled(Field)`
   width: 398px;
@@ -41,3 +46,9 @@ export const ErrorMsg = styled("span")`
   align-items: start;
   font-size: 17px;
 `;
+export const SignupSection= styled(FlexRow)`
+    height:787;
+    justify-content: space-between;
+    margin-top:2rem;
+`
+
