@@ -14,22 +14,8 @@ function Home() {
   const state = useSelector((state) => state);
   const isLoading= state.gustState.isLoading;
 
-  // const [products, setProducts]= useState([])
-  // const fetchDta= async function(){
-  //   try{
-  //     const res= await axios.get('products/top')
-  //   setProducts(res.data)  
-  //   }catch(e){
-  //     console.log(e);
-  //   }
-    
-  // }
-  // const logPro=()=>{
-  //   console.log(product)
-  // }
-  
   useEffect(()=>{  
-    // fetchDta()
+  
     dispatch(GetSliderProducts())
     dispatch(getFeaturedProducts())
     
