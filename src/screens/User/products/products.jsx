@@ -12,13 +12,15 @@ import Meta from '../../../components/meta/meta';
 
 function ProductPage() {
     const dispatch = useDispatch();
-  const state = useSelector((state) => state);
-  const params = useParams();
-  
+    const state = useSelector((state) => state);
+    const params = useParams();
+  console.log(state)
   useEffect(() => {  
     dispatch(GetProductById(params.id));
     dispatch(getFeaturedProducts())
   }, [dispatch, params.id]);
+
+
     return <>
      <Meta
         title={state.gustState.product?.product?.name}

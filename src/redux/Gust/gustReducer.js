@@ -1,17 +1,22 @@
 import {
-    GET_FEATURED_PRODUCTS_FAILED,
-    GET_FEATURED_PRODUCTS_START,
-    GET_FEATURED_PRODUCTS_SUCCESS,
-    GET_SLIDER_IMAGES_FAILED,
-    GET_SLIDER_IMAGES_START,
-    GET_SLIDER_IMAGES_SUCCESS,
-    GET_PRODUCT_FAILED,
-    GET_PRODUCT_START,
-    GET_PRODUCT_SUCCESS,
-    SEARCH_START,
-    SEARCH_SUCCESS,
-    SEARCH_FAILED,
-  } from "./gustTypeConstent";
+  GET_FEATURED_PRODUCTS_START,
+  GET_FEATURED_PRODUCTS_SUCCESS,
+  GET_FEATURED_PRODUCTS_FAILED,
+  GET_PRODUCT_START,
+  GET_PRODUCT_SUCCESS,
+  GET_PRODUCT_FAILED,
+  GET_SLIDER_IMAGES_START,
+  GET_SLIDER_IMAGES_SUCCESS,
+  GET_SLIDER_IMAGES_FAILED,
+  SEARCH_START,
+  SEARCH_SUCCESS,
+  SEARCH_FAILED,
+  ADD_REVIEW_START,
+  ADD_REVIEW_SUCCESS ,
+  ADD_REVIEW_FIALD,
+  ADD_REVIEW_RESET,
+  UPDATE_REVIEW_SUCCESS
+} from "./gustTypeConstent";
   
   export const gustReducer = (
     initialState = {
@@ -21,6 +26,11 @@ import {
       product: {
         product: {},
         isLoading: false,
+      },
+      addingReview: {
+        success: false,
+        isLoading: false,
+        error: "",
       },
       searchResult:[]
     },
@@ -89,24 +99,72 @@ import {
           },
           error: action.payload,
         };
-/** Search Cases*/
-case SEARCH_START:
-  return {
-    ...initialState,
-    isLoading: true,
-  };
-case SEARCH_SUCCESS:
-  return {
-    ...initialState,
-    isLoading: false,
-    searchResult: action.payload,
-  };
-case SEARCH_FAILED:
-  return {
-    ...initialState,
-    isLoading: false,
-    error: action.payload,
-  };
+
+        
+      /** Search Cases*/
+      case SEARCH_START:
+        return {
+          ...initialState,
+          isLoading: true,
+        };
+      case SEARCH_SUCCESS:
+        return {
+          ...initialState,
+          isLoading: false,
+          searchResult: action.payload,
+        };
+      case SEARCH_FAILED:
+        return {
+          ...initialState,
+          isLoading: false,
+          error: action.payload,
+        };
+      
+      /** Add review  */
+    case ADD_REVIEW_START:
+      return {
+        ...initialState,
+        addingReview: {
+          isLoading: true,
+        },
+      };
+    case ADD_REVIEW_SUCCESS:
+      return{
+        ...initialState,
+        addingReview: {
+          isLoading: false,
+          success: action.payload,
+        },
+      };
+
+    case UPDATE_REVIEW_SUCCESS:
+      return{
+        ...initialState,
+        product:{
+          product:{
+            ...initialState.product.product,
+            reviews: [action.payload, ...initialState.product.product.reviews],
+            isLoadin:false
+          }
+        }
+      }
+    case ADD_REVIEW_FIALD:
+      return{
+        ...initialState,
+        addingReview: {
+          error: action.payload,
+          isLoading: false,
+        },
+      }
+      case ADD_REVIEW_RESET:
+        return {
+          ...initialState,
+          addingReview: {
+            error: "",
+            isLoading: false,
+            success:false
+          },
+        };
 
       default:
         return initialState;

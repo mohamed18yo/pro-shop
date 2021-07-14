@@ -1,17 +1,13 @@
-import { LOGIN_SUCCESS } from "./userTypeConstats";
-import { LOGOUT_SUCCESS } from "./userTypeConstats";
-import { LOGIN_START } from "./userTypeConstats";
-import { LOGIN_FIALD } from "./userTypeConstats";
-import { REGISTER_START } from "./userTypeConstats";
-import { REGISTER_FIALD } from "./userTypeConstats";
-import { REGISTER_SUCCESS } from "./userTypeConstats";
 
-import { GET_USER_START } from "./userTypeConstats";
-import { GET_USER_FIALD } from "./userTypeConstats";
-import { GET_USER_SUCCESS } from "./userTypeConstats";
-import { UPDATE_START } from "./userTypeConstats";
-import { UPDATE_FIALD } from "./userTypeConstats";
-import { UPDATE_SUCCESS } from "./userTypeConstats";
+
+
+
+import {LOGIN_START ,LOGIN_SUCCESS, LOGIN_FIALD,
+        UPDATE_SUCCESS,UPDATE_FIALD,
+        REGISTER_START ,REGISTER_SUCCESS,REGISTER_FIALD, 
+        GET_USER_START, GET_USER_SUCCESS,GET_USER_FIALD,
+        LOGOUT_SUCCESS,UPDATE_START
+      } from "./userTypeConstats";
 
 import axios from "axios";
 import { URL_API } from "../../api";
@@ -23,15 +19,15 @@ import { URL_API } from "../../api";
 //   };
 // };
 export const logoutAction = () => {
+  localStorage.removeItem("user");
   return {
     payload: null,
-    type: LOGOUT_SUCCESS,  
+    type: LOGOUT_SUCCESS,
   };
-  
 };
 
 //use redux-thunk
-export const LoginAction = (value, history) => {
+export const LoginAction = (value, history, pathname) => {
   return async (dispatch) => {
     dispatch({
       type: LOGIN_START,
@@ -46,7 +42,7 @@ export const LoginAction = (value, history) => {
       // Set user to localStorage
       localStorage.setItem("user", JSON.stringify(res.data));
 
-      history.push("/");
+      history.push(pathname ? pathname : "/");
     } catch (e) {
       dispatch({
         payload: e.response.data.message,
@@ -114,8 +110,8 @@ export const GetUserDataForUpdateProfile = () => {
 };
 
 /** Update profile Action */
-export const UpdateProfileAction = (values,history) => {
-  return async (dispatch,getState) => {
+export const UpdateProfileAction = (values, history) => {
+  return async (dispatch, getState) => {
     dispatch({
       type: UPDATE_START,
     });
@@ -126,13 +122,13 @@ export const UpdateProfileAction = (values,history) => {
       },
     } = state;
     try {
-      const res =await axios.put(`${URL_API}/users/profile`, values,{
-      headers:{
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      }});
-       // Set user to localStorage
-       
+      const res = await axios.put(`${URL_API}/users/profile`, values, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      // Set user to localStorage
       localStorage.setItem("user", JSON.stringify(res.data));
 
       dispatch({
@@ -140,16 +136,14 @@ export const UpdateProfileAction = (values,history) => {
         payload: res.data,
       });
       history.push("/profile");
-      
-
-      
     } catch (e) {
       dispatch({
         type: UPDATE_FIALD,
-        payload: e?.res?.message,   
+        payload: e?.res?.message,
       });
     }
   };
 };
+
 
 // export default loginAction;

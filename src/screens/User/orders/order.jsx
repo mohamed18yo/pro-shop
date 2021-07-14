@@ -16,7 +16,7 @@ import {
     PaymetnBox,
   } from "../payment/order.style";
   import { useSelector } from "react-redux";
- 
+  import { PayPalButton } from "react-paypal-button-v2";
  function Order(){
     const state= useSelector((state)=>state)
 
@@ -121,6 +121,24 @@ import {
                   },0).toFixed(2)}
                 </Typography>
               </FlexRow>
+              <PayPalButton
+                  amount="0.01"
+                  // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+                  onSuccess={(details, data) => {
+                    alert("Transaction completed by " + details.payer.name.given_name);
+
+                    // OPTIONAL: Call your server to save the transaction
+                    return fetch("/paypal-transaction-complete", {
+                      method: "post",
+                      body: JSON.stringify({
+                        orderId: data.orderID
+                      })
+                    });
+                  }}
+                  options={{
+                    clientId: "ATx8Na-9swFrVwvoIGlZWfw7-CJoXi4QaatMLp7pMMv0y8fEu49zwf6AYBnmdNLxS3G7i2gAhx5g4l0K"
+                  }}
+              />
             </OrderDetailsBox>
           </FlexCol>
         </FlexRow>

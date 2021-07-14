@@ -11,6 +11,11 @@ import {
   SEARCH_START,
   SEARCH_SUCCESS,
   SEARCH_FAILED,
+  ADD_REVIEW_START,
+  ADD_REVIEW_SUCCESS ,
+  ADD_REVIEW_FIALD,
+  UPDATE_REVIEW_SUCCESS,
+  ADD_REVIEW_RESET
 } from "./gustTypeConstent";
 import axios from "axios";
 import { URL_API } from "../../api";
@@ -101,3 +106,60 @@ export function SearchAction(word, history) {
     }
   };
 }
+
+
+/**Add review  */
+
+export const AddReviewAction = (values, id) => {
+
+  return async (dispatch,getState) => {
+
+    dispatch({
+      type: ADD_REVIEW_START,
+    });
+    const state = getState();
+
+    const {
+      userDetailes: {
+        user: { token },
+      },
+    } = state;
+    const {
+      userDetailes: {
+        user: { name },
+      },
+    } = state;
+    const pyl ={
+        comment: values.comment,
+        rating: values.rating,
+        createdAt: new Date().toString(),
+        name: name
+      }
+    try {
+      const res = await axios.post(`${URL_API}/products/${id}/reviews`,
+      values,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log('res',res.data.message)
+      dispatch({
+        type:ADD_REVIEW_SUCCESS,
+        payload:res.data.message
+      })
+      dispatch({
+        type: UPDATE_REVIEW_SUCCESS,
+        payload:pyl
+      })
+     
+    } catch (e) {
+      console.log('err res',e?.response?.data?.message)
+      dispatch({
+        type:ADD_REVIEW_FIALD,
+        payload:e?.response?.data?.message
+      })
+    }
+  };
+};

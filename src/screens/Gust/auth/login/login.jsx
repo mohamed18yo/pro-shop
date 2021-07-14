@@ -21,15 +21,19 @@ import { LoginSchema } from "../../../../validationSchema";
 import { useDispatch,useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import {LoginAction} from "../../../../redux/user/userAction";
+import { useLocationWithQuery } from "react-router-query-hooks";
 function Login() {
-
+  const locationQuery = useLocationWithQuery();
+  const {
+    query: { pathname, review, rating },
+  } = locationQuery;
   const state = useSelector((state) => state);
   const isLoading= state.userDetailes.isLoading;
   const error= state.userDetailes.error; 
   const history = useHistory();
   const dispatch = useDispatch();
   const SubmitForm= async (values)=>{
-    dispatch(LoginAction(values,history));
+    dispatch(LoginAction(values,history,pathname ? `${pathname}?review=${review}&rating=${rating}` : ""));
     
   }
   return (

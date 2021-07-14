@@ -4,6 +4,7 @@ import {Typography} from '../../../Global.style'
 import Button from '../../../components/button/button'
 import './style.css'
 import { useSelector } from 'react-redux'
+import {Link} from 'react-router-dom';
 // import { Link } from 'react-router-dom'
 function Profile(){
   const state= useSelector((state)=>state)
@@ -15,7 +16,7 @@ function Profile(){
         <div className="left-side">
             <div className="up-side"><div className="img-profile"><img src="/profile.png" alt="img profile" /></div>  <Typography fontSize={32} color="#000">{state.userDetailes.user.name}</Typography> </div>
             <div className="down-side">
-            <Typography fontSize={24} color="#242424">My Orders</Typography>
+            <Typography as={Link} to={'/orders'} fontSize={24} color="#242424">My Orders</Typography>
             <Typography fontSize={24} color="#242424">Wishlist</Typography>
             <Typography fontSize={24} color="#242424">Notifcations</Typography>
             <Typography fontSize={24} color="#242424">Settings</Typography>

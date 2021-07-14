@@ -9,7 +9,7 @@ function GustRouter (){
     return [
         <Route exact={true} path={"/"} component={Home} />,
         <Route exact={true} path={"/search-result"} component={SearchPage} />,
-        <Route  path={"/product/:id/:name"} component={ProductPage} />
+        <Route  path={"/product/:id"} component={ProductPage} />
     ]
 }
 export default GustRouter
