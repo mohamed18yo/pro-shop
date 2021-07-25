@@ -48,6 +48,10 @@ export const IneerSection = styled("div")`
 export const Box = styled("div")`
   display: flex;
 `;
+/**
+ * tesst
+ * 
+ */
 export const Typography = styled("p")`
   font-size: ${(props) => props.fontSize}px;
   color: ${(props) => props.color};
