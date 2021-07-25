@@ -5,6 +5,9 @@ import {
   GET_PRODUCT_START,
   GET_PRODUCT_SUCCESS,
   GET_PRODUCT_FAILED,
+  GET_CATEGORIES_START,
+  GET_CATEGORIES_SUCCESS,
+  GET_CATEGORIES_FAILED,
   GET_SLIDER_IMAGES_START,
   GET_SLIDER_IMAGES_SUCCESS,
   GET_SLIDER_IMAGES_FAILED,
@@ -14,14 +17,15 @@ import {
   ADD_REVIEW_START,
   ADD_REVIEW_SUCCESS ,
   ADD_REVIEW_FIALD,
-  ADD_REVIEW_RESET,
-  UPDATE_REVIEW_SUCCESS
+  UPDATE_REVIEW_SUCCESS,
+  ADD_REVIEW_RESET
 } from "./gustTypeConstent";
   
   export const gustReducer = (
     initialState = {
       sliderImages: [],
       products: [],
+      categories:[],
       isLoading: false,
       product: {
         product: {},
@@ -165,7 +169,26 @@ import {
             success:false
           },
         };
-
+      
+      /**Get categories */
+      case GET_CATEGORIES_START:
+      return{
+        ...initialState,
+        isLoading:true
+        
+      }
+      case GET_CATEGORIES_SUCCESS:
+      return{
+        ...initialState,
+        isLoading:false,
+        categories: action.payload
+      }
+      case GET_CATEGORIES_FAILED:
+      return{
+        ...initialState,
+        isLoading:false
+        
+      }
       default:
         return initialState;
       }

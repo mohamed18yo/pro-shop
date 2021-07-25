@@ -5,6 +5,9 @@ import {
   GET_PRODUCT_START,
   GET_PRODUCT_SUCCESS,
   GET_PRODUCT_FAILED,
+  GET_CATEGORIES_START,
+  GET_CATEGORIES_SUCCESS,
+  GET_CATEGORIES_FAILED,
   GET_SLIDER_IMAGES_START,
   GET_SLIDER_IMAGES_SUCCESS,
   GET_SLIDER_IMAGES_FAILED,
@@ -163,3 +166,26 @@ export const AddReviewAction = (values, id) => {
     }
   };
 };
+
+
+export const GetCategories=()=>{
+  return async(dispatch)=>{
+    dispatch({
+      type: GET_CATEGORIES_START
+    })
+    try {
+    const res= await axios.get('https://maba-shop.herokuapp.com/api/categorise')
+    console.log(res);
+    dispatch({
+      type:GET_CATEGORIES_SUCCESS,
+      payload: res.data
+    })
+  } catch (error) {
+    dispatch({
+      type:GET_CATEGORIES_FAILED,
+      payload: error?.response?.data?.message
+    })
+  }
+  }
+  
+}

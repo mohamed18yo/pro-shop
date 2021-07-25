@@ -56,7 +56,7 @@ function HeroSection({products}) {
           onChangeIndex={handleChangeIndex}
         > 
         {products.map((items)=> <HeroBox  key={items._id}> 
-            <SideBox style={{minWidth:'500px'}} >
+            <SideBox style={{maxWidth:'500px'}} >
               <Typography fontSize={32} color={"#242424"}>
                 Save up to $ {items.price}
               </Typography>
@@ -72,7 +72,7 @@ function HeroSection({products}) {
               />
             </SideBox>
             <SideBox>
-              <SliderImage src={"https://proshop-ms.herokuapp.com/"+ items.image} width={"507px"} />
+              <SliderImage src={"https://proshop-ms.herokuapp.com/"+ items.image} width={"100%"} />
             </SideBox>
         </HeroBox>
          )} 

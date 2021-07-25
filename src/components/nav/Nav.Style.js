@@ -24,13 +24,16 @@ export const NavBar = styled("div")`
   justify-content: space-between;
 `;
 
-export const Logo = styled("img")`
-  width: 10%;
-`;
 
 export const SearchBox = styled(FlexBox)`
-  width: 40%;
-  min-width: 300px;
+  width: 35%;
+  min-width: 150px;
+  @media screen and (max-width: 500px) {
+    width:75%;
+  }
+  @media screen and (max-width: 400px) {
+    display:none;
+  }
 `;
 
 export const IconeBox = styled(FlexBox)`
@@ -50,6 +53,9 @@ export const InputSearch = styled("input")`
   &:focus {
     border: none;
     outline: none;
+  }
+  @media screen and (max-width:500px) {
+    width:70%;
   }
 `;
 
@@ -125,6 +131,9 @@ export const LogoText = styled(Link)`
   text-decoration: none;
   font-size: 40px;
   @media screen and (max-width:700px){
+    font-size:30px;
+  }
+  @media screen and (max-width:400px){
     font-size:25px;
   }
 `;

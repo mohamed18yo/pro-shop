@@ -8,16 +8,20 @@ import { FlexCol, FlexBox } from "../../Global.style";
 export const Card = styled(FlexCol)`
   justify-content: flex-start;
   align-items: center;
-  width: 520px;
+  width: 30%;
   height:${(props)=>props.height?props.height:"655px"};   
+  height:auto;
   border-radius: 16px;
   background: #ffffff 0% 0% no-repeat padding-box;  
-  margin:10px 0 50px 0; 
+  margin:0 10px; 
   box-shadow: 0px 2px 20px #08091e1a;
+  margin-bottom: 1rem;
+  @media screen and (max-width:400px){
+    width: 300px;
+  }
 `;
 export const Box = styled(FlexBox)`
   width: 380px;
   height: 346px;
-
   background: #f7f8fc;
 `;

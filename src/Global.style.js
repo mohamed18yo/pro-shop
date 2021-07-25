@@ -52,6 +52,7 @@ export const Typography = styled("p")`
   font-size: ${(props) => props.fontSize}px;
   color: ${(props) => props.color};
   text-decoration: ${(props) => (props.isThrough ? "line-through" : "none")};
+  
 `;
 export const ProductImg = styled("img")`
   width: ${(props) => (props.width ? props.width : "200px")};

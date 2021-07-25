@@ -6,7 +6,7 @@ import FeaturedProductsSection from './featuredProductsSection';
 import TopRateSection from './topRateSection';
 import { useEffect, } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getFeaturedProducts, GetSliderProducts } from "../../../redux/Gust/gustAction";
+import { getFeaturedProducts,GetCategories, GetSliderProducts } from "../../../redux/Gust/gustAction";
 import {SpinnerContainer} from '../../../Global.style';
     
 function Home() {
@@ -18,12 +18,14 @@ function Home() {
   
     dispatch(GetSliderProducts())
     dispatch(getFeaturedProducts())
+    dispatch(GetCategories())
     
   },[dispatch])
+  console.log("home",state?.gustState?.categories)
   return (isLoading?(<SpinnerContainer/>):(
       <>
       <HeroSection products={state?.gustState?.sliderImages} ></HeroSection>
-      <CategoriesSection></CategoriesSection>
+      <CategoriesSection categories={state?.gustState?.categories}></CategoriesSection>
       <FeaturedProductsSection products={state.gustState.products}></FeaturedProductsSection>   
       <TopRateSection products={state?.gustState?.sliderImages} ></TopRateSection>
       </>

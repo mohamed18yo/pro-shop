@@ -9,7 +9,7 @@ import {
 export const cartReducer = (
   initialState = {
     cart: ['mi'],
-    shippingAddress:{}
+    shippingAddress:{},
   },
   action
 ) => {

@@ -12,7 +12,9 @@ export const Card = styled(FlexCol)`
   align-items: center;
   width: 380px;
   height: 392px;
-
+@media screen and (max-width:400px){
+  width:300px;
+}
   
 `;
 export const Box = styled(FlexBox)`    

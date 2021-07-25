@@ -22,10 +22,9 @@ function TopRatSection({products}) {
               title={item.name}
               name={item.name}
               height={"540px"}
-            ></ProductBox>
-)}
-            
-
+            >
+            </ProductBox>
+            )}
           </TopSubBox>
         </TopRateBox>
       </IneerSection>

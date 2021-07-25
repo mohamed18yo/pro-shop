@@ -7,6 +7,9 @@ import {
   GET_ORDERS_START,
   GET_ORDERS_SUCCESS,
   GET_ORDERS_FAILED,
+  PAY_ORDER_START,
+  PAY_ORDER_SUCCESS,
+  PAY_ORDER_FAILED,
 } from "./orderTypeConstent";
 import { URL_API } from "../../api";
 
@@ -78,3 +81,34 @@ export const GetOrders = () => {
     }
   };
 };
+
+export const payOrder= (id, details)=>{
+  return async(dispatch,getState)=>{
+    dispatch({
+      type: PAY_ORDER_START
+    })
+    try{
+      //get token.
+      const state = getState();
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${state.userDetailes.user.token}`,
+        },
+      };
+
+        const res= await axios.put(`${URL_API}/orders/${id}/pay`, details, config)
+        console.log(res)
+      dispatch({
+        type: PAY_ORDER_SUCCESS,
+        payload: res.data
+      })
+    }
+    catch(e){
+      dispatch({
+        type:PAY_ORDER_FAILED,
+        payload: e.respons.data.message
+      })
+    }
+  }
+}

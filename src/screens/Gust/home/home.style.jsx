@@ -3,17 +3,19 @@ import { IneerSection } from "../../../components/nav/Nav.Style";
 
 import { FlexCol, FlexRow, FlexBox } from "../../../Global.style";
 
-export const FixedIneerSection =styled(IneerSection)`
-      flex-direction:column;
-`
+export const FixedIneerSection = styled(IneerSection)`
+  flex-direction: column;
+`;
 export const Container = styled("div")`
   max-width: 1920px;
   width: 100%;
 `;
 export const SideBox = styled(FlexCol)`
-  max-width:510px;
-  min-width:507px;
+  max-width: 510px;
   height: 100%;
+  @media screen and(min-width:400) {
+    width: 300px;
+  }
 `;
 export const FixedRow = styled(FlexRow)`
   width: auto;
@@ -27,7 +29,6 @@ export const HeroBox = styled("div")`
   align-items: center;
   width: 100%;
   min-height: 678px;
-
   @media screen and (max-width: 1100px) {
     height: auto;
     min-height: 590px;
@@ -37,10 +38,14 @@ export const HeroBox = styled("div")`
 export const HeroTitle = styled("h1")`
   color: #242424;
   font-size: 60px;
+  @media screen and (min-width: 400px) {
+    font-size: 35px;
+  }
 `;
 
 export const ProductImg = styled("img")`
   width: ${(props) => (props.width ? props.width : "200px")};
+  min-width: 200px;
   object-fit: cover;
 `;
 export const Dot = styled("div")`
@@ -51,11 +56,11 @@ export const Dot = styled("div")`
   cursor: pointer;
   background: ${(props) => (props.isGray ? "#70707030" : "#FCDD06")};
 `;
-export const SliderImage= styled(ProductImg)`
-border-radius: 10px;
- margin-top:2rem; 
- margin-bottom:1rem;
-`
+export const SliderImage = styled(ProductImg)`
+  border-radius: 10px;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+`;
 export const Arrow = styled(FlexBox)`
   font-size: 35px;
   margin: 0 23px;
@@ -76,22 +81,20 @@ export const FeaturedBox = styled(FlexCol)`
     min-height: 590px;
     flex-direction: column;
   } */
-
 `;
 export const Line = styled("hr")`
   width: ${(props) => (props.width ? props.width : "200px")};
   height: ${(props) => (props.height ? props.height : "1px")};
   color: ${(props) => (props.color ? props.color : "#000")};
-  
 `;
 export const Cards = styled(FlexRow)`
-  width:100%;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   margin-top: 2rem;
   flex-wrap: wrap;
 
-  @media screen and (min-width: 650px) {
+  @media screen and (max-width: 650px) {
     justify-content: center;
   }
 `;
@@ -105,20 +108,22 @@ export const ProductsBox = styled(FlexCol)`
 export const TopRateBox = styled(ProductsBox)`
   height: auto;
   align-items: flex-start;
+  padding-top:1rem;
 `;
 
 export const TopSubBox = styled(FlexRow)`
-  margin-top:2rem;
+  margin-top: 2rem;
   max-width: 1640px;
+  width: 100%;
   /* height: 588px; orginal height */
   height: auto;
   border: 1px solid #fcdd06;
-  border-radius: 16px; 
+  border-radius: 16px;
   flex-wrap: wrap;
+  justify-content: center;
 `;
-export const BoxResult= styled(FlexRow)`
-  width:100%;
+export const BoxResult = styled(FlexRow)`
+  width: 100%;
   flex-wrap: wrap;
-  margin-top:4rem;
-
-`
+  margin-top: 4rem;
+`;

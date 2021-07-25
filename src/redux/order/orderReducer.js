@@ -1,10 +1,13 @@
 import {
   PLACE_ORDER_START,
-  PLACE_ORDER_FAILED,
   PLACE_ORDER_SUCCESS,
+  PLACE_ORDER_FAILED,
   GET_ORDERS_START,
   GET_ORDERS_SUCCESS,
   GET_ORDERS_FAILED,
+  PAY_ORDER_START,
+  PAY_ORDER_SUCCESS,
+  PAY_ORDER_FAILED,
 } from "./orderTypeConstent";
 
 export const orderReducer = (
@@ -20,6 +23,11 @@ export const orderReducer = (
       error: "",
       orders: [],
     },
+    payOrder:{
+      isLoading: false,
+      result:{},
+      error:''
+    }
   },
   action
 ) => {
@@ -72,6 +80,31 @@ export const orderReducer = (
           error: action.payload,
         },
       };
+
+     //** Pay order case */ 
+     case PAY_ORDER_START:
+       return{
+         ...initialState,
+         payOrder:{
+           isLoading:true
+         }
+       }
+     case PAY_ORDER_SUCCESS:
+       return{
+        ...initialState,
+        payOrder:{
+          isLoading:false,
+          result: action.payload
+        }
+       }
+     case PAY_ORDER_FAILED:
+       return{
+        ...initialState,
+        payOrder:{
+          isLoading:false,
+          error: action.payload
+        }
+       }
 
     default:
       return {
