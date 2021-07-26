@@ -8,12 +8,11 @@ import { ReviewsBox, SubReviewsBox, ReviwInput } from "./products.style";
 import ReviewCard from "../../../components/reviews/reviewCard";
 import Rating from "@material-ui/lab/Rating";
 import Button from "../../../components/button/button";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { useLocationWithQuery } from "react-router-query-hooks";
 import { AddReviewAction } from "../../../redux/Gust/gustAction";
-import { ADD_REVIEW_RESET } from "../../../redux/Gust/gustTypeConstent";
 function ReviewsSection({ product }) {
   const locationQuery = useLocationWithQuery();
   const {

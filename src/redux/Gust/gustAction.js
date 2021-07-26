@@ -18,7 +18,6 @@ import {
   ADD_REVIEW_SUCCESS ,
   ADD_REVIEW_FIALD,
   UPDATE_REVIEW_SUCCESS,
-  ADD_REVIEW_RESET
 } from "./gustTypeConstent";
 import axios from "axios";
 import { URL_API } from "../../api";

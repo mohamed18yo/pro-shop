@@ -112,7 +112,8 @@ export const TopRateBox = styled(ProductsBox)`
 `;
 
 export const TopSubBox = styled(FlexRow)`
-  margin-top: 2rem;
+  padding-top: 1rem;
+  margin-top:2rem;
   max-width: 1640px;
   width: 100%;
   /* height: 588px; orginal height */
