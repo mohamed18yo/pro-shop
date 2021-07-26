@@ -3,17 +3,25 @@ import { FlexRow, FlexCol, FlexBox, Typography } from "../../../Global.style";
 
 export const ProductBox = styled(FlexRow)`
   margin-top: 3rem;
-  width: 1651px;
-  height: 713px;
+  /* width: 1651px; */
+  width:100%;
+  height: auto;
+  flex-wrap: wrap;
 `;
 export const ProductViewBox = styled(FlexCol)`
-  width: 501px;
-  height: 702px;
+  min-width: 301px;
+  width:30%;
+  height: auto;
 `;
 
 export const ProductDisecriptionBox = styled(FlexCol)`
-  width: 1134px;
-  height: 702px;
+  max-width: 1134px;
+  width:65%;
+  height: auto;
+  @media screen and (max-width:500px){
+    width:100%;
+    font-size: 25px;
+  }
 `;
 export const PathBox = styled(FlexRow)`
   justify-content: flex-start;
@@ -21,7 +29,7 @@ export const PathBox = styled(FlexRow)`
 `;
 export const RowImgs = styled(FlexRow)`
   height: 142px;
-  width: 501px;
+  /* width: 501px; */
 `;
 export const CircleColor = styled("div")`
   height: 50px;
@@ -75,3 +83,7 @@ export const ReviwInput = styled("textarea")`
   resize: vertical;
   
 `;
+
+export const CostumeRow= styled(FlexRow)`
+  flex-wrap:wrap;
+`

@@ -9,6 +9,7 @@ export const Card = styled(FlexCol)`
   justify-content: flex-start;
   align-items: center;
   width: 30%;
+  min-width:300px;
   height:${(props)=>props.height?props.height:"655px"};   
   height:auto;
   border-radius: 16px;

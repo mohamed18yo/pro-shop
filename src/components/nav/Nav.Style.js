@@ -27,11 +27,8 @@ export const NavBar = styled("div")`
 
 export const SearchBox = styled(FlexBox)`
   width: 35%;
-  min-width: 150px;
+  min-width: 200px;
   @media screen and (max-width: 500px) {
-    width:75%;
-  }
-  @media screen and (max-width: 400px) {
     display:none;
   }
 `;

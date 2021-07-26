@@ -76,11 +76,13 @@ export const FeaturedBox = styled(FlexCol)`
   justify-content: flex-start;
   margin-top: 2rem;
   width: 100%;
-  /* @media screen and (max-width: 1100px) {
-    height: auto;
+  @media screen and (max-width: 1100px) {
+    /* height: auto;
     min-height: 590px;
-    flex-direction: column;
-  } */
+    flex-direction: column; */
+    /* justify-content: center;
+    align-items:center; */
+  }
 `;
 export const Line = styled("hr")`
   width: ${(props) => (props.width ? props.width : "200px")};
@@ -94,7 +96,7 @@ export const Cards = styled(FlexRow)`
   margin-top: 2rem;
   flex-wrap: wrap;
 
-  @media screen and (max-width: 650px) {
+  @media screen and (max-width: 1100px) {
     justify-content: center;
   }
 `;
