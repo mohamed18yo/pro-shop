@@ -5,6 +5,10 @@ import {
   ImgBox,
   ErrorMsg,
   FormBox,
+  Title,
+  Description,
+  Label,
+  
 } from "../auth.style";
 import {
   SectionRole,
@@ -41,12 +45,12 @@ function Login() {
       <IneerSection>
         <LoginSection>
           <FormBox>
-            <Typography fontSize={60} color={"#242424"}>
+            <Title  color={"#242424"}>
               Login.
-            </Typography>
-            <Typography fontSize={32} color={"#707070"}>
+            </Title>
+            <Description>
               Login with your data that you entered during registration
-            </Typography>
+            </Description>
             <Formik
               initialValues={{
                 email: "",
@@ -65,9 +69,9 @@ function Login() {
                     alignItems: "start",
                     flexDirection: "column",
                   }}>
-                    <Typography fontSiemailze={22} color={"#242424"}>
+                    <Label >
                       Enter your email address
-                    </Typography>
+                    </Label>
                     <Input
                       name={"email"}
                       type={"email"}
@@ -77,23 +81,23 @@ function Login() {
                   <ErrorMsg>{errors.email}</ErrorMsg>
                 ) : null}
 
-                    <Typography fontSize={22} color={"#242424"}>
+                    <Label>
                       Enter your password
-                    </Typography>
+                    </Label>
                     <Input
                       name={"password"}
                       type={"password"}
                       placeholder={"password"}
                     />
                      {errors.password && touched.password ? (
-                  <ErrorMsg>{errors.password}</ErrorMsg>
-                ) : null}
-                {error?( <ErrorMsg>{error}</ErrorMsg>):null}
+                          <ErrorMsg>{errors.password}</ErrorMsg>
+                       ) : null}
+                    {error?( <ErrorMsg>{error}</ErrorMsg>):null}
                     <Button
                       isLoading={isLoading}
                       type={"button"}
                       style={{ marginTop: "2rem" }}
-                      width={"398px"}
+                      width={"80%"}
                       text={"Login"}
                     ></Button>
                     <CBox>
@@ -111,8 +115,8 @@ function Login() {
                     </CBox>
                     <CBox>
                       <Typography
-                        style={{ letterSpacing: "0.88px" }}
-                        fontSize={22}
+                        style={{ letterSpacing: "0.88px",marginTop:'1rem' }}
+                        fontSize={18}
                         color={"#242424"}
                       >
                         Forgot your password?
@@ -122,7 +126,7 @@ function Login() {
                 );
               }}
             </Formik>
-            <Line width={398} color={"#707070"} />
+            <Line width={"80%"} color={"#707070"} />
             <CBox>
               <Link to={"/signup"}>
                 <PrivetButton style={{marginTop:'1rem'}}>Singup Now</PrivetButton>{" "}

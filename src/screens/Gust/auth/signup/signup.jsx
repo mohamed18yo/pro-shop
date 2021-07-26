@@ -12,6 +12,9 @@ import {
   FormBox,
   ErrorMsg,
   SignupSection,
+  Title,
+  Description,
+  Label,
 } from "../auth.style";
 import {
   SectionRole,
@@ -36,12 +39,12 @@ function Signup() {
       <IneerSection>
         <SignupSection>
           <FormBox>
-            <Typography fontSize={60} color={"#242424"}>
+            <Title>
               Signup..
-            </Typography>
-            <Typography fontSize={32} color={"#707070"}>
+            </Title>
+            <Description >
               Sign up and get exclusive offers from us
-            </Typography>
+            </Description>
             <Formik
               initialValues={{
                 name: "",
@@ -55,17 +58,17 @@ function Signup() {
               {({ errors, touched }) => {
                 return (
                   <Form>
-                    <Typography fontSize={22} color={"#242424"}>
+                    <Label>
                       Name
-                    </Typography>
+                    </Label>
                     <Input
                       name={"name"}
                       type={"name"}
                       placeholder={"name"}
                     ></Input>
-                    <Typography fontSize={22} color={"#242424"}>
+                    <Label>
                       Enter your email address
-                    </Typography>
+                    </Label>
                     <Input
                       name={"email"}
                       type={"email"}
@@ -75,9 +78,9 @@ function Signup() {
                       <ErrorMsg>{errors.email}</ErrorMsg>
                     ) : null}
 
-                    <Typography fontSize={22} color={"#242424"}>
+                    <Label>
                       Enter your password
-                    </Typography>
+                    </Label>
                     <Input
                       name={"password"}
                       type={"password"}
@@ -87,9 +90,9 @@ function Signup() {
                       <ErrorMsg>{errors.password}</ErrorMsg>
                     ) : null}
 
-                    <Typography fontSize={22} color={"#242424"}>
+                    <Label>
                       Confirm your password
-                    </Typography>
+                    </Label>
                     <Input
                       name={"confirmPassword"}
                       type={"password"}
@@ -101,7 +104,7 @@ function Signup() {
 
                     <Button
                       isLoading={isLoading}
-                      width={"398px"}
+                      width={"80%"}
                       text={"SignUp"}
                     ></Button>
                     {error ? <ErrorMsg>{error}</ErrorMsg> : null}
@@ -110,7 +113,7 @@ function Signup() {
               }}
             </Formik>
 
-            <Line width={398} color={"#707070"} />
+            <Line width={"100%"} color={"#707070"} />
             <CBox>
               <Typography fontSize={22} color={"#242424"}>
                 Have an account ?
