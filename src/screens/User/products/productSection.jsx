@@ -72,6 +72,7 @@ function ProductSection({product}) {
                 <Typography fontSize={24} color={"#242424"}>
                   256GB
                 </Typography>
+              {/* comment */}
               </FlexRow>
               <CostumeRow>
                 <FlexRow style={{minWidth:'300px'}} width={'50%'}>
