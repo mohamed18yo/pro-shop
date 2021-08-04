@@ -4,7 +4,7 @@ import {
   FlexRow,
   FlexCol,
   ProductImg,
-  ErrorMsg
+  ErrorMsg,
 } from "../../../Global.style";
 import { ShippingSchema } from "../../../validationSchema";
 import Button from "../../../components/button/button";
@@ -15,31 +15,29 @@ import { useHistory } from "react-router";
 import { addShippingAddress } from "../../../redux/Cart/cartAction";
 
 export function PaymentComponent() {
-    const dispatch = useDispatch();
-    const history = useHistory();
-    const state = useSelector((state) => state);
-    const shippingAddress=state.cart.shippingAddress; 
-    const handleSaveShipping = (value) => {
-       
-        dispatch(addShippingAddress(value));
-        history.push("/proceed-checkout/place-order");
-      };
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const state = useSelector((state) => state);
+  const shippingAddress = state.cart.shippingAddress;
+  const handleSaveShipping = (value) => {
+    dispatch(addShippingAddress(value));
+    history.push("/proceed-checkout/place-order");
+  };
   return (
-    <>   
-      <FlexRow style={{alignItems: "flex-start"}}>
+    <FlexRow style={{ flexWrap: "wrap", alignItems: "flex-start" }}>
       <Formik
-            initialValues={{
-            country: shippingAddress.country || "",
-            city: shippingAddress.city || "",
-            address: shippingAddress.address || "",
-            postalCode: shippingAddress.postalCode || "",
-            }}
-            validationSchema={ShippingSchema()}
-            onSubmit={handleSaveShipping}
-        >
-         {({ errors, touched })=>{
-             return (
-                <Form
+        initialValues={{
+          country: shippingAddress.country || "",
+          city: shippingAddress.city || "",
+          address: shippingAddress.address || "",
+          postalCode: shippingAddress.postalCode || "",
+        }}
+        validationSchema={ShippingSchema()}
+        onSubmit={handleSaveShipping}
+      >
+        {({ errors, touched }) => {
+          return (
+            <Form
               style={{
                 width: "100%",
                 // height: "100%",
@@ -47,160 +45,172 @@ export function PaymentComponent() {
                 justifyContent: "start",
                 alignItems: "start",
                 flexDirection: "row",
+                flexWrap: "wrap",
               }}
             >
-  {/* Left Box Shipping deatils */}
-                <Lbox>
-                    <Typography fontSize={32} color={"#242424"}>
-                        Shipping Address
+              {/* Left Box Shipping deatils */}
+              <Lbox>
+                <Typography fontSize={32} color={"#242424"}>
+                  Shipping Address
+                </Typography>
+                <FlexRow
+                  style={{
+                    // width: "774px",
+                    flexWrap: "wrap",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <FlexCol
+                    style={{ width: "45%", minWidth: "300px", height: "197px" }}
+                  >
+                    <Typography fontSize={22} color={"#707070"}>
+                      Country
                     </Typography>
-                    <FlexRow style={{ width: "774px", justifyContent: "space-between" }}>
-                        <FlexCol style={{ height: "197px" }}>
-                        <Typography fontSize={22} color={"#707070"}>
-                            Country
-                        </Typography>
-                        <Input name={"country"}></Input>
-                        {errors.country && touched.country ? (
-                        <ErrorMsg>{errors.country}</ErrorMsg>
-                      ) : null}
-                        <Typography fontSize={22} color={"#707070"}>
-                            Zip Code
-                        </Typography>
-                        <Input name={"postalCode"}></Input>
-                        {errors.postalCode && touched.postalCode ? (
-                        <ErrorMsg>{errors.postalCode}</ErrorMsg>
-                      ) : null}
-                        </FlexCol>
-                        <FlexCol style={{ height: "197px" }}>
-                            <Typography fontSize={22} color={"#707070"}>
-                                City
-                            </Typography>
-                            <Input name={"city"}></Input>
-                            {errors.city && touched.city ? (
-                        <ErrorMsg>{errors.city}</ErrorMsg>
-                      ) : null}
-                            <Typography fontSize={22} color={"#707070"}>
-                                Street Address
-                            </Typography>
-                            <Input name={"address"}></Input>
-                            {errors.address && touched.address ? (
-                        <ErrorMsg>{errors.address}</ErrorMsg>
-                      ) : null}
-                        </FlexCol>
-                    </FlexRow>
-                    <Typography fontSize={32} color={"#242424"}>
-                        Payment Details
+                    <Input name={"country"}></Input>
+                    {errors.country && touched.country ? (
+                      <ErrorMsg>{errors.country}</ErrorMsg>
+                    ) : null}
+                    <Typography fontSize={22} color={"#707070"}>
+                      Zip Code
                     </Typography>
-                    <FlexRow style={{ width: "774px", justifyContent: "space-between" }}>
-                            <FlexCol style={{ height: "197px" }}>
-                                {/* <Typography fontSize={22} color={"#707070"}>
-                                    visa
-                                </Typography>
-                                <Input></Input>
-                                <Typography fontSize={22} color={"#707070"}>
-                                    Code
-                                </Typography>
-                                <Input></Input> */}
-                            </FlexCol>
-                                {/* <FlexCol style={{height: "197px"}}>
-                                        <Typography fontSize={22} color={"#707070"}>
-                                        City
-                                        </Typography>
-                                            <Input></Input>
-                                        <Typography fontSize={22} color={"#707070"}>
-                                        Street Address
-                                        </Typography>
-                                        <Input></Input>
-                                </FlexCol> */}
-                    </FlexRow>
+                    <Input name={"postalCode"}></Input>
+                    {errors.postalCode && touched.postalCode ? (
+                      <ErrorMsg>{errors.postalCode}</ErrorMsg>
+                    ) : null}
+                  </FlexCol>
+                  <FlexCol
+                    style={{ width: "45%", minWidth: "300px", height: "197px" }}
+                  >
+                    <Typography fontSize={22} color={"#707070"}>
+                      City
+                    </Typography>
+                    <Input name={"city"}></Input>
+                    {errors.city && touched.city ? (
+                      <ErrorMsg>{errors.city}</ErrorMsg>
+                    ) : null}
+                    <Typography fontSize={22} color={"#707070"}>
+                      Street Address
+                    </Typography>
+                    <Input name={"address"}></Input>
+                    {errors.address && touched.address ? (
+                      <ErrorMsg>{errors.address}</ErrorMsg>
+                    ) : null}
+                  </FlexCol>
+                </FlexRow>
+                <Typography fontSize={32} color={"#242424"}>
+                  Payment Details
+                </Typography>
+                <FlexRow
+                  style={{
+                    width: "100%",
+                    justifyContent: "space-between",
+                  }}
+                ></FlexRow>
               </Lbox>
-            
-         <FlexCol>
 
-{/* Right Side Box "order Details" */}
-        <Rbox>
-          <FlexRow>
-            <Typography fontSize={32} color={"#242424"}>
-              Order Details
-            </Typography>
-            <Typography fontSize={22} color={"#707070"}>
-              Change
-            </Typography>
-          </FlexRow>
-          {state.cart.cart.map((item)=><>
-          <FlexRow kee={item._id} style={{ width: "493px", height: "106px" }}>
-                        <ProductImg src={"https://proshop-ms.herokuapp.com"+item.image} width={135} />
+              {/* Right Side Box "order Details" */}
+              <FlexCol
+                style={{ width: "30%", minWidth: "320px" }}
+              >
+                <Rbox>
+                  <FlexRow>
+                    <Typography fontSize={32} color={"#242424"}>
+                      Order Details
+                    </Typography>
+                    <Typography fontSize={22} color={"#707070"}>
+                      Change
+                    </Typography>
+                  </FlexRow>
+                  {state.cart.cart.map((item) => (
+                    <>
+                      <FlexRow
+                        kee={item._id}
+                        style={{ width: "100%", height: "106px" }}
+                      >
+                        <ProductImg
+                          src={"https://proshop-ms.herokuapp.com" + item.image}
+                          width={135}
+                        />
                         <FlexCol style={{ height: "99px" }}>
-                          <Typography style={{marginLeft:'1rem'}} fontSize={22} color={"#707070"}>
-                          {item.name}
+                          <Typography
+                            style={{ marginLeft: "1rem" }}
+                            fontSize={22}
+                            color={"#707070"}
+                          >
+                            {item.name}
                           </Typography>
                           <FlexRow>
-                            <Typography style={{marginLeft:'1rem'}} fontSize={22} color={"#707070"}>
-                            ${item.price} ×{item.qty}
+                            <Typography
+                              style={{ marginLeft: "1rem" }}
+                              fontSize={22}
+                              color={"#707070"}
+                            >
+                              ${item.price} ×{item.qty}
                             </Typography>
                             <Typography fontSize={22} color={"#707070"}>
-                            ${item.price}
+                              ${item.price}
                             </Typography>
                           </FlexRow>
                         </FlexCol>
                       </FlexRow>
-                   <Line width={"520px"} />
-                   </>
-          )}
-                      
-         
-          
-         
-          <FlexRow style={{ width: "477px" }}>
-            <Typography fontSize={16} color={"#707070"}>
-              Subtotal
-            </Typography>
-            <Typography fontSize={16} color={"#707070"}>
-              ${state.cart.cart.reduce((acc, item)=>{
-                      return acc+item.price*item.qty
-                    },0).toFixed(2)}
-            </Typography>
-          </FlexRow>
-          <FlexRow style={{ width: "477px" }}>
-            <Typography fontSize={16} color={"#707070"}>
-              Tax
-            </Typography>
-            <Typography fontSize={16} color={"#707070"}>
-              $0.00
-            </Typography>
-          </FlexRow>
-          <FlexRow style={{ width: "477px" }}>
-            <Typography fontSize={16} color={"#707070"}>
-              Shipping
-            </Typography>
-            <Typography fontSize={16} color={"#707070"}>
-              $0.00
-            </Typography>
-          </FlexRow>
-          <FlexRow style={{ width: "477px" }}>
-            <Typography fontSize={16} color={"#242424"}>
-              Total
-            </Typography>
-            <Typography fontSize={16} color={"#242424"}>
-              ${state.cart.cart.reduce((acc, item)=>{
-                      return acc+item.price*item.qty
-                    },0).toFixed(2)}
-            </Typography>
-          </FlexRow>
-          
-        </Rbox>
-        <FlexRow style={{ justifyContent: "flex-end" , marginTop:'1rem'}}>
-        <Button text={"Review order"} />
-      </FlexRow>
-        </FlexCol>
-    </Form>
-            )
+                      <Line width={"100%"} />
+                    </>
+                  ))}
+
+                  <FlexRow style={{ width: "100%" }}>
+                    <Typography fontSize={16} color={"#707070"}>
+                      Subtotal
+                    </Typography>
+                    <Typography fontSize={16} color={"#707070"}>
+                      $
+                      {state.cart.cart
+                        .reduce((acc, item) => {
+                          return acc + item.price * item.qty;
+                        }, 0)
+                        .toFixed(2)}
+                    </Typography>
+                  </FlexRow>
+                  <FlexRow style={{ width: "100%" }}>
+                    <Typography fontSize={16} color={"#707070"}>
+                      Tax
+                    </Typography>
+                    <Typography fontSize={16} color={"#707070"}>
+                      $0.00
+                    </Typography>
+                  </FlexRow>
+                  <FlexRow style={{ width: "100%" }}>
+                    <Typography fontSize={16} color={"#707070"}>
+                      Shipping
+                    </Typography>
+                    <Typography fontSize={16} color={"#707070"}>
+                      $0.00
+                    </Typography>
+                  </FlexRow>
+                  <FlexRow style={{ width: "100%" }}>
+                    <Typography fontSize={16} color={"#242424"}>
+                      Total
+                    </Typography>
+                    <Typography fontSize={16} color={"#242424"}>
+                      $
+                      {state.cart.cart
+                        .reduce((acc, item) => {
+                          return acc + item.price * item.qty;
+                        }, 0)
+                        .toFixed(2)}
+                    </Typography>
+                  </FlexRow>
+                </Rbox>
+                <FlexRow
+                  style={{ justifyContent: "flex-end", marginTop: "1rem" }}
+                >
+                  <Button text={"Review order"} />
+                </FlexRow>
+              </FlexCol>
+            </Form>
+          );
         }}
-        
-    </Formik>
-</FlexRow>
-      
-    </>
+      </Formik>
+    </FlexRow>
   );
 }
 export default PaymentComponent;

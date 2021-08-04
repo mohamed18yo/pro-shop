@@ -20,7 +20,7 @@ function PlaceOreder() {
   const dispatch = useDispatch();
   const history = useHistory();
   return (
-          <FlexRow style={{alignItems: 'flex-start'}}>
+          <FlexRow style={{ flexWrap: "wrap", alignItems: 'flex-start'}}>
             <ShippingBox style={{justifyCcontent: 'space-around'}}>
               <Typography fontSize={24} color={"#242424"}>
                 Shipping Address
@@ -41,9 +41,8 @@ function PlaceOreder() {
                     Change
                   </Typography>
                 </FlexRow>
-
                 <OrdersBox>
-                  {state.cart.cart.map((item)=><FlexRow key={item._id} style={{ width: "461px", height: "106px" }}>
+                  {state.cart.cart.map((item)=><FlexRow key={item._id} style={{ height: "106px" }}>
                     <ProductImg src={"https://proshop-ms.herokuapp.com"+item.image} width={135} />
                     <FlexCol style={{ height: "99px" }}>
                       <Typography fontSize={16} color={"#707070"}>
@@ -64,7 +63,7 @@ function PlaceOreder() {
                 </OrdersBox>
               </CenterBox>
               <PaymetnBox>
-                <FlexRow>
+                <FlexRow style={{}}>
                   <Typography fontSize={24} color={"#242424"}>
                     Payment Details
                   </Typography>
@@ -77,47 +76,47 @@ function PlaceOreder() {
                 </Typography>
               </PaymetnBox>
             </ShippingBox>
-            <FlexCol style={{alignItems:'flex-end'}}>
+            <FlexCol style={{width:'25%',margin:'1rem'}}>
               <OrderDetailsBox>
-                <Typography fontSize={24} color={"#242424"}>
-                  Order Details
-                </Typography>
-                <FlexRow >
-                  <Typography fontSize={16} color={"#707070"}>
-                    Subtotal
-                  </Typography>
-                  <Typography fontSize={16} color={"#707070"}>
-                    $ {state.cart.cart.reduce((acc, item)=>{
-                      return acc+item.price*item.qty
-                    },0).toFixed(2)}
-                  </Typography>
-                </FlexRow>
-                <FlexRow >
-                  <Typography fontSize={16} color={"#707070"}>
-                    Tax
-                  </Typography>
-                  <Typography fontSize={16} color={"#707070"}>
-                    $0.00
-                  </Typography>
-                </FlexRow>
-                <FlexRow >
-                  <Typography fontSize={16} color={"#707070"}>
-                    Shipping
-                  </Typography>
-                  <Typography fontSize={16} color={"#707070"}>
-                    $0.00
-                  </Typography>
-                </FlexRow>
-                <FlexRow >
-                  <Typography fontSize={16} color={"#242424"}>
-                    Total
-                  </Typography>
-                  <Typography fontSize={16} color={"#242424"}>
-                    ${state.cart.cart.reduce((acc, item)=>{
-                      return acc+item.price*item.qty
-                    },0).toFixed(2)}
-                  </Typography>
-                </FlexRow>
+                    <Typography fontSize={24} color={"#242424"}>
+                      Order Details
+                    </Typography>
+                    <FlexRow >
+                      <Typography fontSize={16} color={"#707070"}>
+                        Subtotal
+                      </Typography>
+                      <Typography fontSize={16} color={"#707070"}>
+                        $ {state.cart.cart.reduce((acc, item)=>{
+                          return acc+item.price*item.qty
+                        },0).toFixed(2)}
+                      </Typography>
+                    </FlexRow>
+                    <FlexRow >
+                      <Typography fontSize={16} color={"#707070"}>
+                        Tax
+                      </Typography>
+                      <Typography fontSize={16} color={"#707070"}>
+                        $0.00
+                      </Typography>
+                    </FlexRow>
+                    <FlexRow >
+                      <Typography fontSize={16} color={"#707070"}>
+                        Shipping
+                      </Typography>
+                      <Typography fontSize={16} color={"#707070"}>
+                        $0.00
+                      </Typography>
+                    </FlexRow>
+                    <FlexRow >
+                      <Typography fontSize={16} color={"#242424"}>
+                        Total
+                      </Typography>
+                      <Typography fontSize={16} color={"#242424"}>
+                        ${state.cart.cart.reduce((acc, item)=>{
+                          return acc+item.price*item.qty
+                        },0).toFixed(2)}
+                      </Typography>
+                    </FlexRow>
               </OrderDetailsBox>
               <Button 
               handleClick={()=>{

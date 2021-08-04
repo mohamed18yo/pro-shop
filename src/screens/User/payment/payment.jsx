@@ -19,7 +19,7 @@ function Payment() {
           <Typography fontSize={32} color={"#242424"}>
            Review Order
           </Typography>
-          <FlexRow style={{width: "682px",height: "40px"}}>
+          <FlexRow style={{width: "auto", margin:'2rem 0',height: "40px"}}>
 
             <Typography fontSize={22} color={"#242424"}>
             <Num>&nbsp; 1 &nbsp;</Num>  Shipping and Payment

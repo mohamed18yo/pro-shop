@@ -133,8 +133,10 @@ function Order() {
                     .toFixed(2)}
                 </Typography>
               </FlexRow>
-              <PayPalButton
-                amount={state.order.userOrders.orders.orderItems
+              
+            </OrderDetailsBox>
+            <PayPalButton
+                amount={state?.order?.userOrders?.orders?.orderItems
                   .reduce((acc, item) => acc + item.price * item.qty, 0)
                   .toFixed(2)}
                 // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
@@ -166,7 +168,6 @@ function Order() {
                     "AcRsv5mb-LjZUfgY-n9SK9wOW64M26N1efQUBoBNBbo0XkV85KrzyPkFw3q1JEVK8NhQj1mjwmmyINbW",
                 }}
               />
-            </OrderDetailsBox>
           </FlexCol>
         </FlexRow>
       </IneerSection>
