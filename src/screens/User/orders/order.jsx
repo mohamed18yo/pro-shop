@@ -5,6 +5,7 @@ import {
   ProductImg,
   SectionRole,
   IneerSection,
+  SpinnerContainer,
 } from "../../../Global.style";
 import {
   ShippingBox,
@@ -15,18 +16,27 @@ import {
 } from "../payment/order.style";
 import { useDispatch, useSelector } from "react-redux";
 import { PayPalButton } from "react-paypal-button-v2";
-import { payOrder } from "../../../redux/order/orderAction";
+import { GetOrderById, payOrder } from "../../../redux/order/orderAction";
 import { useParams } from "react-router";
+import { useEffect } from "react";
 
 function Order() {
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch();
   const params = useParams();
   const id = params.id;
-  return (
+  useEffect(() => {
+    GetOrderById(id);
+  }, [id]);
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const isLoading= false;
+  // state.order.initialState.orderById.isLoading;
+  console.log('isLoading from ordar page:',state)
+  return isLoading ? (
+    <SpinnerContainer />
+  ) : (
     <SectionRole>
       <IneerSection style={{ marginTop: "4rem" }}>
-        <FlexRow style={{ alignItems: "flex-start" }}>
+        <FlexRow style={{ flexWrap: "wrap", alignItems: "flex-start" }}>
           <ShippingBox style={{ justifyCcontent: "space-around" }}>
             <Typography fontSize={24} color={"#242424"}>
               Shipping Address
@@ -50,12 +60,12 @@ function Order() {
 
               <OrdersBox>
                 {state.cart.cart.map((item) => (
-                  <FlexRow style={{ width: "461px", height: "106px" }}>
+                  <FlexRow style={{ width: "100%", height: "106px" }}>
                     <ProductImg
                       src={"https://proshop-ms.herokuapp.com" + item.image}
                       width={135}
                     />
-                    <FlexCol style={{ height: "99px" }}>
+                    <FlexCol style={{margin:'8px', height: "99px" }}>
                       <Typography fontSize={16} color={"#707070"}>
                         {item.name}
                       </Typography>
@@ -86,7 +96,7 @@ function Order() {
               </Typography>
             </PaymetnBox>
           </ShippingBox>
-          <FlexCol style={{ alignItems: "flex-end" }}>
+          <FlexCol style={{margin:'1rem', alignItems: "flex-end" }}>
             <OrderDetailsBox>
               <Typography fontSize={24} color={"#242424"}>
                 Order Details
@@ -133,41 +143,40 @@ function Order() {
                     .toFixed(2)}
                 </Typography>
               </FlexRow>
-              
             </OrderDetailsBox>
             <PayPalButton
-                amount={state?.order?.userOrders?.orders?.orderItems
-                  .reduce((acc, item) => acc + item.price * item.qty, 0)
-                  .toFixed(2)}
-                // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
-                onSuccess={(details, data) => {
-                  alert(
-                    "Transaction completed by " + details.payer.name.given_name
-                  );
-                  const payResalt = {
-                    email_address: details.payer.email_address,
-                    status: details.status,
-                    create_time: details.create_time,
-                    update_time: details.update_time,
-                    id: details.id,
-                  };
-                  // OPTIONAL: Call your server to save the transaction
-                  dispatch(payOrder(id, payResalt));
-                  // return fetch("/paypal-transaction-complete", {
-                  //   method: "post",
-                  //   body: JSON.stringify({
-                  //     orderId: data.orderID
-                  //   })
-                  // });
-                }}
-                onError={(error) => {
-                  console.log(error);
-                }}
-                options={{
-                  clientId:
-                    "AcRsv5mb-LjZUfgY-n9SK9wOW64M26N1efQUBoBNBbo0XkV85KrzyPkFw3q1JEVK8NhQj1mjwmmyINbW",
-                }}
-              />
+              amount={state?.order?.userOrders?.order?.orderItems
+                .reduce((acc, item) => acc + item.price * item.qty, 0)
+                .toFixed(2)}
+              // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
+              onSuccess={(details, data) => {
+                alert(
+                  "Transaction completed by " + details.payer.name.given_name
+                );
+                const payResalt = {
+                  email_address: details.payer.email_address,
+                  status: details.status,
+                  create_time: details.create_time,
+                  update_time: details.update_time,
+                  id: details.id,
+                };
+                // OPTIONAL: Call your server to save the transaction
+                dispatch(payOrder(id, payResalt));
+                // return fetch("/paypal-transaction-complete", {
+                //   method: "post",
+                //   body: JSON.stringify({
+                //     orderId: data.orderID
+                //   })
+                // });
+              }}
+              onError={(error) => {
+                console.log(error);
+              }}
+              options={{
+                clientId:
+                  "AcRsv5mb-LjZUfgY-n9SK9wOW64M26N1efQUBoBNBbo0XkV85KrzyPkFw3q1JEVK8NhQj1mjwmmyINbW",
+              }}
+            />
           </FlexCol>
         </FlexRow>
       </IneerSection>

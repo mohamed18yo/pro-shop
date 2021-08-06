@@ -5,6 +5,9 @@ import {
   GET_ORDERS_START,
   GET_ORDERS_SUCCESS,
   GET_ORDERS_FAILED,
+  GET_ORDER_START,
+  GET_ORDER_SUCCESS,
+  GET_ORDER_FAILED,
   PAY_ORDER_START,
   PAY_ORDER_SUCCESS,
   PAY_ORDER_FAILED,
@@ -23,11 +26,17 @@ export const orderReducer = (
       error: "",
       orders: [],
     },
-    payOrder:{
+    orderById: {
+      success: false,
       isLoading: false,
-      result:{},
-      error:''
-    }
+      error: "",
+      order: {},
+    },
+    payOrder: {
+      isLoading: false,
+      result: {},
+      error: "",
+    },
   },
   action
 ) => {
@@ -36,7 +45,7 @@ export const orderReducer = (
     case PLACE_ORDER_START:
       return {
         ...initialState,
-        placeOrder: {  
+        placeOrder: {
           isLoading: true,
         },
       };
@@ -80,31 +89,55 @@ export const orderReducer = (
           error: action.payload,
         },
       };
+    // get Order By id
+    case GET_ORDER_START:
+      return {
+        ...initialState,
+        orderById: {
+          isLoading: true,
+        },
+      };
+    case GET_ORDER_SUCCESS:
+      return {
+        ...initialState,
+        orderById: {
+          isLoading: false,
+          order: action.payload,
+        },
+      };
+    case GET_ORDER_FAILED:
+      return {
+        ...initialState,
+        orderById: {
+          isLoading: false,
+          error: action.payload,
+        },
+      };
 
-     //** Pay order case */ 
-     case PAY_ORDER_START:
-       return{
-         ...initialState,
-         payOrder:{
-           isLoading:true
-         }
-       }
-     case PAY_ORDER_SUCCESS:
-       return{
+    //** Pay order case */
+    case PAY_ORDER_START:
+      return {
         ...initialState,
-        payOrder:{
-          isLoading:false,
-          result: action.payload
-        }
-       }
-     case PAY_ORDER_FAILED:
-       return{
+        payOrder: {
+          isLoading: true,
+        },
+      };
+    case PAY_ORDER_SUCCESS:
+      return {
         ...initialState,
-        payOrder:{
-          isLoading:false,
-          error: action.payload
-        }
-       }
+        payOrder: {
+          isLoading: false,
+          result: action.payload,
+        },
+      };
+    case PAY_ORDER_FAILED:
+      return {
+        ...initialState,
+        payOrder: {
+          isLoading: false,
+          error: action.payload,
+        },
+      };
 
     default:
       return {

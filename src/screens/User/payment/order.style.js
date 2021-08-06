@@ -53,7 +53,7 @@ export const ShippingBox = styled(FlexCol)`
   width:65%;
   min-width:320px;
   min-height: 700px;
-  margin:1rem 1rem;
+  margin:1rem ;
   background: #f2f2f2 0% 0% no-repeat padding-box;
   border-radius: 16px;
   opacity: 1;
@@ -66,7 +66,7 @@ export const OrderDetailsBox = styled(FlexCol)`
   background: #f2f2f2 0% 0% no-repeat padding-box;
   border-radius: 16px;
   opacity: 1;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   padding: 2rem;
 `;
 export const CenterBox = styled(FlexCol)`

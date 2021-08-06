@@ -63,13 +63,13 @@ function Cart() {
                               <Typography fontSize={32} color={"#242424"}>
                                 Your shopping cart is empty
                               </Typography>
-                              <ProductImg src={"/emptyCart.png"} width={400} />
+                              <ProductImg src={"/emptyCart.png"} width={320} />
                             </EmptyBox>
                            </IneerSection>
                         </SectionRole>
                         
                       </>
-      )};
+      )}
     </>
 }
 export default Cart;

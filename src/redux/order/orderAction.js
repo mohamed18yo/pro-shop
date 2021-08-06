@@ -7,6 +7,9 @@ import {
   GET_ORDERS_START,
   GET_ORDERS_SUCCESS,
   GET_ORDERS_FAILED,
+  GET_ORDER_START,
+  GET_ORDER_SUCCESS,
+  GET_ORDER_FAILED,
   PAY_ORDER_START,
   PAY_ORDER_SUCCESS,
   PAY_ORDER_FAILED,
@@ -81,7 +84,33 @@ export const GetOrders = () => {
     }
   };
 };
-
+export const GetOrderById =(id)=>{
+  return async (dispatch,getState)=>{
+    dispatch({
+      type: GET_ORDER_START
+    })
+    const state = getState();
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${state.userDetailes.user.token}`,
+      },
+    };
+    try{
+      const res= axios.get(`${URL_API}/orders/${id}`,config)
+      console.log('response',res.data)
+      dispatch({
+        type: GET_ORDER_SUCCESS,
+        payload: res.data
+      })
+    }catch(e){
+      dispatch({
+        type: GET_ORDER_FAILED,
+        payload:e.respons.data.message
+      })
+    }
+  }
+}
 export const payOrder= (id, details)=>{
   return async(dispatch,getState)=>{
     dispatch({

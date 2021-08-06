@@ -19,6 +19,7 @@ function PlaceOreder() {
   const state= useSelector((state)=>state)
   const dispatch = useDispatch();
   const history = useHistory();
+  console.log(state)
   return (
           <FlexRow style={{ flexWrap: "wrap", alignItems: 'flex-start'}}>
             <ShippingBox style={{justifyCcontent: 'space-around'}}>
@@ -77,6 +78,7 @@ function PlaceOreder() {
               </PaymetnBox>
             </ShippingBox>
             <FlexCol style={{width:'25%',margin:'1rem'}}>
+              
               <OrderDetailsBox>
                     <Typography fontSize={24} color={"#242424"}>
                       Order Details
@@ -122,7 +124,7 @@ function PlaceOreder() {
               handleClick={()=>{
                 dispatch(PlaceOrder(history))
               }}
-              disabled={state?.order?.initialState?.placeOrder?.isLoading} 
+              disabled={state.order.placeOrder?.isLoading} 
               text={"Place Order"} />
             </FlexCol>
           </FlexRow>

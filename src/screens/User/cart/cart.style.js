@@ -11,7 +11,7 @@ export const CartBox = styled(FlexRow)`
 `;
 export const ItemBox= styled(FlexCol)`
     width:70%;
-    min-width:550px;
+    min-width:300px;
 
     @media screen and (max-width:700px){
       width:100%;
@@ -22,6 +22,7 @@ export const RightBox = styled(FlexCol)`
   width: 25%;
   min-width:300px;
   height: 351px;
+  padding:1rem;
   background: #f2f2f2 0% 0% no-repeat padding-box;
   border-radius: 16px;
   opacity: 1;
