@@ -10,7 +10,8 @@ import { FlexCol,FlexBox } from "../../Global.style";
 export const Card = styled(FlexCol)`
   justify-content: flex-start;
   align-items: center;
-  width: 380px;
+  width: 24%;
+  min-width:290px;
   height: 392px;
 @media screen and (max-width:400px){
   width:300px;
@@ -18,7 +19,7 @@ export const Card = styled(FlexCol)`
   
 `;
 export const Box = styled(FlexBox)`    
-  width: 380px;
+  width: 100%;
   height: 346px;
   border-radius: 16px;
   background: #F7F8FC;

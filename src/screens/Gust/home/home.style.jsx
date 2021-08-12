@@ -110,7 +110,7 @@ export const ProductsBox = styled(FlexCol)`
 export const TopRateBox = styled(ProductsBox)`
   height: auto;
   align-items: flex-start;
-  padding-top:1rem;
+  padding:1rem;
 `;
 
 export const TopSubBox = styled(FlexRow)`

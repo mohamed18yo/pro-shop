@@ -21,7 +21,7 @@ function Home() {
     dispatch(GetCategories())
     
   },[dispatch])
-  console.log("home",state?.gustState?.categories)
+  console.log("home state",state)
   return (isLoading?(<SpinnerContainer/>):(
       <>
       <HeroSection products={state?.gustState?.sliderImages} ></HeroSection>

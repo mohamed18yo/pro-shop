@@ -18,10 +18,10 @@ import { URL_API } from "../../api";
 
 export const PlaceOrder = (history) => {
   return async (dispatch, getState) => {
+    dispatch({
+      type: PLACE_ORDER_START,
+    });
     try {
-      dispatch({
-        type: PLACE_ORDER_START,
-      });
       const state = getState();
       const requestDate = {
         orderItems: state.cart.cart,
@@ -51,7 +51,7 @@ export const PlaceOrder = (history) => {
     } catch (e) {
       dispatch({
         type: PLACE_ORDER_FAILED,
-        payload: e?.res?.data?.message,
+        payload: e?.response?.data?.message,
       });
     }
   };
@@ -59,11 +59,10 @@ export const PlaceOrder = (history) => {
 
 export const GetOrders = () => {
   return async (dispatch, getState) => {
+    dispatch({
+      type: GET_ORDERS_START,
+    });
     try {
-      dispatch({
-        type: GET_ORDERS_START,
-      });
-
       const state = getState();
       const config = {
         headers: {
@@ -79,16 +78,16 @@ export const GetOrders = () => {
     } catch (e) {
       dispatch({
         type: GET_ORDERS_FAILED,
-        payload: e?.res?.data?.message,
+        payload: e?.response?.data?.message,
       });
     }
   };
 };
-export const GetOrderById =(id)=>{
-  return async (dispatch,getState)=>{
+export const GetOrderById = (id) => {
+  return async (dispatch, getState) => {
     dispatch({
-      type: GET_ORDER_START
-    })
+      type: GET_ORDER_START,
+    });
     const state = getState();
     const config = {
       headers: {
@@ -96,27 +95,29 @@ export const GetOrderById =(id)=>{
         Authorization: `Bearer ${state.userDetailes.user.token}`,
       },
     };
-    try{
-      const res= axios.get(`${URL_API}/orders/${id}`,config)
-      console.log('response',res.data)
+    try {
+      const res = await axios.get(`${URL_API}/orders/${id}`, config);
+      console.log("response", res);
       dispatch({
         type: GET_ORDER_SUCCESS,
-        payload: res.data
-      })
-    }catch(e){
+        payload: res.data,
+      });
+    } catch (e) {
       dispatch({
         type: GET_ORDER_FAILED,
-        payload:e.respons.data.message
-      })
+        payload: e?.response?.data?.message,
+      });
     }
-  }
-}
-export const payOrder= (id, details)=>{
-  return async(dispatch,getState)=>{
+  };
+};
+
+
+export const payOrder = (id, details) => {
+  return async (dispatch, getState) => {
     dispatch({
-      type: PAY_ORDER_START
-    })
-    try{
+      type: PAY_ORDER_START,
+    });
+    try {
       //get token.
       const state = getState();
       const config = {
@@ -126,18 +127,20 @@ export const payOrder= (id, details)=>{
         },
       };
 
-        const res= await axios.put(`${URL_API}/orders/${id}/pay`, details, config)
-        console.log(res)
+      const res = await axios.put(
+        `${URL_API}/orders/${id}/pay`,
+        details,
+        config
+      );
       dispatch({
         type: PAY_ORDER_SUCCESS,
-        payload: res.data
-      })
-    }
-    catch(e){
+        payload: res.data,
+      });
+    } catch (e) {
       dispatch({
-        type:PAY_ORDER_FAILED,
-        payload: e.respons.data.message
-      })
+        type: PAY_ORDER_FAILED,
+        payload: e?.response?.data?.message,
+      });
     }
-  }
-}
+  };
+};

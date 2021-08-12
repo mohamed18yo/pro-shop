@@ -30,7 +30,7 @@ export const MainComponent = styled("main")`
   flex-direction: column;
   width: 100%;
 `;
-export const SectionRole = styled("div")`
+export const SectionRole = styled("div")` 
   display: flex;
   justify-content: center;
   align-items: center;

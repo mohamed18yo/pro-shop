@@ -18,9 +18,7 @@ function CategoriesSection({categories}) {
            categories.map((item)=><CategoriesCard src={item.image} title={item.title} />
            )
 
-         }
-                 
-            
+         }                 
           </Cards>
         </FeaturedBox>
       </IneerSection>

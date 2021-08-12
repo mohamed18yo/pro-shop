@@ -35,7 +35,7 @@ export const GetSliderProducts = () => {
       });
     } catch (e) {
       dispatch({
-        payload: e?.res?.data?.message,
+        payload: e?.response?.data?.message,
         type: GET_SLIDER_IMAGES_FAILED,
       });
     }
@@ -58,7 +58,7 @@ export const getFeaturedProducts = () => {
     } catch (e) {
       dispatch({
         type: GET_FEATURED_PRODUCTS_FAILED,
-        payload: e?.response?.message,
+        payload: e?.response?.data?.message,
       });
     }
   };
@@ -79,7 +79,7 @@ export const GetProductById = (id) => {
     } catch (e) {
       dispatch({
         type: GET_PRODUCT_FAILED,
-        payload: e?.response?.message,
+        payload: e?.response?.data?.message,
       });
     }
   };
@@ -103,7 +103,7 @@ export function SearchAction(word, history) {
     } catch (e) {
       dispatch({
         type: SEARCH_FAILED,
-        payload: e?.res?.data?.message,
+        payload: e?.response?.data?.message,
       });
     }
   };
@@ -182,7 +182,7 @@ export const GetCategories=()=>{
   } catch (error) {
     dispatch({
       type:GET_CATEGORIES_FAILED,
-      payload: error?.response?.data?.message
+      payload: error?.response?.message
     })
   }
   }

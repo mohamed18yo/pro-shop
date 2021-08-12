@@ -12,7 +12,7 @@ import {RowCell} from './orders.style'
         dispatch(GetOrders())
      },[dispatch])
 
-    return  state.order?.userOrders?.isLoading?(<SpinnerContainer />): state.order?.userOrders?.error?
+    return  state.ord?.userOrders?.isLoading?(<SpinnerContainer />): state.ord?.userOrders?.error?
        ( <ErrorMsg>error</ErrorMsg>) :(
             <SectionRole>    
                 <IneerSection style={{marginTop:'4rem'}}>
@@ -23,7 +23,7 @@ import {RowCell} from './orders.style'
                         <Typography>Payment </Typography>
                         <Typography>total price</Typography>
                     </RowCell>
-                        { state.order?.userOrders?.orders.map((order)=>
+                        { state.ord?.userOrders?.orders.map((order)=>
                             <RowCell>
                                 <Typography>{state.userDetailes.user.name}</Typography>
                                 <Typography>{order.orderItems.length}</Typography>

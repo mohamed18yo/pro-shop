@@ -3,6 +3,7 @@ import {
   FlexRow,
   FlexCol,
   ProductImg,
+  ErrorMsg
 } from "../../../Global.style";
 import Button from "../../../components/button/button";
 import {
@@ -19,7 +20,8 @@ function PlaceOreder() {
   const state= useSelector((state)=>state)
   const dispatch = useDispatch();
   const history = useHistory();
-  console.log(state)
+  console.log(state.ord.placeOrder?.error)
+  const error= state?.ord?.placeOrder?.error
   return (
           <FlexRow style={{ flexWrap: "wrap", alignItems: 'flex-start'}}>
             <ShippingBox style={{justifyCcontent: 'space-around'}}>
@@ -124,8 +126,10 @@ function PlaceOreder() {
               handleClick={()=>{
                 dispatch(PlaceOrder(history))
               }}
-              disabled={state.order.placeOrder?.isLoading} 
+              isLoading={state.ord.placeOrder.isLoading} 
               text={"Place Order"} />
+              {error?<ErrorMsg>{error}</ErrorMsg>:null}
+               
             </FlexCol>
           </FlexRow>
        

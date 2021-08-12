@@ -24,7 +24,7 @@ export const userReducer = (
         userProfile:{
           user:{}
         }
-      },
+    },
       action
   
 ) => {

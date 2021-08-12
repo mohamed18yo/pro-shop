@@ -69,7 +69,7 @@ export const RegisterAction = (values, history) => {
     } catch (e) {
       dispatch({
         type: REGISTER_FIALD,
-        payload: e.res.data.message,
+        payload: e?.response?.data?.message,
       });
     }
   };
@@ -103,7 +103,7 @@ export const GetUserDataForUpdateProfile = () => {
     } catch (e) {
       dispatch({
         type: GET_USER_FIALD,
-        payload: e?.response?.message,
+        payload: e?.response?.data?.message,
       });
     }
   };

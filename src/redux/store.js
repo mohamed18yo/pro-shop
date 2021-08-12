@@ -6,16 +6,16 @@ import { userReducer } from "./user/userReducer";
 import { gustReducer } from "./Gust/gustReducer";
 import thunk from "redux-thunk";
 import { cartReducer } from "./Cart/cartReducer";
-import { orderReducer } from "./order/orderReducer";
+import { ordersReducer } from "./order/ordersReducer";
 
 
 const reducers = combineReducers({
   userDetailes: userReducer,
   gustState: gustReducer,
   cart: cartReducer,
-  order: orderReducer,
+  ord: ordersReducer
 });
-
+// 
 const userFromLocalStorage = JSON.parse(localStorage.getItem("user")) || {};
 const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart")) || [];
 const shippingFromLocalStorage = JSON.parse(localStorage.getItem("shipping")) || [];
