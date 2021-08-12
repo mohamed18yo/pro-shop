@@ -43,6 +43,7 @@ function Nav() {
   const dispatch = useDispatch();
   // const history= useHistory()
   const User = useSelector((state) => state);
+  const state = useSelector((state) => state);
   const history= useHistory()
   const Logout = () => {
     dispatch(logoutAction());
@@ -82,7 +83,7 @@ function Nav() {
                   </Link>
                   <Link onClick={()=>{setIsMinuOpen(false)}} to={"/cart"}>
                     <MinuIcon>
-                      <span>0</span> <ShoppingCartIcon style={MinuStyle} />   
+                      <span>{state.cart.cart.length}</span> <ShoppingCartIcon style={MinuStyle} />   
                       Cart
                     </MinuIcon>
                   </Link>
@@ -137,7 +138,7 @@ function Nav() {
                   </Link>
                   <Link to={"/cart"}>
                     <IconList>
-                      <span>0</span> <ShoppingCartIcon style={Style} />
+                      <span>{state.cart.cart.length}</span> <ShoppingCartIcon style={Style} />
                       Cart
                     </IconList>
                   </Link>

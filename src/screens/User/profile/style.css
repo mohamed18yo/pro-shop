@@ -2,16 +2,24 @@
 
 
 
+@media screen and (max-width: 700px) {
+    .right-side{
+      margin: 1rem 0;
+      width:95%;
+    }
+  }
 .profile{
+    width: 90%;
     display: flex;
     flex-direction: row;
     margin-top: 3rem;
-    width: 90%;
+    flex-wrap: wrap;
 }
 .left-side{
     display: flex;
     flex-direction: column;
     width: 30%;
+    min-width: 320px;
     background-color: #F2F2F2;
     height: 528px;
     border-radius: 5px;
@@ -34,13 +42,17 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 65%;
+    flex-wrap: wrap;
     background-color: #F2F2F2;
-    height: 528px;
-    border-radius: 5px;
+    min-height: 528px;
+    border-radius: 5px;  
+    padding: 1rem;
+    box-sizing: content-box;
+
 }
 .first-side{
     width: 60%;
+    min-width: 320px;
 }
 .flex-col{
     display: flex;
@@ -55,7 +67,7 @@
     justify-content: space-between;
 }
 .data{
-    height: 300px;
+    min-height: 300px;
 
 }
 /* .user-data{
@@ -72,7 +84,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 .thered-side img{
     width: 198px;
