@@ -14,8 +14,8 @@ const styles = {
   },
   styleIcon: {
     fontSize: 35,
-    color: "#FCDD06",
-    fill: "#FCDD06",
+    color: "#06aefc",
+    fill: "#06aefc",
     cursor: "pointer",
   },
   styleIconSave: {
@@ -54,7 +54,7 @@ function FeaturedProductsSection({products}) {
       <IneerSection>
         <ProductsBox>
           <Typography fontSize={32}>Featured Categories</Typography>
-          <Line style={{ marginTop: 25}} color={"#FCDD06"} height={"7px"}></Line>
+          <Line style={{ marginTop: 25}} color={"#06aefc"} height={"7px"}></Line>
           <Line color={"#a0a0a0"} height={"1px"} width={"100%"}></Line>
           <SwipeableViews
               style={Object.assign({}, styles.root, styles.root)}

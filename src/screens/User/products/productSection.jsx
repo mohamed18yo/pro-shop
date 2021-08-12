@@ -83,7 +83,7 @@ function ProductSection({product}) {
                 
                 <FlexRow style={{minWidth:'300px',marginTop:'2rem', justifyContent: "flex-end" }}>
                     <Button
-                      style={{border: "1px solid #FCDD06", marginRight:"1rem"}}
+                      style={{border: "1px solid #06aefc", marginRight:"1rem"}}
                       width={"54px"}
                       text={<BookmarkIcon></BookmarkIcon>}
                       isGray={true}

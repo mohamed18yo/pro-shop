@@ -11,7 +11,7 @@ function CategoriesSection({categories}) {
       <IneerSection>
         <FeaturedBox>
           <Typography fontSize={32}>Featured Categories</Typography>
-          <Line color={"#FCDD06"} height={"7px"}></Line>
+          <Line color={"#06aefc"} height={"7px"}></Line>
           <Line color={"#707070"} height={"1px"} width={"90%"}></Line>
           <Cards> 
          {

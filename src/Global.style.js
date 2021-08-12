@@ -71,7 +71,7 @@ export const PrivetButton = styled("Button")`
   cursor: pointer;
   width: 220px;
   height: 56px;
-  border: 3px solid #fcdd06;
+  border: 3px solid #06aefc;
   border-radius: 20px;
   font-size: 22px;
 letter-spacing: 0.88px;
@@ -106,7 +106,7 @@ export const SpinnerContainer = styled.div`
   display: inline-block;
   width: 60px;
   height: 60px;
-  border: 6px solid #fcdd06;
+  border: 6px solid #06aefc;
   box-sizing: border-box;
   border-radius: 50%;
   border-top-color: #ddd;

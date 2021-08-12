@@ -54,7 +54,7 @@ export const Dot = styled("div")`
   border-radius: 50%;
   margin: 0 10.5px;
   cursor: pointer;
-  background: ${(props) => (props.isGray ? "#70707030" : "#FCDD06")};
+  background: ${(props) => (props.isGray ? "#70707030" : "#06aefc")};
 `;
 export const SliderImage = styled(ProductImg)`
   border-radius: 10px;
@@ -120,7 +120,7 @@ export const TopSubBox = styled(FlexRow)`
   width: 100%;
   /* height: 588px; orginal height */
   height: auto;
-  border: 1px solid #fcdd06;
+  border: 1px solid #06aefc;
   border-radius: 16px;
   flex-wrap: wrap;
   justify-content: center;

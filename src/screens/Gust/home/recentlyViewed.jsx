@@ -10,7 +10,7 @@ function RecentlyViewed() {
       
         <TopRateBox>
           <Typography fontSize={32}>Recently Viewed</Typography>
-          <Line color={"#FCDD06"} height={"7px"}></Line>
+          <Line color={"#06aefc"} height={"7px"}></Line>
           <Line color={"#707070"} height={"1px"} width={"1640px"}></Line>
 
           <TopSubBox>

@@ -72,7 +72,7 @@ export const CountBtn = styled(Typography)`
   cursor: "pointer";
   width: 2rem;
   &:hover {
-    border: 1px solid #fcdd06;
+    border: 1px solid #06aefc;
   }
 `;
 export const ReviwInput = styled("textarea")`

@@ -11,7 +11,7 @@ export const CustomeButton = styled(Link)`
   width: ${(props) => (props.width ? props.width : "250px")};
   height: 62px;
   color: #242424;
-  background-color: ${(props) => (props.isGray ? "#f2f2f2" : "#FCDD06")};
+  background-color: ${(props) => (props.isGray ? "#f2f2f2" : "#06aefc")};
   border: none;
   border-radius: ${(props) => (props.radius ? props.radius : "10px")};
   font-size: 15px;

@@ -70,7 +70,7 @@ export const Button = styled("Button")`
   justify-content: center;
   width: 152px;
   height: 40px;
-  background-color: #fcdd06;
+  background-color: #06aefc;
   font-size: 20px;
   color: black;
   border: none;
@@ -96,7 +96,7 @@ export const IconList = styled("li")`
   margin: auto 0 auto 32px;
   span {
     color: #000;
-    background: #fcdd06;
+    background: #06aefc;
     font-size: 8px;
     font-weight: 700;
     border-radius: 50%;
@@ -146,7 +146,7 @@ export const Icon = styled(Link)`
   margin: auto 0 auto 32px;
   span {
     color: #000;
-    background: #fcdd06;
+    background: #06aefc;
     font-size: 8px;
     font-weight: 700;
     border-radius: 50%;
@@ -164,7 +164,7 @@ export const Icon = styled(Link)`
 export const Minu= styled(FlexCol)`
     width:100vw;
     height:100vh;
-    background: #FCDD06;
+    background: #06aefc;
     position: fixed;
     z-index: 1;
     justify-content: flex-start;

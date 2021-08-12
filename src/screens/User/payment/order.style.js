@@ -41,7 +41,7 @@ export const Input = styled(Field)`
 export const Num = styled("span")`
   width: 40px;
   height: 40px;
-  background: ${(props) => (props.isGray ? "#707070" : "#FCDD06")};
+  background: ${(props) => (props.isGray ? "#707070" : "#06aefc")};
   color: ${(props) => (props.isGray ? "#FFFFFF" : "#00000")};
   opacity: 1;
 `;

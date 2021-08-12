@@ -23,8 +23,8 @@ const styles = {
   },
   styleIcon: {
     fontSize: 35,
-    color: "#FCDD06",
-    fill: "#FCDD06",
+    color: "#06aefc",
+    fill: "#06aefc",
     cursor: "pointer",
   },
   styleIconSave: {

@@ -77,13 +77,13 @@ function Nav() {
                   )}
                   <Link onClick={()=>{setIsMinuOpen(false)}} to={"/login"}>
                     <MinuIcon>
-                      <span>0</span> <BookmarkIcon style={MinuStyle} />
+                      <span style={{backgrond:'#ffffff'}}>0</span> <BookmarkIcon style={MinuStyle} />
                       Wishlist
                     </MinuIcon>
                   </Link>
                   <Link onClick={()=>{setIsMinuOpen(false)}} to={"/cart"}>
                     <MinuIcon>
-                      <span>{state.cart.cart.length}</span> <ShoppingCartIcon style={MinuStyle} />   
+                      <span style={{backgrond:'#ffffff'}}>{state.cart.cart.length}</span> <ShoppingCartIcon style={MinuStyle} />   
                       Cart
                     </MinuIcon>
                   </Link>
@@ -103,7 +103,7 @@ function Nav() {
           <IneerSection>
             <NavBar>
               <LogoText to={"/"}>
-                <Typography color={"#FCDD06"}>Pro</Typography>{" "}
+                <Typography color={"#06aefc"}>Pro</Typography>{" "}
                 <Typography color={"#fff"}>Shop</Typography>
               </LogoText>
               <SearchBox>
