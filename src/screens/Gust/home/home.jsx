@@ -24,10 +24,10 @@ function Home() {
   console.log("home state",state)
   return (isLoading?(<SpinnerContainer/>):(
       <>
-      <HeroSection products={state?.gustState?.sliderImages} ></HeroSection>
-      <CategoriesSection categories={state?.gustState?.categories}></CategoriesSection>
-      <FeaturedProductsSection products={state.gustState.products}></FeaturedProductsSection>   
-      <TopRateSection products={state?.gustState?.sliderImages} ></TopRateSection>
+        <HeroSection products={state?.gustState?.sliderImages} ></HeroSection>
+        <CategoriesSection categories={state?.gustState?.categories}></CategoriesSection>
+        <FeaturedProductsSection products={state.gustState.products}></FeaturedProductsSection>   
+        <TopRateSection products={state?.gustState?.sliderImages} ></TopRateSection>
       </>
     )
     

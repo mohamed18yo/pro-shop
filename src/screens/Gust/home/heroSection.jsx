@@ -85,7 +85,6 @@ function HeroSection({products}) {
               }else{
                 setIndex(index - 1);
               }
-              
             }}
             isLeft={true}
           >

@@ -26,7 +26,7 @@ export const NavBar = styled("div")`
 
 
 export const SearchBox = styled(FlexBox)`
-  width: 35%;
+  width: 45%;
   min-width: 200px;
   @media screen and (max-width: 500px) {
     display:none;
@@ -72,7 +72,7 @@ export const Button = styled("Button")`
   height: 40px;
   background-color: #06aefc;
   font-size: 20px;
-  color: black;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   margin-left: -10px;

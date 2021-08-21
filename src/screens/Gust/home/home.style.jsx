@@ -119,7 +119,9 @@ export const TopSubBox = styled(FlexRow)`
   max-width: 1640px;
   width: 100%;
   /* height: 588px; orginal height */
+  align-items:flex-start;
   height: auto;
+  min-height:700px;
   border: 1px solid #06aefc;
   border-radius: 16px;
   flex-wrap: wrap;

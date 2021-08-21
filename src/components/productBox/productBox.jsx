@@ -14,7 +14,8 @@ function ProductBox(props) {
     <Card height={props.height}>
       <ProductImg src={props.src} width={"100%"}></ProductImg>
       <Typography
-        style={{ maxWidth: "300px",padding:"1rem" }}
+        style={{ maxWidth: "300px",
+        maxHeight: "100px",padding:"1rem" }}
         as={Link}
         to={`/product/${props.id}/${props.name}`}
         color={"#242424"}
